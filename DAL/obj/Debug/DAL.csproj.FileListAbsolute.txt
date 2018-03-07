@@ -1,0 +1,9 @@
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\DAL.dll.config
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\DAL.dll
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\DAL.pdb
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\EntityFramework.dll
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\EntityFramework.xml
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\obj\Debug\DAL.dll
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\DAL\obj\Debug\DAL.pdb
