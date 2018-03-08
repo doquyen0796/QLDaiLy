@@ -61,6 +61,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBaoCaoCN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoCN.Designer.cs">
+      <DependentUpon>frmBaoCaoCN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCaoDS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoDS.Designer.cs">
+      <DependentUpon>frmBaoCaoDS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDaiLy.Designer.cs">
+      <DependentUpon>frmDaiLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +97,47 @@
     <Compile Include="frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonViTinh.Designer.cs">
+      <DependentUpon>frmDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDSNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDSNV.Designer.cs">
+      <DependentUpon>frmDSNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDuyetNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDuyetNV.Designer.cs">
+      <DependentUpon>frmDuyetNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHangHoa.Designer.cs">
+      <DependentUpon>frmHangHoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuiDinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuiDinh.Designer.cs">
+      <DependentUpon>frmQuiDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThuTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThuTien.Designer.cs">
+      <DependentUpon>frmThuTien.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTTPhanMem.cs">
       <SubType>Form</SubType>
@@ -97,8 +151,23 @@
     <Compile Include="frmTTTaiKhoan.Designer.cs">
       <DependentUpon>frmTTTaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXuatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatHang.Designer.cs">
+      <DependentUpon>frmXuatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBaoCaoCN.resx">
+      <DependentUpon>frmBaoCaoCN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCaoDS.resx">
+      <DependentUpon>frmBaoCaoDS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDaiLy.resx">
+      <DependentUpon>frmDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,14 +177,35 @@
     <EmbeddedResource Include="frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDonViTinh.resx">
+      <DependentUpon>frmDonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDSNV.resx">
+      <DependentUpon>frmDSNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDuyetNV.resx">
+      <DependentUpon>frmDuyetNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHangHoa.resx">
+      <DependentUpon>frmHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuiDinh.resx">
+      <DependentUpon>frmQuiDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThuTien.resx">
+      <DependentUpon>frmThuTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTTPhanMem.resx">
       <DependentUpon>frmTTPhanMem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTTTaiKhoan.resx">
       <DependentUpon>frmTTTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuatHang.resx">
+      <DependentUpon>frmXuatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

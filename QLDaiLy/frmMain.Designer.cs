@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
@@ -43,7 +44,7 @@
             this.btnDSNV = new DevExpress.XtraBars.BarButtonItem();
             this.btnDuyetNV = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuiDinh = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDonViTinh = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btnTTTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnDoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
@@ -60,7 +61,9 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnTaiKhoan = new DevExpress.XtraBars.BarSubItem();
+            this.tabManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabManager)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -81,7 +84,7 @@
             this.btnDSNV,
             this.btnDuyetNV,
             this.btnQuiDinh,
-            this.barButtonItem1,
+            this.btnDonViTinh,
             this.barSubItem1,
             this.btnTTTaiKhoan,
             this.btnDoiMatKhau});
@@ -137,6 +140,7 @@
             this.btnDaiLy.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDaiLy.LargeGlyph")));
             this.btnDaiLy.Name = "btnDaiLy";
             this.btnDaiLy.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDaiLy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDaiLy_ItemClick);
             // 
             // btnHangHoa
             // 
@@ -146,6 +150,7 @@
             this.btnHangHoa.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnHangHoa.LargeGlyph")));
             this.btnHangHoa.Name = "btnHangHoa";
             this.btnHangHoa.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnHangHoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHangHoa_ItemClick);
             // 
             // btnXuatHang
             // 
@@ -155,6 +160,7 @@
             this.btnXuatHang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnXuatHang.LargeGlyph")));
             this.btnXuatHang.Name = "btnXuatHang";
             this.btnXuatHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnXuatHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatHang_ItemClick);
             // 
             // btnThuTien
             // 
@@ -164,6 +170,7 @@
             this.btnThuTien.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnThuTien.LargeGlyph")));
             this.btnThuTien.Name = "btnThuTien";
             this.btnThuTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnThuTien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThuTien_ItemClick);
             // 
             // btnBaoCaoDS
             // 
@@ -173,6 +180,7 @@
             this.btnBaoCaoDS.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnBaoCaoDS.LargeGlyph")));
             this.btnBaoCaoDS.Name = "btnBaoCaoDS";
             this.btnBaoCaoDS.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBaoCaoDS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoDS_ItemClick);
             // 
             // btnBaoCaoCN
             // 
@@ -182,6 +190,7 @@
             this.btnBaoCaoCN.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnBaoCaoCN.LargeGlyph")));
             this.btnBaoCaoCN.Name = "btnBaoCaoCN";
             this.btnBaoCaoCN.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBaoCaoCN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoCN_ItemClick);
             // 
             // btnDSNV
             // 
@@ -191,6 +200,7 @@
             this.btnDSNV.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDSNV.LargeGlyph")));
             this.btnDSNV.Name = "btnDSNV";
             this.btnDSNV.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDSNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSNV_ItemClick);
             // 
             // btnDuyetNV
             // 
@@ -199,6 +209,7 @@
             this.btnDuyetNV.Id = 47;
             this.btnDuyetNV.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDuyetNV.LargeGlyph")));
             this.btnDuyetNV.Name = "btnDuyetNV";
+            this.btnDuyetNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDuyetNV_ItemClick);
             // 
             // btnQuiDinh
             // 
@@ -208,14 +219,16 @@
             this.btnQuiDinh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuiDinh.LargeGlyph")));
             this.btnQuiDinh.Name = "btnQuiDinh";
             this.btnQuiDinh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnQuiDinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuiDinh_ItemClick);
             // 
-            // barButtonItem1
+            // btnDonViTinh
             // 
-            this.barButtonItem1.Caption = "Đơn Vị Tính";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-            this.barButtonItem1.Id = 49;
-            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnDonViTinh.Caption = "Đơn Vị Tính";
+            this.btnDonViTinh.Glyph = ((System.Drawing.Image)(resources.GetObject("btnDonViTinh.Glyph")));
+            this.btnDonViTinh.Id = 49;
+            this.btnDonViTinh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDonViTinh.LargeGlyph")));
+            this.btnDonViTinh.Name = "btnDonViTinh";
+            this.btnDonViTinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDonViTinh_ItemClick);
             // 
             // barSubItem1
             // 
@@ -289,7 +302,7 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btnHangHoa);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnDonViTinh);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Hàng Hóa";
             // 
@@ -342,6 +355,11 @@
             this.btnTaiKhoan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTaiKhoan.LargeGlyph")));
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             // 
+            // tabManager
+            // 
+            this.tabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+            this.tabManager.MdiParent = this;
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -349,12 +367,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 360);
             this.Controls.Add(this.ribbonControl1);
+            this.IsMdiContainer = true;
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Đại Lý";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,12 +410,13 @@
         private DevExpress.XtraBars.BarButtonItem btnQuiDinh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnDonViTinh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarSubItem btnTaiKhoan;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem btnTTTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnDoiMatKhau;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tabManager;
     }
 }
 

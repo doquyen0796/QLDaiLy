@@ -64,5 +64,91 @@ namespace QLDaiLy
             frmDoiMatKhau frmDMK = new frmDoiMatKhau();
             frmDMK.ShowDialog();
         }
+
+        private bool ExistForm(Form f)
+        {
+            bool isOpen = false;
+            if (MdiChildren.Count() > 0)
+            {
+                foreach (Form child in MdiChildren)
+                {
+                    if (f.Name == child.Name)
+                    {
+                        tabManager.Pages[child].MdiChild.Activate();
+                        isOpen = true;
+                    }
+                }
+            }
+            return isOpen;
+        }
+
+        private void ViewForm(Form f)
+        {
+            if (ExistForm(f) == false)
+            {
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDaiLy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDaiLy frm = new frmDaiLy();
+            ViewForm(frm);
+        }
+
+        private void btnXuatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmXuatHang frm = new frmXuatHang();
+            ViewForm(frm);
+        }
+
+        private void btnThuTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmThuTien frm = new frmThuTien();
+            ViewForm(frm);
+        }
+
+        private void btnHangHoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmHangHoa frm = new frmHangHoa();
+            ViewForm(frm);
+        }
+
+        private void btnDonViTinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDonViTinh frm = new frmDonViTinh();
+            ViewForm(frm);
+        }
+
+        private void btnBaoCaoDS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoDS frm = new frmBaoCaoDS();
+            ViewForm(frm);
+        }
+
+        private void btnBaoCaoCN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoCN frm = new frmBaoCaoCN();
+            ViewForm(frm);
+        }
+
+        private void btnDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDSNV frm = new frmDSNV();
+            ViewForm(frm);
+        }
+
+        private void btnDuyetNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDuyetNV frm = new frmDuyetNV();
+            ViewForm(frm);
+        }
+
+        private void btnQuiDinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuiDinh frm = new frmQuiDinh();
+            ViewForm(frm);
+        }
     }
 }
