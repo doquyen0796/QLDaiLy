@@ -40,7 +40,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -106,7 +105,6 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(330, 260);
             this.btnDangKy.Location = new System.Drawing.Point(329, 261);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(75, 23);
@@ -116,7 +114,6 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(182, 260);
             this.btnDangNhap.Location = new System.Drawing.Point(181, 261);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(121, 23);
@@ -154,18 +151,6 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(32, 148);
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl7.Location = new System.Drawing.Point(61, 149);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(14, 13);
-            this.labelControl7.TabIndex = 12;
-            this.labelControl7.Text = "(*)";
-            // 
-            // labelControl8
-            // 
             this.labelControl8.Location = new System.Drawing.Point(31, 149);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(24, 13);
@@ -174,7 +159,6 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(32, 182);
             this.labelControl10.Location = new System.Drawing.Point(31, 183);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(62, 13);
@@ -183,7 +167,6 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(32, 214);
             this.labelControl9.Location = new System.Drawing.Point(31, 215);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(32, 13);
@@ -192,7 +175,6 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(170, 145);
             this.txtEmail.Location = new System.Drawing.Point(169, 146);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(204, 20);
@@ -200,7 +182,6 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(170, 179);
             this.txtSDT.Location = new System.Drawing.Point(169, 180);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(204, 20);
@@ -208,7 +189,6 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(170, 211);
             this.txtDiaChi.Location = new System.Drawing.Point(169, 212);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(204, 20);
@@ -222,14 +202,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 318);
             this.ClientSize = new System.Drawing.Size(446, 318);
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.labelControl10);
-            this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl5);
@@ -272,7 +250,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BUS;
 
 namespace QLDaiLy
 {
@@ -43,9 +44,15 @@ namespace QLDaiLy
 
             if (thongbao == DialogResult.Yes)
             {
-                this.Hide();
-                frmDangNhap dangnhap = new frmDangNhap();
-                dangnhap.Show();
+                BUS_NguoiDung nd = new BUS_NguoiDung();
+                var flag = nd.DangXuat();
+
+                if (flag == true)
+                {
+                    this.Hide();
+                    frmDangNhap dangnhap = new frmDangNhap();
+                    dangnhap.Show();
+                }
             }
             else
             {
