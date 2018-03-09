@@ -103,6 +103,26 @@ namespace BUS
 
 
         /// <summary>
+        /// Đăng xuất
+        /// </summary>
+        /// <returns></returns>
+        public bool DangXuat()
+        {
+            try
+            {
+                isLogin = false;
+                CurUser = null;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        /// <summary>
         /// Mã hóa mật khẩu
         /// </summary>
         /// <param name="matkhau"></param>
