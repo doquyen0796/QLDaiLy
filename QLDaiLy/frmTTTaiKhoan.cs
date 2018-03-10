@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
+<<<<<<< HEAD
 using System.Text.RegularExpressions;
+=======
+>>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
 
 namespace QLDaiLy
 {
@@ -75,6 +78,7 @@ namespace QLDaiLy
             }
 
             return true;
+<<<<<<< HEAD
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
@@ -92,6 +96,8 @@ namespace QLDaiLy
                 btnLuuTT.Enabled = false;
                 return;
             }
+=======
+>>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
         }
     }
 }

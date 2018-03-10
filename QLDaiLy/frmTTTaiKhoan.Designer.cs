@@ -73,7 +73,10 @@
             this.txtEmail.Size = new System.Drawing.Size(204, 20);
             this.txtEmail.TabIndex = 31;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
+<<<<<<< HEAD
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+=======
+>>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
             // 
             // labelControl9
             // 

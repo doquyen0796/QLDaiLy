@@ -122,6 +122,10 @@ namespace BUS
         }
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
         public bool DoiThongTin(int mand, string email, string sodienthoai, string diachi)
         {
             try
@@ -151,6 +155,11 @@ namespace BUS
         }
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 82cd828935086e0ae3c5a467d4358c11165d406c
+>>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
         /// <summary>
         /// Mã hóa mật khẩu
         /// </summary>
