@@ -228,6 +228,7 @@
             this.Name = "frmDangKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Ký";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangKy_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).EndInit();

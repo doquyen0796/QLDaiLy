@@ -39,10 +39,12 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ckbGhiNho = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbGhiNho.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -78,7 +80,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(474, 154);
+            this.btnDangNhap.Location = new System.Drawing.Point(472, 166);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 4;
@@ -87,7 +89,7 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(327, 154);
+            this.btnDangKy.Location = new System.Drawing.Point(325, 166);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(118, 23);
             this.btnDangKy.TabIndex = 5;
@@ -127,12 +129,21 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // ckbGhiNho
+            // 
+            this.ckbGhiNho.Location = new System.Drawing.Point(204, 137);
+            this.ckbGhiNho.Name = "ckbGhiNho";
+            this.ckbGhiNho.Properties.Caption = "Ghi nhớ";
+            this.ckbGhiNho.Size = new System.Drawing.Size(75, 19);
+            this.ckbGhiNho.TabIndex = 9;
+            // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 222);
+            this.Controls.Add(this.ckbGhiNho);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
@@ -147,10 +158,12 @@
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangNhap_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbGhiNho.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +181,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.ErrorProvider ErrorChecker;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.CheckEdit ckbGhiNho;
     }
 }

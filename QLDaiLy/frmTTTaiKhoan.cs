@@ -9,10 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
-<<<<<<< HEAD
 using System.Text.RegularExpressions;
-=======
->>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
 
 namespace QLDaiLy
 {
@@ -66,7 +63,7 @@ namespace QLDaiLy
         public bool KiemTraDuLieu()
         {
             ErrorChecker.Clear();  // giả sử ban đầu mọi dữ liệu là đúng
-            if (txtSDT.Text.Length < 10)
+            if (txtSDT.Text.Length > 0 && txtSDT.Text.Length < 10)
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtSDT, "Số điện thoại không hợp lệ.");
@@ -78,12 +75,15 @@ namespace QLDaiLy
             }
 
             return true;
-<<<<<<< HEAD
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
+            //  https://stackoverflow.com/a/19475049/7385686
+            //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
+            //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions
+
+            string pattern = @"\A[a-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,4}\z";
             if (Regex.IsMatch(txtEmail.Text, pattern))
             {
                 ErrorChecker.Clear();
@@ -96,8 +96,6 @@ namespace QLDaiLy
                 btnLuuTT.Enabled = false;
                 return;
             }
-=======
->>>>>>> bb602afa7db4af3d52e74dcc9ee1b93f092c3425
         }
     }
 }

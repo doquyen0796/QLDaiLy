@@ -69,5 +69,11 @@ namespace QLDaiLy
 
             return true;
         }
+
+
+        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.ExitThread();
+        }
     }
 }
