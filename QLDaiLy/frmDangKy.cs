@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
+using System.Text.RegularExpressions;
 
 namespace QLDaiLy
 {
@@ -79,6 +80,42 @@ namespace QLDaiLy
             }
 
             return true;
+        }
+
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
+            if (Regex.IsMatch(txtEmail.Text, pattern))
+            {
+                ErrorChecker.Clear();
+                btnDangKy.Enabled = true;
+            }
+            else
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
+                btnDangKy.Enabled = false;
+                return;
+            }
+        }
+
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar) == true)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && char.IsControl(e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

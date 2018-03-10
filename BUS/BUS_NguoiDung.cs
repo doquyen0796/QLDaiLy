@@ -122,6 +122,35 @@ namespace BUS
         }
 
 
+        public bool DoiThongTin(int mand, string email, string sodienthoai, string diachi)
+        {
+            try
+            {
+                var user = db.NguoiDungs
+                             .Where(u => u.MaNguoiDung == mand)
+                             .FirstOrDefault();
+
+                if (user != null)
+                {
+                    user.Email = email;
+                    user.SoDienThoai = sodienthoai;
+                    user.DiaChi = diachi;
+
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         /// <summary>
         /// Mã hóa mật khẩu
         /// </summary>

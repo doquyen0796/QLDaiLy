@@ -6,5 +6,7 @@ G:\CNPM\QLDaiLy\DAL\bin\Debug\EntityFramework.SqlServer.dll
 G:\CNPM\QLDaiLy\DAL\bin\Debug\EntityFramework.xml
 G:\CNPM\QLDaiLy\DAL\bin\Debug\EntityFramework.SqlServer.xml
 G:\CNPM\QLDaiLy\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+G:\CNPM\QLDaiLy\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+G:\CNPM\QLDaiLy\DAL\obj\Debug\DAL.csproj.CopyComplete
 G:\CNPM\QLDaiLy\DAL\obj\Debug\DAL.dll
 G:\CNPM\QLDaiLy\DAL\obj\Debug\DAL.pdb

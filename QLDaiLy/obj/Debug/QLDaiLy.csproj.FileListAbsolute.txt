@@ -14,7 +14,9 @@ G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\EntityFramework.dll
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\EntityFramework.SqlServer.dll
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\DevExpress.Pdf.v16.1.Core.dll
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\BUS.pdb
+G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\BUS.dll.config
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\DAL.pdb
+G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\DAL.dll.config
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\DevExpress.Data.v16.1.xml
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\DevExpress.Printing.v16.1.Core.xml
 G:\CNPM\QLDaiLy\QLDaiLy\bin\Debug\DevExpress.Utils.v16.1.xml
@@ -70,7 +72,9 @@ G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.frmTTPhanMem.resources
 G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.frmTTTaiKhoan.resources
 G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.frmXuatHang.resources
 G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.Properties.Resources.resources
-G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.csproj.GenerateResource.Cache
+G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.csproj.GenerateResource.cache
 G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.exe.licenses
+G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.csproj.CoreCompileInputs.cache
+G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.csproj.CopyComplete
 G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.exe
 G:\CNPM\QLDaiLy\QLDaiLy\obj\Debug\QLDaiLy.pdb
