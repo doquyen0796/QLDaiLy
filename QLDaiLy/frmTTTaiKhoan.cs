@@ -30,7 +30,7 @@ namespace QLDaiLy
         {
             BUS_NguoiDung u = new BUS_NguoiDung();
             var user = u.GetUser(BUS_NguoiDung.CurUser.MaNguoiDung);
-            txtMaNguoiDung.Text = user.MaNguoiDung.ToString();
+
             txtTenDangNhap.Text = user.TenDangNhap.ToString();
             txtEmail.Text = user.Email.ToString();
             txtSDT.Text = user.SoDienThoai.ToString();
@@ -45,7 +45,7 @@ namespace QLDaiLy
                 if (tb == DialogResult.Yes)
                 {
                     BUS_NguoiDung nd = new BUS_NguoiDung();
-                    var flag = nd.DoiThongTin(int.Parse(txtMaNguoiDung.Text), txtEmail.Text, txtSDT.Text, txtDiaChi.Text);
+                    var flag = nd.DoiThongTin(BUS_NguoiDung.CurUser.MaNguoiDung, txtEmail.Text, txtSDT.Text, txtDiaChi.Text);
 
                     if (flag == true)
                     {

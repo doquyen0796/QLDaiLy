@@ -137,12 +137,16 @@ namespace BUS
             }
         }
         
-        // lấy user 
+
+        // Lấy user
         public DAL.NguoiDung GetUser(int manguoidung)
         {
-            var user = db.NguoiDungs.Where(u => u.MaNguoiDung == manguoidung).FirstOrDefault();
+            var user = db.NguoiDungs
+                         .Where(u => u.MaNguoiDung == manguoidung)
+                         .FirstOrDefault();
             return user;
         }
+
 
         /// <summary>
         /// Đăng xuất
@@ -212,6 +216,35 @@ namespace BUS
                     byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
                     return Convert.ToBase64String(results, 0, results.Length); // trả về mật khẩu đã được mã hóa
                 }
+            }
+        }
+
+
+        public bool DoiMatKhau(int MaND, string MatKhauCu, string MatKhauMoi)
+        {
+            try
+            {
+                string mkcu = Encrypt(MatKhauCu);
+
+                var user = db.NguoiDungs
+                             .Where(u => u.MaNguoiDung == MaND && u.MatKhau == mkcu)
+                             .FirstOrDefault();
+
+                if (user != null)
+                {
+                    user.MatKhau = Encrypt(MatKhauMoi);
+                    db.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

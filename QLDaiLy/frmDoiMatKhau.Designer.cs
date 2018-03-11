@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoiMatKhau));
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -39,15 +40,17 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtMatKhauMoi = new DevExpress.XtraEditors.TextEdit();
             this.btnDoiMatKhau = new DevExpress.XtraEditors.SimpleButton();
+            this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauCu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl6
             // 
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl6.Location = new System.Drawing.Point(142, 131);
+            this.labelControl6.Location = new System.Drawing.Point(143, 123);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(14, 13);
             this.labelControl6.TabIndex = 16;
@@ -56,7 +59,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl5.Location = new System.Drawing.Point(93, 46);
+            this.labelControl5.Location = new System.Drawing.Point(94, 38);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(14, 13);
             this.labelControl5.TabIndex = 15;
@@ -64,23 +67,25 @@
             // 
             // txtXacNhanMK
             // 
-            this.txtXacNhanMK.Location = new System.Drawing.Point(176, 128);
+            this.txtXacNhanMK.Location = new System.Drawing.Point(177, 120);
             this.txtXacNhanMK.Name = "txtXacNhanMK";
             this.txtXacNhanMK.Properties.PasswordChar = '*';
             this.txtXacNhanMK.Size = new System.Drawing.Size(204, 20);
             this.txtXacNhanMK.TabIndex = 14;
+            this.txtXacNhanMK.Leave += new System.EventHandler(this.txtXacNhanMK_Leave);
             // 
             // txtMatKhauCu
             // 
-            this.txtMatKhauCu.Location = new System.Drawing.Point(176, 43);
+            this.txtMatKhauCu.Location = new System.Drawing.Point(177, 35);
             this.txtMatKhauCu.Name = "txtMatKhauCu";
             this.txtMatKhauCu.Properties.PasswordChar = '*';
             this.txtMatKhauCu.Size = new System.Drawing.Size(204, 20);
             this.txtMatKhauCu.TabIndex = 13;
+            this.txtMatKhauCu.Leave += new System.EventHandler(this.txtMatKhauCu_Leave);
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(26, 131);
+            this.labelControl3.Location = new System.Drawing.Point(27, 123);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(110, 13);
             this.labelControl3.TabIndex = 12;
@@ -88,7 +93,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(26, 46);
+            this.labelControl2.Location = new System.Drawing.Point(27, 38);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(58, 13);
             this.labelControl2.TabIndex = 11;
@@ -97,7 +102,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl1.Location = new System.Drawing.Point(93, 90);
+            this.labelControl1.Location = new System.Drawing.Point(94, 82);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(14, 13);
             this.labelControl1.TabIndex = 18;
@@ -105,7 +110,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(26, 90);
+            this.labelControl4.Location = new System.Drawing.Point(27, 82);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(63, 13);
             this.labelControl4.TabIndex = 17;
@@ -113,28 +118,33 @@
             // 
             // txtMatKhauMoi
             // 
-            this.txtMatKhauMoi.Location = new System.Drawing.Point(176, 87);
+            this.txtMatKhauMoi.Location = new System.Drawing.Point(177, 79);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
             this.txtMatKhauMoi.Properties.PasswordChar = '*';
             this.txtMatKhauMoi.Size = new System.Drawing.Size(204, 20);
             this.txtMatKhauMoi.TabIndex = 19;
+            this.txtMatKhauMoi.Leave += new System.EventHandler(this.txtMatKhauMoi_Leave);
             // 
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiMatKhau.Image")));
             this.btnDoiMatKhau.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(305, 181);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(306, 173);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(105, 23);
             this.btnDoiMatKhau.TabIndex = 20;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
+            // ErrorChecker
+            // 
+            this.ErrorChecker.ContainerControl = this;
+            // 
             // frmDoiMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 236);
+            this.ClientSize = new System.Drawing.Size(451, 228);
             this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.txtMatKhauMoi);
             this.Controls.Add(this.labelControl1);
@@ -154,6 +164,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauCu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +182,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtMatKhauMoi;
         private DevExpress.XtraEditors.SimpleButton btnDoiMatKhau;
+        private System.Windows.Forms.ErrorProvider ErrorChecker;
     }
 }
