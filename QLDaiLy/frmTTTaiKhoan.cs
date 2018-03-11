@@ -28,11 +28,13 @@ namespace QLDaiLy
 
         private void frmTTTaiKhoan_Load(object sender, EventArgs e)
         {
-            txtMaNguoiDung.Text = BUS_NguoiDung.CurUser.MaNguoiDung.ToString();
-            txtTenDangNhap.Text = BUS_NguoiDung.CurUser.TenDangNhap.ToString();
-            txtEmail.Text = BUS_NguoiDung.CurUser.Email.ToString();
-            txtSDT.Text = BUS_NguoiDung.CurUser.SoDienThoai.ToString();
-            txtDiaChi.Text = BUS_NguoiDung.CurUser.DiaChi.ToString();
+            BUS_NguoiDung u = new BUS_NguoiDung();
+            var user = u.GetUser(BUS_NguoiDung.CurUser.MaNguoiDung);
+            txtMaNguoiDung.Text = user.MaNguoiDung.ToString();
+            txtTenDangNhap.Text = user.TenDangNhap.ToString();
+            txtEmail.Text = user.Email.ToString();
+            txtSDT.Text = user.SoDienThoai.ToString();
+            txtDiaChi.Text = user.DiaChi.ToString();
         }
 
         private void btnLuuTT_Click(object sender, EventArgs e)

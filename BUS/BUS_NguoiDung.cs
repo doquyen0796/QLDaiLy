@@ -136,7 +136,13 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
-
+        
+        // lấy user 
+        public DAL.NguoiDung GetUser(int manguoidung)
+        {
+            var user = db.NguoiDungs.Where(u => u.MaNguoiDung == manguoidung).FirstOrDefault();
+            return user;
+        }
 
         /// <summary>
         /// Đăng xuất
