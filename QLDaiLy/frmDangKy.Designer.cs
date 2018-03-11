@@ -86,6 +86,7 @@
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(204, 20);
             this.txtTenDangNhap.TabIndex = 3;
+            this.txtTenDangNhap.Leave += new System.EventHandler(this.txtTenDangNhap_Leave);
             // 
             // txtMatKhau
             // 
@@ -94,6 +95,7 @@
             this.txtMatKhau.Properties.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(204, 20);
             this.txtMatKhau.TabIndex = 4;
+            this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
             // 
             // txtXacNhanMK
             // 
@@ -102,6 +104,7 @@
             this.txtXacNhanMK.Properties.PasswordChar = '*';
             this.txtXacNhanMK.Size = new System.Drawing.Size(204, 20);
             this.txtXacNhanMK.TabIndex = 5;
+            this.txtXacNhanMK.Leave += new System.EventHandler(this.txtXacNhanMK_Leave);
             // 
             // btnDangKy
             // 
@@ -189,6 +192,7 @@
             this.txtSDT.Size = new System.Drawing.Size(204, 20);
             this.txtSDT.TabIndex = 16;
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
+            this.txtSDT.Leave += new System.EventHandler(this.txtSDT_Leave);
             // 
             // txtDiaChi
             // 
@@ -203,6 +207,7 @@
             // 
             // frmDangKy
             // 
+            this.AcceptButton = this.btnDangKy;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 318);

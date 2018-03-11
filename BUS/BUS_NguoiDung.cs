@@ -42,30 +42,66 @@ namespace BUS
         }
 
 
-        public bool DangKy(string tendangnhap, string matkhau, string email, string sodienthoai, string diachi)
+        /// <summary>
+        /// Kiểm tra email đã tồn tại chưa
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public bool KTEmailTonTai(int mand, string email)
+        {
+            var user = db.NguoiDungs
+                         .Where(u => u.Email == email && u.MaNguoiDung != mand)
+                         .FirstOrDefault();
+
+            if (user != null)  // email đã tồn tại
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        /// <summary>
+        /// Kiểm tra email đã tồn tại chưa
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public bool KTEmailTonTai(string email)
+        {
+            var user = db.NguoiDungs
+                         .Where(u => u.Email == email)
+                         .FirstOrDefault();
+
+            if (user != null)  // email đã tồn tại
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        public void DangKy(string tendangnhap, string matkhau, string email, string sodienthoai, string diachi)
         {
             try
             {
-                if (KTTaiKhoanTonTai(tendangnhap))
+                DAL.NguoiDung u = new DAL.NguoiDung
                 {
-                    DAL.NguoiDung u = new DAL.NguoiDung
-                    {
-                        TenDangNhap = tendangnhap,
-                        MatKhau = Encrypt(matkhau),
-                        Email = email,
-                        SoDienThoai = sodienthoai,
-                        DiaChi = diachi,
-                        Loai = -1   //  nhân viên lúc chưa được admin duyệt
-                    };
+                    TenDangNhap = tendangnhap,
+                    MatKhau = Encrypt(matkhau),
+                    Email = email,
+                    SoDienThoai = sodienthoai,
+                    DiaChi = diachi,
+                    Loai = -1   //  nhân viên lúc chưa được admin duyệt
+                };
 
-                    db.NguoiDungs.Add(u);
-                    db.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                db.NguoiDungs.Add(u);
+                db.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -126,12 +162,12 @@ namespace BUS
         {
             try
             {
-                var user = db.NguoiDungs
+                if (KTEmailTonTai(mand, email))
+                {
+                    var user = db.NguoiDungs
                              .Where(u => u.MaNguoiDung == mand)
                              .FirstOrDefault();
 
-                if (user != null)
-                {
                     user.Email = email;
                     user.SoDienThoai = sodienthoai;
                     user.DiaChi = diachi;

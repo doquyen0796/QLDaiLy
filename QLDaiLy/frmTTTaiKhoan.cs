@@ -39,7 +39,25 @@ namespace QLDaiLy
         {
             if (KiemTraDuLieu())
             {
-                MessageBox.Show("Chức năng đang được bảo trì!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var tb = MessageBox.Show("Bạn có chắc chắn muốn lưu thông tin ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (tb == DialogResult.Yes)
+                {
+                    BUS_NguoiDung nd = new BUS_NguoiDung();
+                    var flag = nd.DoiThongTin(int.Parse(txtMaNguoiDung.Text), txtEmail.Text, txtSDT.Text, txtDiaChi.Text);
+
+                    if (flag == true)
+                    {
+                        MessageBox.Show("Lưu thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email đã tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
@@ -77,6 +95,7 @@ namespace QLDaiLy
             return true;
         }
 
+
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             //  https://stackoverflow.com/a/19475049/7385686
@@ -91,10 +110,18 @@ namespace QLDaiLy
             }
             else
             {
-                ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
-                btnLuuTT.Enabled = false;
-                return;
+                if (txtEmail.Text.Length == 0)
+                {
+                    ErrorChecker.Clear();
+                    btnLuuTT.Enabled = true;
+                }
+                else
+                {
+                    ErrorChecker.BlinkRate = 500;
+                    ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
+                    btnLuuTT.Enabled = false;
+                    return;
+                }
             }
         }
     }
