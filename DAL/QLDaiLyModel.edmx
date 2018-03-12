@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLDaiLyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLDaiLyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CTPhieuXuatHang">
           <Key>
             <PropertyRef Name="MaPhieuXuat" />
@@ -65,6 +65,7 @@
           <Property Name="SoDienThoai" Type="varchar" MaxLength="15" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
           <Property Name="Loai" Type="int" />
+          <Property Name="GhiNho" Type="int" />
         </EntityType>
         <EntityType Name="PhieuThuTien">
           <Key>
@@ -215,8 +216,7 @@
             <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLDaiLyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -290,6 +290,7 @@
           <Property Name="SoDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Loai" Type="Int32" />
+          <Property Name="GhiNho" Type="Int32" />
         </EntityType>
         <EntityType Name="PhieuThuTien">
           <Key>
@@ -506,6 +507,7 @@
           <EntitySetMapping Name="NguoiDungs">
             <EntityTypeMapping TypeName="QLDaiLyModel.NguoiDung">
               <MappingFragment StoreEntitySet="NguoiDung">
+                <ScalarProperty Name="GhiNho" ColumnName="GhiNho" />
                 <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
