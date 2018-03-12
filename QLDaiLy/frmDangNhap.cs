@@ -75,5 +75,18 @@ namespace QLDaiLy
         {
             Application.ExitThread();
         }
+
+
+        private void ckbHienMK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbHienMK.Checked)
+            {
+                txtMatKhau.Properties.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMatKhau.Properties.PasswordChar = '*';
+            }
+        }
     }
 }

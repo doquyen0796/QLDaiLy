@@ -185,5 +185,23 @@ namespace QLDaiLy
             ErrorChecker.Clear();
             btnDangKy.Enabled = true;
         }
+
+
+        /// <kiểm tra hiện mật khẩu>
+        private void ckbHienMK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbHienMK.Checked)
+            {
+                txtMatKhau.Properties.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMatKhau.Properties.PasswordChar = '*';
+            }
+        }
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
     }
 }
