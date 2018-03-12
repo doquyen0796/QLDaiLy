@@ -41,10 +41,14 @@
             this.txtMatKhauMoi = new DevExpress.XtraEditors.TextEdit();
             this.btnDoiMatKhau = new DevExpress.XtraEditors.SimpleButton();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ckbHienMKCu = new DevExpress.XtraEditors.CheckEdit();
+            this.ckbHienMKMoi = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauCu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMKCu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMKMoi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl6
@@ -140,11 +144,31 @@
             // 
             this.ErrorChecker.ContainerControl = this;
             // 
+            // ckbHienMKCu
+            // 
+            this.ckbHienMKCu.Location = new System.Drawing.Point(416, 36);
+            this.ckbHienMKCu.Name = "ckbHienMKCu";
+            this.ckbHienMKCu.Properties.Caption = "Hiện mật khẩu";
+            this.ckbHienMKCu.Size = new System.Drawing.Size(110, 19);
+            this.ckbHienMKCu.TabIndex = 21;
+            this.ckbHienMKCu.CheckedChanged += new System.EventHandler(this.ckbHienMKCu_CheckedChanged);
+            // 
+            // ckbHienMKMoi
+            // 
+            this.ckbHienMKMoi.Location = new System.Drawing.Point(416, 83);
+            this.ckbHienMKMoi.Name = "ckbHienMKMoi";
+            this.ckbHienMKMoi.Properties.Caption = "Hiện mật khẩu";
+            this.ckbHienMKMoi.Size = new System.Drawing.Size(110, 19);
+            this.ckbHienMKMoi.TabIndex = 22;
+            this.ckbHienMKMoi.CheckedChanged += new System.EventHandler(this.ckbHienMKMoi_CheckedChanged);
+            // 
             // frmDoiMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 228);
+            this.ClientSize = new System.Drawing.Size(617, 228);
+            this.Controls.Add(this.ckbHienMKMoi);
+            this.Controls.Add(this.ckbHienMKCu);
             this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.txtMatKhauMoi);
             this.Controls.Add(this.labelControl1);
@@ -165,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauCu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMKCu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMKMoi.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +209,7 @@
         private DevExpress.XtraEditors.TextEdit txtMatKhauMoi;
         private DevExpress.XtraEditors.SimpleButton btnDoiMatKhau;
         private System.Windows.Forms.ErrorProvider ErrorChecker;
+        private DevExpress.XtraEditors.CheckEdit ckbHienMKMoi;
+        private DevExpress.XtraEditors.CheckEdit ckbHienMKCu;
     }
 }
