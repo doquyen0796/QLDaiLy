@@ -27,5 +27,12 @@ namespace QLDaiLy
     daiLiesBindingSource.DataSource = dbContext.DaiLies.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
+
+
+        private void navbarThem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmThemDaiLy frm = new frmThemDaiLy();
+            frm.ShowDialog();
+        }
     }
 }

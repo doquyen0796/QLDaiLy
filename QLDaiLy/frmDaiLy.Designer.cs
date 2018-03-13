@@ -190,6 +190,7 @@
             this.navbarXoa});
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
             this.navBarControl1.Size = new System.Drawing.Size(224, 225);
             this.navBarControl1.TabIndex = 8;
             this.navBarControl1.Text = "navBarControl1";
@@ -209,6 +210,7 @@
             this.navbarThem.Caption = "Thêm Đại Lý";
             this.navbarThem.Name = "navbarThem";
             this.navbarThem.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarThem.SmallImage")));
+            this.navbarThem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarThem_LinkClicked);
             // 
             // navbarSua
             // 
