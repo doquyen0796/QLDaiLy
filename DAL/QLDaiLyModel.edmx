@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLDaiLyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLDaiLyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CTPhieuXuatHang">
           <Key>
             <PropertyRef Name="MaPhieuXuat" />
@@ -177,6 +177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_DanhSachDaiLy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="QLDaiLyModelStoreContainer">
           <EntitySet Name="CTPhieuXuatHang" EntityType="Self.CTPhieuXuatHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaiLy" EntityType="Self.DaiLy" Schema="dbo" store:Type="Tables" />
@@ -216,8 +217,7 @@
             <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLDaiLyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -445,7 +445,27 @@
             <End Role="DonViTinh" EntitySet="DonViTinhs" />
             <End Role="HangHoa" EntitySet="HangHoas" />
           </AssociationSet>
+          <FunctionImport Name="sp_DanhSachDaiLy" ReturnType="Collection(QLDaiLyModel.sp_DanhSachDaiLy_Result)" />
+          <FunctionImport Name="sp_DanhSachDaiLy1" ReturnType="Collection(QLDaiLyModel.sp_DanhSachDaiLy1_Result)" />
         </EntityContainer>
+        <ComplexType Name="sp_DanhSachDaiLy_Result">
+          <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Quan" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayTiepNhan" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="TienNo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_DanhSachDaiLy1_Result">
+          <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Quan" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayTiepNhan" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="TienNo" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -548,6 +568,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_DanhSachDaiLy1" FunctionName="QLDaiLyModel.Store.sp_DanhSachDaiLy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLDaiLyModel.sp_DanhSachDaiLy1_Result">
+                <ScalarProperty Name="TenDaiLy" ColumnName="TenDaiLy" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Quan" ColumnName="Quan" />
+                <ScalarProperty Name="NgayTiepNhan" ColumnName="NgayTiepNhan" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TienNo" ColumnName="TienNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

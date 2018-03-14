@@ -94,6 +94,12 @@
     <Compile Include="Quan.cs">
       <DependentUpon>QLDaiLyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_DanhSachDaiLy1_Result.cs">
+      <DependentUpon>QLDaiLyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_DanhSachDaiLy_Result.cs">
+      <DependentUpon>QLDaiLyModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

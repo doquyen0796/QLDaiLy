@@ -12,6 +12,8 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class QLDaiLyEntities : DbContext
     {
@@ -34,5 +36,15 @@ namespace DAL
         public virtual DbSet<PhieuThuTien> PhieuThuTiens { get; set; }
         public virtual DbSet<PhieuXuatHang> PhieuXuatHangs { get; set; }
         public virtual DbSet<Quan> Quans { get; set; }
+    
+        public virtual ObjectResult<sp_DanhSachDaiLy_Result> sp_DanhSachDaiLy()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_DanhSachDaiLy_Result>("sp_DanhSachDaiLy");
+        }
+    
+        public virtual ObjectResult<sp_DanhSachDaiLy1_Result> sp_DanhSachDaiLy1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_DanhSachDaiLy1_Result>("sp_DanhSachDaiLy1");
+        }
     }
 }
