@@ -35,17 +35,17 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtTenDaiLy = new DevExpress.XtraEditors.TextEdit();
-            this.cbLoaiDL = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cbQuan = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
+            this.cbLoaiDL = new DevExpress.XtraEditors.LookUpEdit();
+            this.cbQuan = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDaiLy.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiDL.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiDL.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -95,24 +95,6 @@
             this.txtTenDaiLy.Size = new System.Drawing.Size(294, 20);
             this.txtTenDaiLy.TabIndex = 5;
             // 
-            // cbLoaiDL
-            // 
-            this.cbLoaiDL.Location = new System.Drawing.Point(137, 95);
-            this.cbLoaiDL.Name = "cbLoaiDL";
-            this.cbLoaiDL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbLoaiDL.Size = new System.Drawing.Size(294, 20);
-            this.cbLoaiDL.TabIndex = 6;
-            // 
-            // cbQuan
-            // 
-            this.cbQuan.Location = new System.Drawing.Point(137, 140);
-            this.cbQuan.Name = "cbQuan";
-            this.cbQuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbQuan.Size = new System.Drawing.Size(198, 20);
-            this.cbQuan.TabIndex = 7;
-            // 
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(137, 185);
@@ -147,17 +129,35 @@
             this.btnReset.TabIndex = 11;
             this.btnReset.Text = "Nhập lại";
             // 
+            // cbLoaiDL
+            // 
+            this.cbLoaiDL.Location = new System.Drawing.Point(137, 95);
+            this.cbLoaiDL.Name = "cbLoaiDL";
+            this.cbLoaiDL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbLoaiDL.Size = new System.Drawing.Size(223, 20);
+            this.cbLoaiDL.TabIndex = 12;
+            // 
+            // cbQuan
+            // 
+            this.cbQuan.Location = new System.Drawing.Point(137, 142);
+            this.cbQuan.Name = "cbQuan";
+            this.cbQuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbQuan.Size = new System.Drawing.Size(223, 20);
+            this.cbQuan.TabIndex = 13;
+            // 
             // frmThemDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 348);
+            this.Controls.Add(this.cbQuan);
+            this.Controls.Add(this.cbLoaiDL);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtDiaChi);
-            this.Controls.Add(this.cbQuan);
-            this.Controls.Add(this.cbLoaiDL);
             this.Controls.Add(this.txtTenDaiLy);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
@@ -169,11 +169,12 @@
             this.Name = "frmThemDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Đại Lý";
+            this.Load += new System.EventHandler(this.frmThemDaiLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDaiLy.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiDL.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiDL.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,11 +188,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txtTenDaiLy;
-        private DevExpress.XtraEditors.ComboBoxEdit cbLoaiDL;
-        private DevExpress.XtraEditors.ComboBoxEdit cbQuan;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
         private DevExpress.XtraEditors.TextEdit txtEmail;
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnReset;
+        private DevExpress.XtraEditors.LookUpEdit cbLoaiDL;
+        private DevExpress.XtraEditors.LookUpEdit cbQuan;
     }
 }
