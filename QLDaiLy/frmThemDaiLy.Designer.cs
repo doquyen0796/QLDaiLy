@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemDaiLy));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -41,11 +42,17 @@
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.cbLoaiDL = new DevExpress.XtraEditors.LookUpEdit();
             this.cbQuan = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDaiLy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbLoaiDL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -90,21 +97,22 @@
             // 
             // txtTenDaiLy
             // 
-            this.txtTenDaiLy.Location = new System.Drawing.Point(137, 50);
+            this.txtTenDaiLy.Location = new System.Drawing.Point(143, 50);
             this.txtTenDaiLy.Name = "txtTenDaiLy";
             this.txtTenDaiLy.Size = new System.Drawing.Size(294, 20);
             this.txtTenDaiLy.TabIndex = 5;
+            this.txtTenDaiLy.Leave += new System.EventHandler(this.txtTenDaiLy_Leave);
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(137, 185);
+            this.txtDiaChi.Location = new System.Drawing.Point(143, 185);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(294, 20);
             this.txtDiaChi.TabIndex = 8;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(137, 230);
+            this.txtEmail.Location = new System.Drawing.Point(143, 230);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
             this.txtEmail.TabIndex = 9;
@@ -131,27 +139,72 @@
             // 
             // cbLoaiDL
             // 
-            this.cbLoaiDL.Location = new System.Drawing.Point(137, 95);
+            this.cbLoaiDL.Location = new System.Drawing.Point(143, 95);
             this.cbLoaiDL.Name = "cbLoaiDL";
             this.cbLoaiDL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbLoaiDL.Properties.Leave += new System.EventHandler(this.cbLoaiDL_Properties_Leave);
             this.cbLoaiDL.Size = new System.Drawing.Size(223, 20);
             this.cbLoaiDL.TabIndex = 12;
             // 
             // cbQuan
             // 
-            this.cbQuan.Location = new System.Drawing.Point(137, 142);
+            this.cbQuan.Location = new System.Drawing.Point(143, 142);
             this.cbQuan.Name = "cbQuan";
             this.cbQuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbQuan.Size = new System.Drawing.Size(223, 20);
             this.cbQuan.TabIndex = 13;
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl6.Location = new System.Drawing.Point(99, 53);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(14, 13);
+            this.labelControl6.TabIndex = 14;
+            this.labelControl6.Text = "(*)";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl7.Location = new System.Drawing.Point(74, 145);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(14, 13);
+            this.labelControl7.TabIndex = 15;
+            this.labelControl7.Text = "(*)";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Location = new System.Drawing.Point(100, 98);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(14, 13);
+            this.labelControl8.TabIndex = 16;
+            this.labelControl8.Text = "(*)";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl9.Location = new System.Drawing.Point(82, 188);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(14, 13);
+            this.labelControl9.TabIndex = 17;
+            this.labelControl9.Text = "(*)";
+            // 
+            // ErrorChecker
+            // 
+            this.ErrorChecker.ContainerControl = this;
+            // 
             // frmThemDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 348);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.labelControl8);
+            this.Controls.Add(this.labelControl7);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.cbQuan);
             this.Controls.Add(this.cbLoaiDL);
             this.Controls.Add(this.btnReset);
@@ -175,6 +228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbLoaiDL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +248,10 @@
         private DevExpress.XtraEditors.SimpleButton btnReset;
         private DevExpress.XtraEditors.LookUpEdit cbLoaiDL;
         private DevExpress.XtraEditors.LookUpEdit cbQuan;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private System.Windows.Forms.ErrorProvider ErrorChecker;
     }
 }

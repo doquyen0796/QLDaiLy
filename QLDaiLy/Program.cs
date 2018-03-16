@@ -20,7 +20,7 @@ namespace QLDaiLy
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new frmDangNhap());
+            Application.Run(new frmSplashScreen());
         }
     }
 }

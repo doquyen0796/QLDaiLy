@@ -42,5 +42,33 @@ namespace QLDaiLy
             cbQuan.Properties.ValueMember = "TenQuan";
             cbQuan.Properties.Columns.Add(new LookUpColumnInfo("TenQuan", "Quận"));
         }
+
+
+        private void txtTenDaiLy_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTenDaiLy.Text))
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtTenDaiLy, "Không được để trống.");
+                btnThem.Enabled = false;
+                return;
+            }
+            ErrorChecker.Clear();
+            btnThem.Enabled = true;
+        }
+
+
+        private void cbLoaiDL_Properties_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbLoaiDL.Text))
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(cbLoaiDL, "Không được để trống.");
+                btnThem.Enabled = false;
+                return;
+            }
+            ErrorChecker.Clear();
+            btnThem.Enabled = true;
+        }
     }
 }
