@@ -314,6 +314,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "frmDaiLy";
             this.Text = "Quản Lý Đại Lý";
+            this.Load += new System.EventHandler(this.frmDaiLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();

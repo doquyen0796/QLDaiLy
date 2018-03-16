@@ -17,7 +17,7 @@ namespace QLDaiLy
         //  Tạo biến kiểm tra tình trạng connection
         public static bool checkConnection = false;
 
-
+    
         public frmSplashScreen()
         {
             InitializeComponent();
@@ -67,7 +67,7 @@ namespace QLDaiLy
                 }
                 else
                 {
-                    pgbRunning.Increment(5);
+                    pgbRunning.Increment(10);
                 }
             }
             else

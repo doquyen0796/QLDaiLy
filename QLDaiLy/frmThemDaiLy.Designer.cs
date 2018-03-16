@@ -109,6 +109,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(294, 20);
             this.txtDiaChi.TabIndex = 8;
+            this.txtDiaChi.Leave += new System.EventHandler(this.txtDiaChi_Leave);
             // 
             // txtEmail
             // 
@@ -116,6 +117,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // btnThem
             // 
@@ -126,6 +129,7 @@
             this.btnThem.Size = new System.Drawing.Size(121, 23);
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm đại lý";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnReset
             // 
@@ -136,6 +140,7 @@
             this.btnReset.Size = new System.Drawing.Size(121, 23);
             this.btnReset.TabIndex = 11;
             this.btnReset.Text = "Nhập lại";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // cbLoaiDL
             // 
@@ -143,7 +148,6 @@
             this.cbLoaiDL.Name = "cbLoaiDL";
             this.cbLoaiDL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbLoaiDL.Properties.Leave += new System.EventHandler(this.cbLoaiDL_Properties_Leave);
             this.cbLoaiDL.Size = new System.Drawing.Size(223, 20);
             this.cbLoaiDL.TabIndex = 12;
             // 

@@ -15,7 +15,7 @@ namespace QLDaiLy
             //con.ConnectionString = ConfigurationManager.ConnectionStrings["DoPhuotEntities"].ConnectionString;
 
             // Cách 2:
-            String ConnectionString = @"Data Source=DESKTOP-AQ8E8RK\SQLEXPRESS;initial catalog=QLDaiLy;integrated security=True";
+            String ConnectionString = @"Data Source=WINCTRL-N182QAL\SQLEXPRESS;initial catalog=QLDaiLy;integrated security=True";
             return ConnectionString;
             
             //SqlConnection con = new SqlConnection(ConnectionString);
