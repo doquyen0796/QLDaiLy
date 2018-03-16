@@ -46,7 +46,7 @@ namespace BUS
         }
 
 
-        public void ThemDaiLy(string tendaily, int loai, string diachi, string quan, string email)
+        public void ThemDaiLy(string tendaily, int loai, string diachi, string quan, string email, DateTime ngaytiepnhan)
         {
             try
             {
@@ -57,7 +57,8 @@ namespace BUS
                     DiaChi = diachi,
                     Quan = quan,
                     Email = email,
-                    TienNo = 0
+                    TienNo = 0,
+                    NgayTiepNhan = ngaytiepnhan
                 };
 
                 db.DaiLies.Add(u);

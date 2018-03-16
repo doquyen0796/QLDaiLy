@@ -165,9 +165,8 @@ namespace QLDaiLy
             }
             ErrorChecker.Clear();
 
-
             BUS_DaiLy dl = new BUS_DaiLy();
-            dl.ThemDaiLy(txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text);
+            dl.ThemDaiLy(txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
 
             var tb = MessageBox.Show("Bạn đã thêm đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (tb == DialogResult.OK)

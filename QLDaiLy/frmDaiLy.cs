@@ -14,6 +14,8 @@ namespace QLDaiLy
 {
     public partial class frmDaiLy : DevExpress.XtraEditors.XtraForm
     {
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
         public frmDaiLy()
         {
             InitializeComponent();
@@ -47,6 +49,20 @@ namespace QLDaiLy
             gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // Draw a dotted focus rectangle around the entire row.
             gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+        }
+
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.DaiLies.Where(dl => dl.TenDaiLy.ToLower().Contains(tukhoa.ToLower())).ToList();
+
+            daiLiesBindingSource.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                daiLiesBindingSource.DataSource = db.DaiLies.Local.ToBindingList();
+            }
         }
     }
 }
