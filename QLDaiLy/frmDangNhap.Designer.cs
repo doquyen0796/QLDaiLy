@@ -71,6 +71,7 @@
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(193, 20);
             this.txtTenDangNhap.TabIndex = 2;
+            this.txtTenDangNhap.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtTenDangNhap_EditValueChanging);
             // 
             // txtMatKhau
             // 
@@ -171,6 +172,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangNhap_FormClosing);
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();

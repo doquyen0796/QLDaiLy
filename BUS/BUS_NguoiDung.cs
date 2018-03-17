@@ -247,5 +247,59 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
+
+        // nho mat khau
+        public void NhoMatKhau(string TenDN, int GN)
+        {
+            try
+            {
+                var user = db.NguoiDungs.Where(u => u.TenDangNhap == TenDN).FirstOrDefault();
+                user.GhiNho = GN;
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        // kiem tra xem da co nho nguoi dung nao dang nhap truoc do chua.. neu co update ve 1
+
+        public void DangNhapCu()
+        {
+            try
+            {
+                var user = db.NguoiDungs.Where(u => u.GhiNho == 2).FirstOrDefault();
+                user.GhiNho = 1;
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        // lay nguoi dung vua moi dang nhap
+        public DAL.NguoiDung LayNguoiDung()
+        {
+
+            var user = db.NguoiDungs.Where(u => u.GhiNho == 2).FirstOrDefault();
+            return user;
+        }
+
+        // lay  nguoi dung da ghi nho dang nhap truoc do
+        public DAL.NguoiDung LayNguoiDungGN(string TenDN)
+        {
+            var user = db.NguoiDungs.Where(u => u.GhiNho == 1 && u.TenDangNhap == TenDN).FirstOrDefault();
+            return user;
+        }
+
+        // lay nguoi dung voi ma ghi nho la môt hoac 2
+        public DAL.NguoiDung NguoiDung12(string TenDN, string MK)
+        {
+            var user = db.NguoiDungs.Where(u => u.GhiNho == 1 && u.MatKhau == MK || u.GhiNho == 2 && u.MatKhau == MK).FirstOrDefault();
+            return user;
+        }
     }
 }

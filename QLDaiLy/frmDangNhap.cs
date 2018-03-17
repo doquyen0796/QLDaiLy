@@ -24,18 +24,49 @@ namespace QLDaiLy
             if (KiemTraDuLieu())
             {
                 BUS_NguoiDung nd = new BUS_NguoiDung();
-                var flag = nd.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text);
-
-                if (flag == false)
+                var user = nd.NguoiDung12(txtTenDangNhap.Text, txtMatKhau.Text);
+                if (user != null)
                 {
-                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
+                    // luu ghi nho xuong du lieu;
+                    if (ckbGhiNho.Checked == true)
+                    {
+                        nd.DangNhapCu();
+                        nd.NhoMatKhau(txtTenDangNhap.Text, 2);
+                    }
+                    else
+                    {
+                        nd.NhoMatKhau(txtTenDangNhap.Text, 0);
+                    }
                     frmMain main = new frmMain();
                     this.Hide();
                     main.Show();
                 }
+                else
+                {
+                    var flag = nd.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text);
+
+                    if (flag == false)
+                    {
+                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // luu ghi nho xuong du lieu;
+                        if (ckbGhiNho.Checked == true)
+                        {
+                            nd.DangNhapCu();
+                            nd.NhoMatKhau(txtTenDangNhap.Text, 2);
+                        }
+                        else
+                        {
+                            nd.NhoMatKhau(txtTenDangNhap.Text, 0);
+                        }
+                        frmMain main = new frmMain();
+                        this.Hide();
+                        main.Show();
+                    }
+                }
+
             }
         }
 
@@ -86,6 +117,34 @@ namespace QLDaiLy
             else
             {
                 txtMatKhau.Properties.PasswordChar = '*';
+            }
+        }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+            BUS_NguoiDung nd = new BUS_NguoiDung();
+            var user = nd.LayNguoiDung();
+            if (user != null)
+            {
+                txtTenDangNhap.Text = user.TenDangNhap;
+                txtMatKhau.Text = user.MatKhau;
+                ckbGhiNho.Checked = true;
+            }
+        }
+
+        private void txtTenDangNhap_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            BUS_NguoiDung nd = new BUS_NguoiDung();
+            var user = nd.LayNguoiDungGN(txtTenDangNhap.Text);
+            if (user != null)
+            {
+                txtMatKhau.Text = user.MatKhau;
+                ckbGhiNho.Checked = true;
+            }
+            else
+            {
+                txtMatKhau.Text = "";
+                ckbGhiNho.Checked = false;
             }
         }
     }
