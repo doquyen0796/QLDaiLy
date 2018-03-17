@@ -40,13 +40,11 @@
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ckbGhiNho = new DevExpress.XtraEditors.CheckEdit();
-            this.ckbHienMK = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbGhiNho.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMK.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -134,28 +132,18 @@
             // 
             // ckbGhiNho
             // 
-            this.ckbGhiNho.Location = new System.Drawing.Point(204, 137);
+            this.ckbGhiNho.Location = new System.Drawing.Point(204, 135);
             this.ckbGhiNho.Name = "ckbGhiNho";
             this.ckbGhiNho.Properties.Caption = "Ghi nhớ";
             this.ckbGhiNho.Size = new System.Drawing.Size(75, 19);
             this.ckbGhiNho.TabIndex = 9;
-            // 
-            // ckbHienMK
-            // 
-            this.ckbHienMK.Location = new System.Drawing.Point(526, 95);
-            this.ckbHienMK.Name = "ckbHienMK";
-            this.ckbHienMK.Properties.Caption = "Hiện mật khẩu";
-            this.ckbHienMK.Size = new System.Drawing.Size(103, 19);
-            this.ckbHienMK.TabIndex = 10;
-            this.ckbHienMK.CheckedChanged += new System.EventHandler(this.ckbHienMK_CheckedChanged);
             // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 222);
-            this.Controls.Add(this.ckbHienMK);
+            this.ClientSize = new System.Drawing.Size(603, 222);
             this.Controls.Add(this.ckbGhiNho);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl4);
@@ -178,7 +166,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbGhiNho.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMK.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +184,5 @@
         private System.Windows.Forms.ErrorProvider ErrorChecker;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.CheckEdit ckbGhiNho;
-        private DevExpress.XtraEditors.CheckEdit ckbHienMK;
     }
 }

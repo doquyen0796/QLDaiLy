@@ -27,7 +27,7 @@ namespace QLDaiLy
                 var user = nd.NguoiDung12(txtTenDangNhap.Text, txtMatKhau.Text);
                 if (user != null)
                 {
-                    // luu ghi nho xuong du lieu;
+                    // Lưu ghi nhớ xuống dữ liệu
                     if (ckbGhiNho.Checked == true)
                     {
                         nd.DangNhapCu();
@@ -51,7 +51,7 @@ namespace QLDaiLy
                     }
                     else
                     {
-                        // luu ghi nho xuong du lieu;
+                        // Lưu ghi nhớ xuống dữ liệu
                         if (ckbGhiNho.Checked == true)
                         {
                             nd.DangNhapCu();
@@ -69,6 +69,7 @@ namespace QLDaiLy
 
             }
         }
+
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
@@ -107,18 +108,6 @@ namespace QLDaiLy
             Application.ExitThread();
         }
 
-
-        private void ckbHienMK_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckbHienMK.Checked)
-            {
-                txtMatKhau.Properties.PasswordChar = '\0';
-            }
-            else
-            {
-                txtMatKhau.Properties.PasswordChar = '*';
-            }
-        }
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {

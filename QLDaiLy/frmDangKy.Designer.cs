@@ -47,7 +47,6 @@
             this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ckbHienMK = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).BeginInit();
@@ -55,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMK.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -207,22 +205,12 @@
             // 
             this.ErrorChecker.ContainerControl = this;
             // 
-            // ckbHienMK
-            // 
-            this.ckbHienMK.Location = new System.Drawing.Point(381, 78);
-            this.ckbHienMK.Name = "ckbHienMK";
-            this.ckbHienMK.Properties.Caption = "&Hiện mật khẩu";
-            this.ckbHienMK.Size = new System.Drawing.Size(91, 19);
-            this.ckbHienMK.TabIndex = 18;
-            this.ckbHienMK.CheckedChanged += new System.EventHandler(this.ckbHienMK_CheckedChanged);
-            // 
             // frmDangKy
             // 
             this.AcceptButton = this.btnDangKy;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 318);
-            this.Controls.Add(this.ckbHienMK);
+            this.ClientSize = new System.Drawing.Size(456, 318);
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtEmail);
@@ -253,7 +241,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckbHienMK.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +266,5 @@
         private DevExpress.XtraEditors.TextEdit txtSDT;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
         private System.Windows.Forms.ErrorProvider ErrorChecker;
-        private DevExpress.XtraEditors.CheckEdit ckbHienMK;
     }
 }

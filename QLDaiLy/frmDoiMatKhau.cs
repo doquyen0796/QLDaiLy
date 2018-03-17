@@ -90,31 +90,5 @@ namespace QLDaiLy
             ErrorChecker.Clear();
             btnDoiMatKhau.Enabled = true;
         }
-
-
-        private void ckbHienMKCu_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckbHienMKCu.Checked)
-            {
-                txtMatKhauCu.Properties.PasswordChar = '\0';
-            }
-            else
-            {
-                txtMatKhauCu.Properties.PasswordChar = '*';
-            }
-        }
-
-
-        private void ckbHienMKMoi_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckbHienMKMoi.Checked)
-            {
-                txtMatKhauMoi.Properties.PasswordChar = '\0';
-            }
-            else
-            {
-                txtMatKhauMoi.Properties.PasswordChar = '*';
-            }
-        }
     }
 }

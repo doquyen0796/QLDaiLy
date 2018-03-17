@@ -48,6 +48,8 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaDaiLy = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiepNhan.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiepNhan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).BeginInit();
@@ -56,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDaiLy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaDaiLy.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpNgayTiepNhan
@@ -149,6 +152,8 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
             this.txtEmail.TabIndex = 28;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtDiaChi
             // 
@@ -156,6 +161,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(294, 20);
             this.txtDiaChi.TabIndex = 27;
+            this.txtDiaChi.Leave += new System.EventHandler(this.txtDiaChi_Leave);
             // 
             // txtTenDaiLy
             // 
@@ -163,6 +169,7 @@
             this.txtTenDaiLy.Name = "txtTenDaiLy";
             this.txtTenDaiLy.Size = new System.Drawing.Size(294, 20);
             this.txtTenDaiLy.TabIndex = 26;
+            this.txtTenDaiLy.Leave += new System.EventHandler(this.txtTenDaiLy_Leave);
             // 
             // labelControl5
             // 
@@ -208,11 +215,30 @@
             // 
             this.ErrorChecker.ContainerControl = this;
             // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(438, 15);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(30, 13);
+            this.labelControl11.TabIndex = 39;
+            this.labelControl11.Text = "Mã ĐL";
+            this.labelControl11.Visible = false;
+            // 
+            // txtMaDaiLy
+            // 
+            this.txtMaDaiLy.Location = new System.Drawing.Point(474, 12);
+            this.txtMaDaiLy.Name = "txtMaDaiLy";
+            this.txtMaDaiLy.Size = new System.Drawing.Size(61, 20);
+            this.txtMaDaiLy.TabIndex = 40;
+            this.txtMaDaiLy.Visible = false;
+            // 
             // frmSuaDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 397);
+            this.Controls.Add(this.txtMaDaiLy);
+            this.Controls.Add(this.labelControl11);
             this.Controls.Add(this.dtpNgayTiepNhan);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl9);
@@ -244,6 +270,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDaiLy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaDaiLy.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +295,7 @@
         public DevExpress.XtraEditors.TextEdit txtEmail;
         public DevExpress.XtraEditors.TextEdit txtDiaChi;
         public DevExpress.XtraEditors.TextEdit txtTenDaiLy;
+        public DevExpress.XtraEditors.TextEdit txtMaDaiLy;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
     }
 }

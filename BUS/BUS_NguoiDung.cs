@@ -53,7 +53,7 @@ namespace BUS
                          .Where(u => u.Email == email && u.MaNguoiDung != mand)
                          .FirstOrDefault();
 
-            if (user != null)  // email đã tồn tại
+            if (user != null && !string.IsNullOrEmpty(email))  // email đã tồn tại
             {
                 return false;
             }
@@ -248,57 +248,96 @@ namespace BUS
             }
         }
 
-        // nho mat khau
+
+        /// <summary>
+        /// Nhớ mật khẩu
+        /// </summary>
+        /// <param name="TenDN"></param>
+        /// <param name="GN"></param>
         public void NhoMatKhau(string TenDN, int GN)
         {
             try
             {
-                var user = db.NguoiDungs.Where(u => u.TenDangNhap == TenDN).FirstOrDefault();
+                var user = db.NguoiDungs
+                             .Where(u => u.TenDangNhap == TenDN)
+                             .FirstOrDefault();
+
                 user.GhiNho = GN;
+
                 db.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
-        // kiem tra xem da co nho nguoi dung nao dang nhap truoc do chua.. neu co update ve 1
 
+        /// <summary>
+        /// Kiểm tra xem đã có nhớ người dùng nào đăng nhập trước đó chưa,
+        /// nếu có thì cập nhật về 1
+        /// </summary>
         public void DangNhapCu()
         {
             try
             {
-                var user = db.NguoiDungs.Where(u => u.GhiNho == 2).FirstOrDefault();
+                var user = db.NguoiDungs
+                             .Where(u => u.GhiNho == 2)
+                             .FirstOrDefault();
+
                 user.GhiNho = 1;
+
+                isLogin = true;
+                CurUser = user;
+
                 db.SaveChanges();
             }
             catch (Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
         }
 
-        // lay nguoi dung vua moi dang nhap
+        
+        /// <summary>
+        /// Lấy người dùng vừa mới đăng nhập
+        /// </summary>
+        /// <returns></returns>
         public DAL.NguoiDung LayNguoiDung()
         {
 
-            var user = db.NguoiDungs.Where(u => u.GhiNho == 2).FirstOrDefault();
+            var user = db.NguoiDungs
+                         .Where(u => u.GhiNho == 2)
+                         .FirstOrDefault();
             return user;
         }
 
-        // lay  nguoi dung da ghi nho dang nhap truoc do
+
+        /// <summary>
+        /// Lấy người dùng đã ghi nhớ đăng nhập trước đó
+        /// </summary>
+        /// <param name="TenDN"></param>
+        /// <returns></returns>
         public DAL.NguoiDung LayNguoiDungGN(string TenDN)
         {
-            var user = db.NguoiDungs.Where(u => u.GhiNho == 1 && u.TenDangNhap == TenDN).FirstOrDefault();
+            var user = db.NguoiDungs
+                         .Where(u => u.GhiNho == 1 && u.TenDangNhap == TenDN)
+                         .FirstOrDefault();
             return user;
         }
 
-        // lay nguoi dung voi ma ghi nho la môt hoac 2
+        
+        /// <summary>
+        /// Lấy người dùng với mã ghi nhớ là 1 hoặc 2
+        /// </summary>
+        /// <param name="TenDN"></param>
+        /// <param name="MK"></param>
+        /// <returns></returns>
         public DAL.NguoiDung NguoiDung12(string TenDN, string MK)
         {
-            var user = db.NguoiDungs.Where(u => u.GhiNho == 1 && u.MatKhau == MK || u.GhiNho == 2 && u.MatKhau == MK).FirstOrDefault();
+            var user = db.NguoiDungs
+                         .Where(u => u.GhiNho == 1 && u.MatKhau == MK || u.GhiNho == 2 && u.MatKhau == MK)
+                         .FirstOrDefault();
             return user;
         }
     }

@@ -54,6 +54,10 @@ namespace QLDaiLy
             cbQuan.Properties.DisplayMember = "TenQuan";
             cbQuan.Properties.ValueMember = "TenQuan";
             cbQuan.Properties.Columns.Add(new LookUpColumnInfo("TenQuan", "Quận"));
+
+
+            //  Date edit
+            dtpNgayTiepNhan.EditValue = DateTime.Now;
         }
 
 
@@ -166,18 +170,25 @@ namespace QLDaiLy
             ErrorChecker.Clear();
 
             BUS_DaiLy dl = new BUS_DaiLy();
-            dl.ThemDaiLy(txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
+            var flag = dl.ThemDaiLy(txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
 
-            var tb = MessageBox.Show("Bạn đã thêm đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (tb == DialogResult.OK)
+            if (flag == true)
             {
-                txtTenDaiLy.Text = string.Empty;
-                txtDiaChi.Text = string.Empty;
-                txtEmail.Text = string.Empty;
-                cbLoaiDL.EditValue = null;
-                cbQuan.EditValue = null;
+                var tb = MessageBox.Show("Bạn đã thêm đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (tb == DialogResult.OK)
+                {
+                    txtTenDaiLy.Text = string.Empty;
+                    txtDiaChi.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
+                    cbLoaiDL.EditValue = null;
+                    cbQuan.EditValue = null;
 
-                KhiThemDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                    KhiThemDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                }
+            }
+            else
+            {
+                MessageBox.Show("Email đã tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

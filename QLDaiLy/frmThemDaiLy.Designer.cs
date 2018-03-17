@@ -214,7 +214,7 @@
             // 
             // dtpNgayTiepNhan
             // 
-            this.dtpNgayTiepNhan.EditValue = new System.DateTime(2018, 3, 16, 22, 36, 5, 100);
+            this.dtpNgayTiepNhan.EditValue = new System.DateTime(2018, 3, 18, 1, 7, 37, 965);
             this.dtpNgayTiepNhan.Location = new System.Drawing.Point(144, 50);
             this.dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
             this.dtpNgayTiepNhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

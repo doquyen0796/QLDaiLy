@@ -131,6 +131,7 @@
             this.navbarXoa.Caption = "Xóa Đại Lý";
             this.navbarXoa.Name = "navbarXoa";
             this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
+            this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
             // 
             // navbarChucNangKhac
             // 
@@ -144,7 +145,7 @@
             this.dgvDaiLy.Location = new System.Drawing.Point(305, 88);
             this.dgvDaiLy.MainView = this.gridViewDaiLy;
             this.dgvDaiLy.Name = "dgvDaiLy";
-            this.dgvDaiLy.Size = new System.Drawing.Size(967, 286);
+            this.dgvDaiLy.Size = new System.Drawing.Size(967, 291);
             this.dgvDaiLy.TabIndex = 9;
             this.dgvDaiLy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDaiLy});
