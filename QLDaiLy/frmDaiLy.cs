@@ -44,11 +44,11 @@ namespace QLDaiLy
 
 
             // Make the grid read-only.
-            gridView1.OptionsBehavior.Editable = false;
+            gridViewDaiLy.OptionsBehavior.Editable = false;
             // Prevent the focused cell from being highlighted.
-            gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewDaiLy.OptionsSelection.EnableAppearanceFocusedCell = false;
             // Draw a dotted focus rectangle around the entire row.
-            gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewDaiLy.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
         }
 
 
@@ -63,6 +63,21 @@ namespace QLDaiLy
             {
                 daiLiesBindingSource.DataSource = db.DaiLies.Local.ToBindingList();
             }
+        }
+
+
+        private void navbarSua_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            //  https://stackoverflow.com/questions/12762617/how-to-get-the-selected-row-values-of-devexpress-xtragrid
+
+            frmSuaDaiLy frm = new frmSuaDaiLy();
+            frm.dtpNgayTiepNhan.EditValue = gridViewDaiLy.GetFocusedRowCellValue("NgayTiepNhan").ToString();
+            frm.txtTenDaiLy.Text = gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString();
+            frm.cbLoaiDL.EditValue = gridViewDaiLy.GetFocusedRowCellValue("Loai").ToString();
+            frm.cbQuan.EditValue = gridViewDaiLy.GetFocusedRowCellValue("Quan").ToString();
+            frm.txtDiaChi.Text = gridViewDaiLy.GetFocusedRowCellValue("DiaChi").ToString();
+            frm.txtEmail.Text = gridViewDaiLy.GetFocusedRowCellValue("Email").ToString();
+            frm.ShowDialog();
         }
     }
 }

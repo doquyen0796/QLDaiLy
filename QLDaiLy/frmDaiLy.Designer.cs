@@ -41,21 +41,22 @@
             this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
             this.dgvDaiLy = new DevExpress.XtraGrid.GridControl();
             this.daiLiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewDaiLy = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaDaiLy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenDaiLy = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLoaiDaiLy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTenLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayTiepNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTienNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDaiLy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daiLiesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDaiLy)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -123,6 +124,7 @@
             this.navbarSua.Caption = "Sửa Thông Tin Đại Lý";
             this.navbarSua.Name = "navbarSua";
             this.navbarSua.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarSua.SmallImage")));
+            this.navbarSua.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarSua_LinkClicked);
             // 
             // navbarXoa
             // 
@@ -140,31 +142,32 @@
             // 
             this.dgvDaiLy.DataSource = this.daiLiesBindingSource;
             this.dgvDaiLy.Location = new System.Drawing.Point(305, 88);
-            this.dgvDaiLy.MainView = this.gridView1;
+            this.dgvDaiLy.MainView = this.gridViewDaiLy;
             this.dgvDaiLy.Name = "dgvDaiLy";
             this.dgvDaiLy.Size = new System.Drawing.Size(967, 286);
             this.dgvDaiLy.TabIndex = 9;
             this.dgvDaiLy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewDaiLy});
             // 
             // daiLiesBindingSource
             // 
             this.daiLiesBindingSource.DataSource = typeof(DAL.DaiLy);
             // 
-            // gridView1
+            // gridViewDaiLy
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewDaiLy.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaDaiLy,
             this.colTenDaiLy,
-            this.colLoaiDaiLy,
+            this.colTenLoai,
             this.colDiaChi,
             this.colQuan,
             this.colEmail,
             this.colNgayTiepNhan,
-            this.colTienNo});
-            this.gridView1.GridControl = this.dgvDaiLy;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.colTienNo,
+            this.colLoai});
+            this.gridViewDaiLy.GridControl = this.dgvDaiLy;
+            this.gridViewDaiLy.Name = "gridViewDaiLy";
+            this.gridViewDaiLy.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             // 
             // colMaDaiLy
             // 
@@ -195,21 +198,21 @@
             this.colTenDaiLy.VisibleIndex = 0;
             this.colTenDaiLy.Width = 130;
             // 
-            // colLoaiDaiLy
+            // colTenLoai
             // 
-            this.colLoaiDaiLy.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            this.colLoaiDaiLy.AppearanceHeader.Options.UseFont = true;
-            this.colLoaiDaiLy.AppearanceHeader.Options.UseTextOptions = true;
-            this.colLoaiDaiLy.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colLoaiDaiLy.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colLoaiDaiLy.Caption = "Loại Đại Lý";
-            this.colLoaiDaiLy.FieldName = "LoaiDaiLy.TenLoai";
-            this.colLoaiDaiLy.Name = "colLoaiDaiLy";
-            this.colLoaiDaiLy.OptionsColumn.AllowEdit = false;
-            this.colLoaiDaiLy.OptionsColumn.ReadOnly = true;
-            this.colLoaiDaiLy.Visible = true;
-            this.colLoaiDaiLy.VisibleIndex = 1;
-            this.colLoaiDaiLy.Width = 157;
+            this.colTenLoai.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colTenLoai.AppearanceHeader.Options.UseFont = true;
+            this.colTenLoai.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTenLoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenLoai.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenLoai.Caption = "Loại Đại Lý";
+            this.colTenLoai.FieldName = "LoaiDaiLy.TenLoai";
+            this.colTenLoai.Name = "colTenLoai";
+            this.colTenLoai.OptionsColumn.AllowEdit = false;
+            this.colTenLoai.OptionsColumn.ReadOnly = true;
+            this.colTenLoai.Visible = true;
+            this.colTenLoai.VisibleIndex = 1;
+            this.colTenLoai.Width = 157;
             // 
             // colDiaChi
             // 
@@ -303,6 +306,17 @@
             this.colTienNo.VisibleIndex = 6;
             this.colTienNo.Width = 110;
             // 
+            // colLoai
+            // 
+            this.colLoai.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colLoai.AppearanceHeader.Options.UseFont = true;
+            this.colLoai.AppearanceHeader.Options.UseTextOptions = true;
+            this.colLoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colLoai.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colLoai.Caption = "Loại";
+            this.colLoai.FieldName = "Loai";
+            this.colLoai.Name = "colLoai";
+            // 
             // frmDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,7 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDaiLy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daiLiesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDaiLy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +353,7 @@
         private DevExpress.XtraNavBar.NavBarItem navbarXoa;
         private DevExpress.XtraNavBar.NavBarGroup navbarChucNangKhac;
         private DevExpress.XtraGrid.GridControl dgvDaiLy;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDaiLy;
         private System.Windows.Forms.BindingSource daiLiesBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMaDaiLy;
         private DevExpress.XtraGrid.Columns.GridColumn colTenDaiLy;
@@ -348,6 +362,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNgayTiepNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraGrid.Columns.GridColumn colTienNo;
-        private DevExpress.XtraGrid.Columns.GridColumn colLoaiDaiLy;
+        private DevExpress.XtraGrid.Columns.GridColumn colTenLoai;
+        private DevExpress.XtraGrid.Columns.GridColumn colLoai;
     }
 }

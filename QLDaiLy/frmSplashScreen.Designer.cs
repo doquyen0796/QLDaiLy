@@ -46,7 +46,7 @@
             // 
             // timerCheck
             // 
-            this.timerCheck.Interval = 3000;
+            this.timerCheck.Interval = 2000;
             this.timerCheck.Tick += new System.EventHandler(this.timerCheck_Tick);
             // 
             // backgroundWorking
