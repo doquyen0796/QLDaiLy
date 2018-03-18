@@ -161,6 +161,12 @@
     <Compile Include="frmThemDaiLy.Designer.cs">
       <DependentUpon>frmThemDaiLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemHangHoa.Designer.cs">
+      <DependentUpon>frmThemHangHoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThuTien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemDaiLy.resx">
       <DependentUpon>frmThemDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemHangHoa.resx">
+      <DependentUpon>frmThemHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThuTien.resx">
       <DependentUpon>frmThuTien.cs</DependentUpon>
