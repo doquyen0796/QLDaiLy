@@ -90,6 +90,7 @@
             this.txtTenHangHoa.Name = "txtTenHangHoa";
             this.txtTenHangHoa.Size = new System.Drawing.Size(311, 20);
             this.txtTenHangHoa.TabIndex = 4;
+            this.txtTenHangHoa.Leave += new System.EventHandler(this.txtTenHangHoa_Leave);
             // 
             // txtSoLuong
             // 
@@ -97,6 +98,8 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
+            this.txtSoLuong.Leave += new System.EventHandler(this.txtSoLuong_Leave);
             // 
             // txtDonGia
             // 
@@ -104,6 +107,8 @@
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(154, 20);
             this.txtDonGia.TabIndex = 6;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
+            this.txtDonGia.Leave += new System.EventHandler(this.txtDonGia_Leave);
             // 
             // labelControl5
             // 
@@ -150,6 +155,7 @@
             this.btnThem.Size = new System.Drawing.Size(136, 23);
             this.btnThem.TabIndex = 12;
             this.btnThem.Text = "Thêm hàng hóa";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnReset
             // 
@@ -160,6 +166,7 @@
             this.btnReset.Size = new System.Drawing.Size(136, 23);
             this.btnReset.TabIndex = 13;
             this.btnReset.Text = "Nhập lại";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // cbDVT
             // 
@@ -198,6 +205,7 @@
             this.Name = "frmThemHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Hàng Hóa";
+            this.Load += new System.EventHandler(this.frmThemHangHoa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenHangHoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).EndInit();

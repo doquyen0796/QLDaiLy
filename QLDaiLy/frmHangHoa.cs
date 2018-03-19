@@ -53,6 +53,7 @@ namespace QLDaiLy
         private void navbarThem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmThemHangHoa frm = new frmThemHangHoa();
+            frm.XuLyThemHangHoa += frmHangHoa_Load;
             frm.ShowDialog();
         }
     }
