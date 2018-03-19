@@ -56,5 +56,19 @@ namespace QLDaiLy
             frm.XuLyThemHangHoa += frmHangHoa_Load;
             frm.ShowDialog();
         }
+
+
+        private void navbarSua_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            //  https://stackoverflow.com/questions/12762617/how-to-get-the-selected-row-values-of-devexpress-xtragrid
+
+            frmSuaHangHoa frm = new frmSuaHangHoa();
+            frm.txtMaHH.Text = gridViewHangHoa.GetFocusedRowCellValue("MaHangHoa").ToString();
+            frm.txtTenHangHoa.Text = gridViewHangHoa.GetFocusedRowCellValue("TenHangHoa").ToString();
+            frm.cbDVT.EditValue = gridViewHangHoa.GetFocusedRowCellValue("DVT").ToString();
+            frm.txtDonGia.Text = gridViewHangHoa.GetFocusedRowCellValue("DonGia").ToString();
+            frm.XuLySuaHangHoa += frmHangHoa_Load;
+            frm.ShowDialog();
+        }
     }
 }

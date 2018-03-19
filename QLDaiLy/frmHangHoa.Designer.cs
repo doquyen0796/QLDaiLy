@@ -47,6 +47,7 @@
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLoaiDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -119,6 +120,7 @@
             this.navbarSua.Caption = "Sửa Thông Tin Hàng Hóa";
             this.navbarSua.Name = "navbarSua";
             this.navbarSua.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarSua.SmallImage")));
+            this.navbarSua.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarSua_LinkClicked);
             // 
             // navbarXoa
             // 
@@ -154,7 +156,8 @@
             this.colTenHangHoa,
             this.colDVT,
             this.colSoLuong,
-            this.colDonGia});
+            this.colDonGia,
+            this.colLoaiDVT});
             this.gridViewHangHoa.GridControl = this.dgvHangHoa;
             this.gridViewHangHoa.Name = "gridViewHangHoa";
             this.gridViewHangHoa.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
@@ -240,6 +243,20 @@
             this.colDonGia.VisibleIndex = 3;
             this.colDonGia.Width = 179;
             // 
+            // colLoaiDVT
+            // 
+            this.colLoaiDVT.AppearanceCell.Options.UseTextOptions = true;
+            this.colLoaiDVT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colLoaiDVT.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colLoaiDVT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colLoaiDVT.AppearanceHeader.Options.UseFont = true;
+            this.colLoaiDVT.AppearanceHeader.Options.UseTextOptions = true;
+            this.colLoaiDVT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colLoaiDVT.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colLoaiDVT.Caption = "Mã DVT";
+            this.colLoaiDVT.FieldName = "DVT";
+            this.colLoaiDVT.Name = "colLoaiDVT";
+            // 
             // frmHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +300,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colSoLuong;
         private DevExpress.XtraGrid.Columns.GridColumn colDonGia;
+        private DevExpress.XtraGrid.Columns.GridColumn colLoaiDVT;
     }
 }

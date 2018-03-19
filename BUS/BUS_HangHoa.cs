@@ -46,5 +46,36 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// Chỉnh sửa thông tin hàng hóa
+        /// </summary>
+        /// <param name="mahh"></param>
+        /// <param name="tenhh"></param>
+        /// <param name="dvt"></param>
+        /// <param name="dongia"></param>
+        /// <returns></returns>
+        public bool SuaHangHoa(int mahh, string tenhh, int dvt, float dongia)
+        {
+            try
+            {
+                var dl = db.HangHoas
+                           .Where(u => u.MaHangHoa == mahh)
+                           .FirstOrDefault();
+
+                dl.TenHangHoa = tenhh;
+                dl.DVT = dvt;
+                dl.DonGia = dongia;
+
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

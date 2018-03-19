@@ -299,6 +299,8 @@
             this.colTienNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTienNo.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTienNo.Caption = "Tiền Nợ";
+            this.colTienNo.DisplayFormat.FormatString = "{0:N0}";
+            this.colTienNo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colTienNo.FieldName = "TienNo";
             this.colTienNo.Name = "colTienNo";
             this.colTienNo.OptionsColumn.AllowEdit = false;

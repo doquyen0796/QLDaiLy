@@ -93,6 +93,13 @@ namespace QLDaiLy
                 btnThem.Enabled = false;
                 return;
             }
+            if (float.Parse(txtDonGia.Text) < 500)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtDonGia, "Đơn giá không hợp lệ.");
+                btnThem.Enabled = false;
+                return;
+            }
             ErrorChecker.Clear();
             btnThem.Enabled = true;
         }
