@@ -40,7 +40,9 @@ namespace QLDaiLy
             dbContext.DaiLies.LoadAsync().ContinueWith(loadTask =>
             {
                 // Bind data to control when loading complete
-                daiLiesBindingSource.DataSource = dbContext.DaiLies.Local.ToBindingList();
+                //daiLiesBindingSource.DataSource = dbContext.DaiLies.Local.ToBindingList();
+
+                daiLiesBindingSource.DataSource = dbContext.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
@@ -92,7 +94,7 @@ namespace QLDaiLy
 
         private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            var flag = MessageBox.Show(string.Format("Bạn có chắc chắn muốn xóa đại lý {0} ?", gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString()), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var flag = MessageBox.Show(string.Format("Bạn có chắc chắn muốn ngừng kinh doanh đại lý {0} ?", gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString()), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (flag == DialogResult.Yes)
             {
                 BUS_DaiLy dl = new BUS_DaiLy();
@@ -101,7 +103,7 @@ namespace QLDaiLy
 
                 if (tb == true)
                 {
-                    MessageBox.Show("Bạn đã xóa đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bạn đã ngừng kinh doanh đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.FormLoad();
                 }
             }

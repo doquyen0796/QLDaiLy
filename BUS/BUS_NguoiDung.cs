@@ -97,7 +97,8 @@ namespace BUS
                     Email = email,
                     SoDienThoai = sodienthoai,
                     DiaChi = diachi,
-                    Loai = -1   //  nhân viên lúc chưa được admin duyệt
+                    Loai = -1,   //  nhân viên lúc chưa được admin duyệt
+                    TinhTrang = 1
                 };
 
                 db.NguoiDungs.Add(u);

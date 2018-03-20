@@ -29,6 +29,7 @@ namespace DAL
         public Nullable<System.DateTime> NgayTiepNhan { get; set; }
         public string Email { get; set; }
         public Nullable<double> TienNo { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     
         public virtual LoaiDaiLy LoaiDaiLy { get; set; }
         public virtual Quan Quan1 { get; set; }

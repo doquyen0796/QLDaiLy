@@ -33,7 +33,8 @@ namespace BUS
                     TenHangHoa = tenhanghoa,
                     DVT = dvt,
                     SoLuong = soluong,
-                    DonGia = dongia
+                    DonGia = dongia,
+                    TinhTrang = 1
                 };
 
                 db.HangHoas.Add(h);

@@ -91,7 +91,8 @@ namespace BUS
                         Quan = quan,
                         Email = email,
                         TienNo = 0,
-                        NgayTiepNhan = ngaytiepnhan
+                        NgayTiepNhan = ngaytiepnhan,
+                        TinhTrang = 1
                     };
 
                     db.DaiLies.Add(u);
@@ -167,7 +168,7 @@ namespace BUS
                            .Where(u => u.MaDaiLy == madaily)
                            .FirstOrDefault();
 
-                db.DaiLies.Remove(dl);
+                dl.TinhTrang = 0;
                 db.SaveChanges();
 
                 return true;

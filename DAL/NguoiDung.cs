@@ -22,5 +22,6 @@ namespace DAL
         public string DiaChi { get; set; }
         public Nullable<int> Loai { get; set; }
         public Nullable<int> GhiNho { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     }
 }

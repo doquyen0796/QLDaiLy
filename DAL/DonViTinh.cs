@@ -22,6 +22,7 @@ namespace DAL
     
         public int MaDVT { get; set; }
         public string TenDVT { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HangHoa> HangHoas { get; set; }
