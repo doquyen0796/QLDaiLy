@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
+using BUS;
 
 namespace QLDaiLy
 {
@@ -31,7 +32,9 @@ namespace QLDaiLy
             dbContext.HangHoas.LoadAsync().ContinueWith(loadTask =>
             {
                 // Bind data to control when loading complete
-                hangHoasBindingSource.DataSource = dbContext.HangHoas.Local.ToBindingList();
+                //hangHoasBindingSource.DataSource = dbContext.HangHoas.Local.ToBindingList();
+
+                hangHoasBindingSource.DataSource = dbContext.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
@@ -69,6 +72,34 @@ namespace QLDaiLy
             frm.txtDonGia.Text = gridViewHangHoa.GetFocusedRowCellValue("DonGia").ToString();
             frm.XuLySuaHangHoa += frmHangHoa_Load;
             frm.ShowDialog();
+        }
+
+
+        private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            string tenhh = gridViewHangHoa.GetFocusedRowCellValue("TenHangHoa").ToString();
+
+            var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn ngừng kinh doanh \n {0} ?", tenhh),
+                     "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (tb == DialogResult.Yes)
+            {
+                BUS_HangHoa hh = new BUS_HangHoa();
+                int mahh = int.Parse(gridViewHangHoa.GetFocusedRowCellValue("MaHangHoa").ToString());
+                var flag = hh.XoaHangHoa(mahh);
+
+                if (flag == true)
+                {
+                    MessageBox.Show(string.Format("Bạn đã ngừng kinh doanh \n {0} \n thành công.", tenhh),
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.FormLoad();
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

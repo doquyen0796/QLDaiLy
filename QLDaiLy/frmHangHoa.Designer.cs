@@ -127,6 +127,7 @@
             this.navbarXoa.Caption = "Ngừng Kinh Doanh";
             this.navbarXoa.Name = "navbarXoa";
             this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
+            this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
             // 
             // navbarChucNangKhac
             // 

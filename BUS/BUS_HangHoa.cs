@@ -78,5 +78,30 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// Xóa (ngừng kinh doanh) hàng hóa
+        /// </summary>
+        /// <param name="mahh"></param>
+        /// <returns></returns>
+        public bool XoaHangHoa(int mahh)
+        {
+            try
+            {
+                var hh = db.HangHoas
+                           .Where(p => p.MaHangHoa == mahh)
+                           .FirstOrDefault();
+
+                hh.TinhTrang = 0;
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

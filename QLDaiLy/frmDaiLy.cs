@@ -64,13 +64,15 @@ namespace QLDaiLy
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
             var tukhoa = txtTuKhoa.Text;
-            var query = db.DaiLies.Where(dl => dl.TenDaiLy.ToLower().Contains(tukhoa.ToLower())).ToList();
+            var query = db.DaiLies
+                          .Where(dl => dl.TenDaiLy.ToLower().Contains(tukhoa.ToLower()) && dl.TinhTrang == 1)
+                          .ToList();
 
             daiLiesBindingSource.DataSource = query;
 
             if (string.IsNullOrEmpty(txtTuKhoa.Text))
             {
-                daiLiesBindingSource.DataSource = db.DaiLies.Local.ToBindingList();
+                daiLiesBindingSource.DataSource = db.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
             }
         }
 

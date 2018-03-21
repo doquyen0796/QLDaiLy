@@ -98,7 +98,7 @@
           <Property Name="TongSoDaiLy" Type="int" />
           <Property Name="SoDaiLyToiDa" Type="int" />
         </EntityType>
-        <Association Name="FK__CTPhieuXu__MaHan__30F848ED">
+        <Association Name="FK__CTPhieuXu__MaHan__2D27B809">
           <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
           <End Role="CTPhieuXuatHang" Type="Self.CTPhieuXuatHang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +110,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTPhieuXu__MaPhi__300424B4">
+        <Association Name="FK__CTPhieuXu__MaPhi__2E1BDC42">
           <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="1" />
           <End Role="CTPhieuXuatHang" Type="Self.CTPhieuXuatHang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -122,7 +122,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaiLy__Loai__21B6055D">
+        <Association Name="FK__DaiLy__Loai__2F10007B">
           <End Role="LoaiDaiLy" Type="Self.LoaiDaiLy" Multiplicity="0..1" />
           <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -134,7 +134,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaiLy__Quan__22AA2996">
+        <Association Name="FK__DaiLy__Quan__300424B4">
           <End Role="Quan" Type="Self.Quan" Multiplicity="0..1" />
           <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,7 +146,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HangHoa__DVT__29572725">
+        <Association Name="FK__HangHoa__DVT__30F848ED">
           <End Role="DonViTinh" Type="Self.DonViTinh" Multiplicity="0..1" />
           <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -158,7 +158,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuThuT__MaDai__34C8D9D1">
+        <Association Name="FK__PhieuThuT__MaDai__31EC6D26">
           <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="0..1" />
           <End Role="PhieuThuTien" Type="Self.PhieuThuTien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -170,7 +170,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuXuat__MaDai__2D27B809">
+        <Association Name="FK__PhieuXuat__MaDai__32E0915F">
           <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="0..1" />
           <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -192,31 +192,31 @@
           <EntitySet Name="PhieuThuTien" EntityType="Self.PhieuThuTien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhieuXuatHang" EntityType="Self.PhieuXuatHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Quan" EntityType="Self.Quan" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CTPhieuXu__MaHan__30F848ED" Association="Self.FK__CTPhieuXu__MaHan__30F848ED">
+          <AssociationSet Name="FK__CTPhieuXu__MaHan__2D27B809" Association="Self.FK__CTPhieuXu__MaHan__2D27B809">
             <End Role="HangHoa" EntitySet="HangHoa" />
             <End Role="CTPhieuXuatHang" EntitySet="CTPhieuXuatHang" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTPhieuXu__MaPhi__300424B4" Association="Self.FK__CTPhieuXu__MaPhi__300424B4">
+          <AssociationSet Name="FK__CTPhieuXu__MaPhi__2E1BDC42" Association="Self.FK__CTPhieuXu__MaPhi__2E1BDC42">
             <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
             <End Role="CTPhieuXuatHang" EntitySet="CTPhieuXuatHang" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaiLy__Loai__21B6055D" Association="Self.FK__DaiLy__Loai__21B6055D">
+          <AssociationSet Name="FK__DaiLy__Loai__2F10007B" Association="Self.FK__DaiLy__Loai__2F10007B">
             <End Role="LoaiDaiLy" EntitySet="LoaiDaiLy" />
             <End Role="DaiLy" EntitySet="DaiLy" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaiLy__Quan__22AA2996" Association="Self.FK__DaiLy__Quan__22AA2996">
+          <AssociationSet Name="FK__DaiLy__Quan__300424B4" Association="Self.FK__DaiLy__Quan__300424B4">
             <End Role="Quan" EntitySet="Quan" />
             <End Role="DaiLy" EntitySet="DaiLy" />
           </AssociationSet>
-          <AssociationSet Name="FK__HangHoa__DVT__29572725" Association="Self.FK__HangHoa__DVT__29572725">
+          <AssociationSet Name="FK__HangHoa__DVT__30F848ED" Association="Self.FK__HangHoa__DVT__30F848ED">
             <End Role="DonViTinh" EntitySet="DonViTinh" />
             <End Role="HangHoa" EntitySet="HangHoa" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuThuT__MaDai__34C8D9D1" Association="Self.FK__PhieuThuT__MaDai__34C8D9D1">
+          <AssociationSet Name="FK__PhieuThuT__MaDai__31EC6D26" Association="Self.FK__PhieuThuT__MaDai__31EC6D26">
             <End Role="DaiLy" EntitySet="DaiLy" />
             <End Role="PhieuThuTien" EntitySet="PhieuThuTien" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuXuat__MaDai__2D27B809" Association="Self.FK__PhieuXuat__MaDai__2D27B809">
+          <AssociationSet Name="FK__PhieuXuat__MaDai__32E0915F" Association="Self.FK__PhieuXuat__MaDai__32E0915F">
             <End Role="DaiLy" EntitySet="DaiLy" />
             <End Role="PhieuXuatHang" EntitySet="PhieuXuatHang" />
           </AssociationSet>
