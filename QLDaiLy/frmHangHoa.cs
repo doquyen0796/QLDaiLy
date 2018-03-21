@@ -101,5 +101,21 @@ namespace QLDaiLy
                 return;
             }
         }
+
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.HangHoas
+                          .Where(hh => hh.TenHangHoa.ToLower().Contains(tukhoa.ToLower()) && hh.TinhTrang == 1)
+                          .ToList();
+
+            hangHoasBindingSource.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                hangHoasBindingSource.DataSource = db.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+            }
+        }
     }
 }
