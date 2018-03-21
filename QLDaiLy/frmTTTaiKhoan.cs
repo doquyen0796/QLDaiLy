@@ -20,11 +20,13 @@ namespace QLDaiLy
             InitializeComponent();
         }
 
+
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             frmDoiMatKhau frmDMK = new frmDoiMatKhau();
             frmDMK.ShowDialog();
         }
+
 
         private void frmTTTaiKhoan_Load(object sender, EventArgs e)
         {
@@ -36,6 +38,7 @@ namespace QLDaiLy
             txtSDT.Text = user.SoDienThoai.ToString();
             txtDiaChi.Text = user.DiaChi.ToString();
         }
+
 
         private void btnLuuTT_Click(object sender, EventArgs e)
         {
@@ -51,10 +54,6 @@ namespace QLDaiLy
                     {
                         MessageBox.Show("Lưu thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else
-                    {
-                        MessageBox.Show("Email đã tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
                 else
                 {
@@ -63,6 +62,7 @@ namespace QLDaiLy
             }
         }
 
+
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsWhiteSpace(e.KeyChar) == true)
@@ -70,6 +70,7 @@ namespace QLDaiLy
                 e.Handled = true;
             }
         }
+
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -89,42 +90,42 @@ namespace QLDaiLy
                 ErrorChecker.SetError(txtSDT, "Số điện thoại không hợp lệ.");
                 return false;
             }
+
+            //  Kiểm tra Email hợp lệ
+            //  https://stackoverflow.com/a/19475049/7385686
+            //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
+            //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions
+
+            string pattern = @"\A[a-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,4}\z";
+            BUS_NguoiDung nd = new BUS_NguoiDung();
+            int mand = BUS_NguoiDung.CurUser.MaNguoiDung;
+
+            if (txtEmail.Text.Length == 0)
+            {
+                ErrorChecker.Clear();
+                return true;
+            }
+            if (Regex.IsMatch(txtEmail.Text, pattern))
+            {
+                if (nd.KTEmailTonTai(mand, txtEmail.Text) == false)
+                {
+                    ErrorChecker.BlinkRate = 500;
+                    ErrorChecker.SetError(txtEmail, "Email đã tồn tại trong hệ thống.");
+                    return false;
+                }
+            }
+            if (Regex.IsMatch(txtEmail.Text, pattern) == false)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
+                return false;
+            }
             else
             {
                 ErrorChecker.Clear();
             }
 
             return true;
-        }
-
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            //  https://stackoverflow.com/a/19475049/7385686
-            //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
-            //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions
-
-            string pattern = @"\A[a-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,4}\z";
-            if (Regex.IsMatch(txtEmail.Text, pattern))
-            {
-                ErrorChecker.Clear();
-                btnLuuTT.Enabled = true;
-            }
-            else
-            {
-                if (txtEmail.Text.Length == 0)
-                {
-                    ErrorChecker.Clear();
-                    btnLuuTT.Enabled = true;
-                }
-                else
-                {
-                    ErrorChecker.BlinkRate = 500;
-                    ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
-                    btnLuuTT.Enabled = false;
-                    return;
-                }
-            }
         }
     }
 }

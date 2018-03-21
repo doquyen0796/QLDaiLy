@@ -61,72 +61,75 @@ namespace QLDaiLy
         }
 
 
-        private void txtTenDaiLy_Leave(object sender, EventArgs e)
+        private bool KiemTraDuLieu()
         {
+            ErrorChecker.Clear();  //  giả sử ban đầu mọi dữ liệu là đúng
+
+            BUS_DaiLy dl = new BUS_DaiLy();
             if (string.IsNullOrWhiteSpace(txtTenDaiLy.Text) || string.IsNullOrEmpty(txtTenDaiLy.Text))
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtTenDaiLy, "Không được để trống.");
-                btnThem.Enabled = false;
-                return;
+                return false;
             }
-            ErrorChecker.Clear();
-            btnThem.Enabled = true;
-        }
-
-
-        private void txtDiaChi_Leave(object sender, EventArgs e)
-        {
+            if (dl.KiemTraTenDaiLy(txtTenDaiLy.Text) == false)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtTenDaiLy, "Tên đại lý đã tồn tại.");
+                return false;
+            }
+            if (cbLoaiDL.EditValue == null)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(cbLoaiDL, "Không được để trống.");
+                return false;
+            }
+            if (cbQuan.EditValue == null)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(cbQuan, "Không được để trống.");
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(txtDiaChi.Text) || string.IsNullOrEmpty(txtDiaChi.Text))
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtDiaChi, "Không được để trống.");
-                btnThem.Enabled = false;
-                return;
+                return false;
             }
-            ErrorChecker.Clear();
-            btnThem.Enabled = true;
-        }
 
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
+            //  Kiểm tra Email hợp lệ
             //  https://stackoverflow.com/a/19475049/7385686
             //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
             //  https://docs.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions
 
             string pattern = @"\A[a-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,4}\z";
+
+            if (txtEmail.Text.Length == 0)
+            {
+                ErrorChecker.Clear();
+                return true;
+            }
             if (Regex.IsMatch(txtEmail.Text, pattern))
             {
-                BUS_DaiLy nd = new BUS_DaiLy();
-                if (nd.KTEmailTonTai(txtEmail.Text))
-                {
-                    ErrorChecker.Clear();
-                    btnThem.Enabled = true;
-                }
-                else
+                if (dl.KTEmailTonTai(txtEmail.Text) == false)
                 {
                     ErrorChecker.BlinkRate = 500;
                     ErrorChecker.SetError(txtEmail, "Email đã tồn tại trong hệ thống.");
-                    btnThem.Enabled = false;
-                    return;
+                    return false;
                 }
+            }
+            if (Regex.IsMatch(txtEmail.Text, pattern) == false)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
+                return false;
             }
             else
             {
-                if (txtEmail.Text.Length == 0)
-                {
-                    ErrorChecker.Clear();
-                    btnThem.Enabled = true;
-                }
-                else
-                {
-                    ErrorChecker.BlinkRate = 500;
-                    ErrorChecker.SetError(txtEmail, "Email không hợp lệ.");
-                    btnThem.Enabled = false;
-                    return;
-                }
+                ErrorChecker.Clear();
             }
+
+            return true;
         }
 
 
@@ -141,54 +144,29 @@ namespace QLDaiLy
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTenDaiLy.Text) || string.IsNullOrEmpty(txtTenDaiLy.Text))
+            if (KiemTraDuLieu())
             {
-                ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(txtTenDaiLy, "Không được để trống.");
-                btnThem.Enabled = false;
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtDiaChi.Text) || string.IsNullOrEmpty(txtDiaChi.Text))
-            {
-                ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(txtDiaChi, "Không được để trống.");
-                btnThem.Enabled = false;
-                return;
-            }
-            if (cbLoaiDL.EditValue == null)
-            {
-                ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(cbLoaiDL, "Không được để trống.");
-                return;
-            }
-            if (cbQuan.EditValue == null)
-            {
-                ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(cbQuan, "Không được để trống.");
-                return;
-            }
-            ErrorChecker.Clear();
+                BUS_DaiLy dl = new BUS_DaiLy();
+                var flag = dl.ThemDaiLy(txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
 
-            BUS_DaiLy dl = new BUS_DaiLy();
-            var flag = dl.ThemDaiLy(txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
-
-            if (flag == true)
-            {
-                var tb = MessageBox.Show("Bạn đã thêm đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (tb == DialogResult.OK)
+                if (flag == true)
                 {
-                    txtTenDaiLy.Text = string.Empty;
-                    txtDiaChi.Text = string.Empty;
-                    txtEmail.Text = string.Empty;
-                    cbLoaiDL.EditValue = null;
-                    cbQuan.EditValue = null;
+                    var tb = MessageBox.Show("Bạn đã thêm đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (tb == DialogResult.OK)
+                    {
+                        txtTenDaiLy.Text = string.Empty;
+                        txtDiaChi.Text = string.Empty;
+                        txtEmail.Text = string.Empty;
+                        cbLoaiDL.EditValue = null;
+                        cbQuan.EditValue = null;
 
-                    KhiThemDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                        KhiThemDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Email đã tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    MessageBox.Show("Email đã tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

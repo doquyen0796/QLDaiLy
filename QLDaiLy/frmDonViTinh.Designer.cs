@@ -39,17 +39,16 @@
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
             this.dgvDonViTinh = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.donViTinhsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewDVT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenDVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHangHoas = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonViTinh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donViTinhsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDVT)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTuKhoa
@@ -107,12 +106,14 @@
             this.navbarThem.Caption = "Thêm Đơn Vị Tính";
             this.navbarThem.Name = "navbarThem";
             this.navbarThem.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarThem.SmallImage")));
+            this.navbarThem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarThem_LinkClicked);
             // 
             // navbarSua
             // 
             this.navbarSua.Caption = "Sửa Thông Tin Đơn Vị Tính";
             this.navbarSua.Name = "navbarSua";
             this.navbarSua.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarSua.SmallImage")));
+            this.navbarSua.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarSua_LinkClicked);
             // 
             // navbarChucNangKhac
             // 
@@ -124,47 +125,55 @@
             // 
             this.dgvDonViTinh.DataSource = this.donViTinhsBindingSource;
             this.dgvDonViTinh.Location = new System.Drawing.Point(309, 108);
-            this.dgvDonViTinh.MainView = this.gridView1;
+            this.dgvDonViTinh.MainView = this.gridViewDVT;
             this.dgvDonViTinh.Name = "dgvDonViTinh";
             this.dgvDonViTinh.Size = new System.Drawing.Size(800, 326);
             this.dgvDonViTinh.TabIndex = 10;
             this.dgvDonViTinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMaDVT,
-            this.colTenDVT,
-            this.colHangHoas});
-            this.gridView1.GridControl = this.dgvDonViTinh;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.gridViewDVT});
             // 
             // donViTinhsBindingSource
             // 
             this.donViTinhsBindingSource.DataSource = typeof(DAL.DonViTinh);
             // 
+            // gridViewDVT
+            // 
+            this.gridViewDVT.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMaDVT,
+            this.colTenDVT});
+            this.gridViewDVT.GridControl = this.dgvDonViTinh;
+            this.gridViewDVT.Name = "gridViewDVT";
+            this.gridViewDVT.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            // 
             // colMaDVT
             // 
+            this.colMaDVT.AppearanceCell.Options.UseTextOptions = true;
+            this.colMaDVT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaDVT.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaDVT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colMaDVT.AppearanceHeader.Options.UseFont = true;
+            this.colMaDVT.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMaDVT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaDVT.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaDVT.Caption = "Mã đơn vị tính";
             this.colMaDVT.FieldName = "MaDVT";
             this.colMaDVT.Name = "colMaDVT";
-            this.colMaDVT.Visible = true;
-            this.colMaDVT.VisibleIndex = 0;
             // 
             // colTenDVT
             // 
+            this.colTenDVT.AppearanceCell.Options.UseTextOptions = true;
+            this.colTenDVT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenDVT.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenDVT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colTenDVT.AppearanceHeader.Options.UseFont = true;
+            this.colTenDVT.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTenDVT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenDVT.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenDVT.Caption = "Tên đơn vị tính";
             this.colTenDVT.FieldName = "TenDVT";
             this.colTenDVT.Name = "colTenDVT";
             this.colTenDVT.Visible = true;
-            this.colTenDVT.VisibleIndex = 1;
-            // 
-            // colHangHoas
-            // 
-            this.colHangHoas.FieldName = "HangHoas";
-            this.colHangHoas.Name = "colHangHoas";
-            this.colHangHoas.Visible = true;
-            this.colHangHoas.VisibleIndex = 2;
+            this.colTenDVT.VisibleIndex = 0;
             // 
             // frmDonViTinh
             // 
@@ -178,12 +187,13 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "frmDonViTinh";
             this.Text = "Đơn Vị Tính";
+            this.Load += new System.EventHandler(this.frmDonViTinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonViTinh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donViTinhsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDVT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,10 +210,9 @@
         private DevExpress.XtraNavBar.NavBarItem navbarSua;
         private DevExpress.XtraNavBar.NavBarGroup navbarChucNangKhac;
         private DevExpress.XtraGrid.GridControl dgvDonViTinh;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDVT;
         private System.Windows.Forms.BindingSource donViTinhsBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMaDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTenDVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colHangHoas;
     }
 }

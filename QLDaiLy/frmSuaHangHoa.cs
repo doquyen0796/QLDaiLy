@@ -56,38 +56,40 @@ namespace QLDaiLy
         }
 
 
-        private void txtTenHangHoa_Leave(object sender, EventArgs e)
+        private bool KiemTraDuLieu()
         {
+            ErrorChecker.Clear();  //  giả sử ban đầu mọi dữ liệu là đúng
+
             if (string.IsNullOrWhiteSpace(txtTenHangHoa.Text) || string.IsNullOrEmpty(txtTenHangHoa.Text))
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtTenHangHoa, "Không được để trống.");
-                btnSua.Enabled = false;
-                return;
+                return false;
             }
-            ErrorChecker.Clear();
-            btnSua.Enabled = true;
-        }
-
-
-        private void txtDonGia_Leave(object sender, EventArgs e)
-        {
             if (string.IsNullOrWhiteSpace(txtDonGia.Text) || string.IsNullOrEmpty(txtDonGia.Text))
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtDonGia, "Không được để trống.");
-                btnSua.Enabled = false;
-                return;
+                return false;
             }
             if (float.Parse(txtDonGia.Text) < 500)
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtDonGia, "Đơn giá không hợp lệ.");
-                btnSua.Enabled = false;
-                return;
+                return false;
             }
-            ErrorChecker.Clear();
-            btnSua.Enabled = true;
+            if (cbDVT.EditValue == null)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(cbDVT, "Không được để trống.");
+                return false;
+            }
+            else
+            {
+                ErrorChecker.Clear();
+            }
+
+            return true;
         }
 
 
@@ -110,29 +112,24 @@ namespace QLDaiLy
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (cbDVT.EditValue == null)
+            if (KiemTraDuLieu())
             {
-                ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(cbDVT, "Không được để trống.");
-                return;
-            }
-            ErrorChecker.Clear();
-
-            var tb = MessageBox.Show("Bạn có chắc chắn muốn chỉnh sửa thông tin của hàng hóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (tb == DialogResult.Yes)
-            {
-                BUS_HangHoa hh = new BUS_HangHoa();
-                var flag = hh.SuaHangHoa(int.Parse(txtMaHH.Text), txtTenHangHoa.Text, int.Parse(cbDVT.EditValue.ToString()), float.Parse(txtDonGia.Text));
-                if (flag == true)
+                var tb = MessageBox.Show("Bạn có chắc chắn muốn chỉnh sửa thông tin của hàng hóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (tb == DialogResult.Yes)
                 {
-                    MessageBox.Show("Bạn đã chỉnh sửa thông tin hàng hóa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BUS_HangHoa hh = new BUS_HangHoa();
+                    var flag = hh.SuaHangHoa(int.Parse(txtMaHH.Text), txtTenHangHoa.Text, int.Parse(cbDVT.EditValue.ToString()), float.Parse(txtDonGia.Text));
+                    if (flag == true)
+                    {
+                        MessageBox.Show("Bạn đã chỉnh sửa thông tin hàng hóa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    KhiSuaHangHoa(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                        KhiSuaHangHoa(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                    }
                 }
-            }
-            else
-            {
-                return;
+                else
+                {
+                    return;
+                }
             }
         }
     }

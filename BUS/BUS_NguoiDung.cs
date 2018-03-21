@@ -173,23 +173,17 @@ namespace BUS
         {
             try
             {
-                if (KTEmailTonTai(mand, email))
-                {
-                    var user = db.NguoiDungs
-                             .Where(u => u.MaNguoiDung == mand)
-                             .FirstOrDefault();
+                var user = db.NguoiDungs
+                            .Where(u => u.MaNguoiDung == mand)
+                            .FirstOrDefault();
 
-                    user.Email = email;
-                    user.SoDienThoai = sodienthoai;
-                    user.DiaChi = diachi;
+                user.Email = email;
+                user.SoDienThoai = sodienthoai;
+                user.DiaChi = diachi;
 
-                    db.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                db.SaveChanges();
+                return true;
+
             }
             catch (Exception ex)
             {

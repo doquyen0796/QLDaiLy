@@ -68,6 +68,36 @@ namespace BUS
         }
 
 
+        public bool KiemTraTenDaiLy(string tendl)
+        {
+            var dl = db.DaiLies
+                       .Where(d => d.TenDaiLy == tendl && d.TinhTrang == 1)
+                       .FirstOrDefault();
+
+            if (dl != null)  //  đại lý đã tồn tại
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        public bool KiemTraTenDaiLy(int madl, string tendl)
+        {
+            var dl = db.DaiLies
+                       .Where(d => d.MaDaiLy != madl && d.TenDaiLy == tendl && d.TinhTrang == 1)
+                       .FirstOrDefault();
+
+            if (dl != null)  //  đại lý đã tồn tại
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
         /// <summary>
         /// Thêm mới đại lý
         /// </summary>

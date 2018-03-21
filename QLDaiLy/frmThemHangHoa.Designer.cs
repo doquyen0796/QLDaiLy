@@ -90,7 +90,6 @@
             this.txtTenHangHoa.Name = "txtTenHangHoa";
             this.txtTenHangHoa.Size = new System.Drawing.Size(311, 20);
             this.txtTenHangHoa.TabIndex = 4;
-            this.txtTenHangHoa.Leave += new System.EventHandler(this.txtTenHangHoa_Leave);
             // 
             // txtSoLuong
             // 
@@ -99,7 +98,6 @@
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
-            this.txtSoLuong.Leave += new System.EventHandler(this.txtSoLuong_Leave);
             // 
             // txtDonGia
             // 
@@ -108,7 +106,6 @@
             this.txtDonGia.Size = new System.Drawing.Size(154, 20);
             this.txtDonGia.TabIndex = 6;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
-            this.txtDonGia.Leave += new System.EventHandler(this.txtDonGia_Leave);
             // 
             // labelControl5
             // 

@@ -124,7 +124,6 @@
             this.txtTenHangHoa.Name = "txtTenHangHoa";
             this.txtTenHangHoa.Size = new System.Drawing.Size(277, 20);
             this.txtTenHangHoa.TabIndex = 38;
-            this.txtTenHangHoa.Leave += new System.EventHandler(this.txtTenHangHoa_Leave);
             // 
             // cbDVT
             // 
@@ -142,7 +141,6 @@
             this.txtDonGia.Size = new System.Drawing.Size(156, 20);
             this.txtDonGia.TabIndex = 40;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
-            this.txtDonGia.Leave += new System.EventHandler(this.txtDonGia_Leave);
             // 
             // btnSua
             // 

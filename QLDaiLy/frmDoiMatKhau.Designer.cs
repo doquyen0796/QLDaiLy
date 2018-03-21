@@ -71,8 +71,7 @@
             this.txtXacNhanMK.Name = "txtXacNhanMK";
             this.txtXacNhanMK.Properties.PasswordChar = '*';
             this.txtXacNhanMK.Size = new System.Drawing.Size(204, 20);
-            this.txtXacNhanMK.TabIndex = 14;
-            this.txtXacNhanMK.Leave += new System.EventHandler(this.txtXacNhanMK_Leave);
+            this.txtXacNhanMK.TabIndex = 15;
             // 
             // txtMatKhauCu
             // 
@@ -81,7 +80,6 @@
             this.txtMatKhauCu.Properties.PasswordChar = '*';
             this.txtMatKhauCu.Size = new System.Drawing.Size(204, 20);
             this.txtMatKhauCu.TabIndex = 13;
-            this.txtMatKhauCu.Leave += new System.EventHandler(this.txtMatKhauCu_Leave);
             // 
             // labelControl3
             // 
@@ -122,8 +120,7 @@
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
             this.txtMatKhauMoi.Properties.PasswordChar = '*';
             this.txtMatKhauMoi.Size = new System.Drawing.Size(204, 20);
-            this.txtMatKhauMoi.TabIndex = 19;
-            this.txtMatKhauMoi.Leave += new System.EventHandler(this.txtMatKhauMoi_Leave);
+            this.txtMatKhauMoi.TabIndex = 14;
             // 
             // btnDoiMatKhau
             // 
@@ -132,7 +129,7 @@
             this.btnDoiMatKhau.Location = new System.Drawing.Point(306, 173);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(105, 23);
-            this.btnDoiMatKhau.TabIndex = 20;
+            this.btnDoiMatKhau.TabIndex = 16;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 

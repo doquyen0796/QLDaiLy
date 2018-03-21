@@ -153,7 +153,6 @@
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
             this.txtEmail.TabIndex = 28;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtDiaChi
             // 
@@ -161,7 +160,6 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(294, 20);
             this.txtDiaChi.TabIndex = 27;
-            this.txtDiaChi.Leave += new System.EventHandler(this.txtDiaChi_Leave);
             // 
             // txtTenDaiLy
             // 
@@ -169,7 +167,6 @@
             this.txtTenDaiLy.Name = "txtTenDaiLy";
             this.txtTenDaiLy.Size = new System.Drawing.Size(294, 20);
             this.txtTenDaiLy.TabIndex = 26;
-            this.txtTenDaiLy.Leave += new System.EventHandler(this.txtTenDaiLy_Leave);
             // 
             // labelControl5
             // 
