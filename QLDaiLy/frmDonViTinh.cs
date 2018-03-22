@@ -62,6 +62,9 @@ namespace QLDaiLy
         private void navbarSua_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmSuaDVT frm = new frmSuaDVT();
+            frm.txtTenDVT.Text = gridViewDVT.GetFocusedRowCellValue("TenDVT").ToString();
+            frm.txtMaDVT.Text = gridViewDVT.GetFocusedRowCellValue("MaDVT").ToString();
+            frm.XuLySuaDVT += frmDonViTinh_Load;
             frm.ShowDialog();
         }
     }
