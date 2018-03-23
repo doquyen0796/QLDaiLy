@@ -18,7 +18,9 @@ namespace BUS
 
         public List<DAL.DonViTinh> DanhSachDVT()
         {
-            var loai = db.DonViTinhs.ToList();
+            var loai = db.DonViTinhs
+                         .Where(dvt => dvt.TinhTrang == 1)
+                         .ToList();
 
             return loai;
         }

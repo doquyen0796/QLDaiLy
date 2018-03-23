@@ -32,7 +32,9 @@ namespace QLDaiLy
             dbContext.DonViTinhs.LoadAsync().ContinueWith(loadTask =>
             {
                 // Bind data to control when loading complete
-                donViTinhsBindingSource.DataSource = dbContext.DonViTinhs.Local.ToBindingList();
+                //donViTinhsBindingSource.DataSource = dbContext.DonViTinhs.Local.ToBindingList();
+
+                donViTinhsBindingSource.DataSource = dbContext.DonViTinhs.Where(dvt => dvt.TinhTrang == 1).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
@@ -66,6 +68,18 @@ namespace QLDaiLy
             frm.txtMaDVT.Text = gridViewDVT.GetFocusedRowCellValue("MaDVT").ToString();
             frm.XuLySuaDVT += frmDonViTinh_Load;
             frm.ShowDialog();
+        }
+
+
+        private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
+        }
+
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
