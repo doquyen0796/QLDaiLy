@@ -37,6 +37,7 @@
             this.navbarQuanLy = new DevExpress.XtraNavBar.NavBarGroup();
             this.navbarThem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
+            this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
             this.dgvDonViTinh = new DevExpress.XtraGrid.GridControl();
             this.donViTinhsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -57,6 +58,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
             this.txtTuKhoa.TabIndex = 5;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
             // 
@@ -84,7 +86,8 @@
             this.navbarChucNangKhac});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navbarThem,
-            this.navbarSua});
+            this.navbarSua,
+            this.navbarXoa});
             this.navBarControl1.Location = new System.Drawing.Point(38, 108);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -98,7 +101,8 @@
             this.navbarQuanLy.Expanded = true;
             this.navbarQuanLy.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarThem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa)});
             this.navbarQuanLy.Name = "navbarQuanLy";
             // 
             // navbarThem
@@ -114,6 +118,13 @@
             this.navbarSua.Name = "navbarSua";
             this.navbarSua.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarSua.SmallImage")));
             this.navbarSua.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarSua_LinkClicked);
+            // 
+            // navbarXoa
+            // 
+            this.navbarXoa.Caption = "Xóa Đơn Vị Tính";
+            this.navbarXoa.Name = "navbarXoa";
+            this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
+            this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
             // 
             // navbarChucNangKhac
             // 
@@ -214,5 +225,6 @@
         private System.Windows.Forms.BindingSource donViTinhsBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMaDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTenDVT;
+        private DevExpress.XtraNavBar.NavBarItem navbarXoa;
     }
 }
