@@ -1,2 +1,0 @@
-E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\QLDaiLy\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
-E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\QLDaiLy\bin\Debug\de\DevExpress.DataAccess.v16.1.resources.dll

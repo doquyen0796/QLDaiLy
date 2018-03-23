@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
+using BUS;
 
 namespace QLDaiLy
 {
@@ -73,13 +74,42 @@ namespace QLDaiLy
 
         private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            string tendvt = gridViewDVT.GetFocusedRowCellValue("TenDVT").ToString();
+            var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn xóa đơn vị tính <{0}> ?", tendvt), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (tb == DialogResult.Yes)
+            {
+                int madvt = int.Parse(gridViewDVT.GetFocusedRowCellValue("MaDVT").ToString());
+                BUS_DonViTinh dvt = new BUS_DonViTinh();
+                var flag = dvt.XoaDonViTinh(madvt);
+
+                if (flag == true)
+                {
+                    MessageBox.Show(string.Format("Bạn đã xóa đơn vị tính <{0}> thành công.", tendvt), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.FormLoad();
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.DonViTinhs
+                          .Where(d => d.TenDVT.ToLower().Contains(tukhoa.ToLower()) && d.TinhTrang == 1)
+                          .ToList();
 
+            donViTinhsBindingSource.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                donViTinhsBindingSource.DataSource = db.DonViTinhs.Where(d => d.TinhTrang == 1).ToList();
+            }
         }
     }
 }

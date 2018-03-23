@@ -108,5 +108,31 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// Xóa (ẩn) đơn vị tính
+        /// </summary>
+        /// <param name="madvt"></param>
+        /// <returns></returns>
+        public bool XoaDonViTinh(int madvt)
+        {
+            try
+            {
+                var dvt = db.DonViTinhs
+                            .Where(d => d.MaDVT == madvt)
+                            .FirstOrDefault();
+
+                dvt.TinhTrang = 0;
+
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
