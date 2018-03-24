@@ -128,11 +128,13 @@ namespace QLDaiLy
                           .Where(hh => hh.TenHangHoa.ToLower().Contains(tukhoa.ToLower()) && hh.TinhTrang == 1)
                           .ToList();
 
-            hangHoasBindingSource.DataSource = query;
+            //hangHoasBindingSource.DataSource = query;
+            dgvHangHoa.DataSource = query;
 
             if (string.IsNullOrEmpty(txtTuKhoa.Text))
             {
-                hangHoasBindingSource.DataSource = db.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+                //hangHoasBindingSource.DataSource = db.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+                dgvHangHoa.DataSource = db.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
             }
         }
 

@@ -51,11 +51,11 @@
             this.colNgayTiepNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTienNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cbsoluongtrang = new System.Windows.Forms.ComboBox();
-            this.cbtrang = new System.Windows.Forms.ComboBox();
             this.btnlui = new System.Windows.Forms.Button();
             this.btntien = new System.Windows.Forms.Button();
             this.lbtrang = new System.Windows.Forms.Label();
+            this.cbTrang = new System.Windows.Forms.ComboBox();
+            this.cbSoLuongSP = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -325,63 +325,65 @@
             this.colLoai.FieldName = "Loai";
             this.colLoai.Name = "colLoai";
             // 
-            // cbsoluongtrang
-            // 
-            this.cbsoluongtrang.FormattingEnabled = true;
-            this.cbsoluongtrang.Location = new System.Drawing.Point(914, 397);
-            this.cbsoluongtrang.Name = "cbsoluongtrang";
-            this.cbsoluongtrang.Size = new System.Drawing.Size(100, 21);
-            this.cbsoluongtrang.TabIndex = 15;
-            this.cbsoluongtrang.SelectedIndexChanged += new System.EventHandler(this.cbsoluongtrang_SelectedIndexChanged);
-            // 
-            // cbtrang
-            // 
-            this.cbtrang.FormattingEnabled = true;
-            this.cbtrang.Location = new System.Drawing.Point(1020, 397);
-            this.cbtrang.Name = "cbtrang";
-            this.cbtrang.Size = new System.Drawing.Size(86, 21);
-            this.cbtrang.TabIndex = 16;
-            this.cbtrang.SelectedIndexChanged += new System.EventHandler(this.cbtrang_SelectedIndexChanged);
-            // 
             // btnlui
             // 
-            this.btnlui.Location = new System.Drawing.Point(1112, 395);
+            this.btnlui.Location = new System.Drawing.Point(1112, 393);
             this.btnlui.Name = "btnlui";
             this.btnlui.Size = new System.Drawing.Size(45, 23);
             this.btnlui.TabIndex = 17;
-            this.btnlui.Text = "&<<";
+            this.btnlui.Text = "<";
             this.btnlui.UseVisualStyleBackColor = true;
             this.btnlui.Click += new System.EventHandler(this.btnlui_Click);
             // 
             // btntien
             // 
-            this.btntien.Location = new System.Drawing.Point(1163, 395);
+            this.btntien.Location = new System.Drawing.Point(1163, 393);
             this.btntien.Name = "btntien";
             this.btntien.Size = new System.Drawing.Size(52, 23);
             this.btntien.TabIndex = 18;
-            this.btntien.Text = "&>>";
+            this.btntien.Text = ">";
             this.btntien.UseVisualStyleBackColor = true;
             this.btntien.Click += new System.EventHandler(this.btntien_Click);
             // 
             // lbtrang
             // 
             this.lbtrang.AutoSize = true;
-            this.lbtrang.Location = new System.Drawing.Point(1237, 400);
+            this.lbtrang.Location = new System.Drawing.Point(1237, 398);
             this.lbtrang.Name = "lbtrang";
             this.lbtrang.Size = new System.Drawing.Size(35, 13);
             this.lbtrang.TabIndex = 19;
             this.lbtrang.Text = "label1";
+            // 
+            // cbTrang
+            // 
+            this.cbTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTrang.FormattingEnabled = true;
+            this.cbTrang.Location = new System.Drawing.Point(1017, 395);
+            this.cbTrang.Name = "cbTrang";
+            this.cbTrang.Size = new System.Drawing.Size(89, 21);
+            this.cbTrang.TabIndex = 22;
+            this.cbTrang.SelectedIndexChanged += new System.EventHandler(this.cbTrang_SelectedIndexChanged);
+            // 
+            // cbSoLuongSP
+            // 
+            this.cbSoLuongSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSoLuongSP.FormattingEnabled = true;
+            this.cbSoLuongSP.Location = new System.Drawing.Point(915, 395);
+            this.cbSoLuongSP.Name = "cbSoLuongSP";
+            this.cbSoLuongSP.Size = new System.Drawing.Size(96, 21);
+            this.cbSoLuongSP.TabIndex = 23;
+            this.cbSoLuongSP.SelectedIndexChanged += new System.EventHandler(this.cbSoLuongSP_SelectedIndexChanged);
             // 
             // frmDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 430);
+            this.Controls.Add(this.cbSoLuongSP);
+            this.Controls.Add(this.cbTrang);
             this.Controls.Add(this.lbtrang);
             this.Controls.Add(this.btntien);
             this.Controls.Add(this.btnlui);
-            this.Controls.Add(this.cbtrang);
-            this.Controls.Add(this.cbsoluongtrang);
             this.Controls.Add(this.dgvDaiLy);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.txtTuKhoa);
@@ -424,10 +426,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTienNo;
         private DevExpress.XtraGrid.Columns.GridColumn colTenLoai;
         private DevExpress.XtraGrid.Columns.GridColumn colLoai;
-        private System.Windows.Forms.ComboBox cbsoluongtrang;
-        private System.Windows.Forms.ComboBox cbtrang;
         private System.Windows.Forms.Button btnlui;
         private System.Windows.Forms.Button btntien;
         private System.Windows.Forms.Label lbtrang;
+        private System.Windows.Forms.ComboBox cbTrang;
+        private System.Windows.Forms.ComboBox cbSoLuongSP;
     }
 }

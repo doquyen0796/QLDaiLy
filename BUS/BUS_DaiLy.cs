@@ -209,7 +209,8 @@ namespace BUS
             }
         }
 
-        // so luong page
+
+        // Số lượng trang
         public int SoLuongTrang(int sl)
         {
             int st = 0;
@@ -231,6 +232,7 @@ namespace BUS
             return st;
         }
 
+
         public List<int> DStrang(int sl)
         {
             List<int> ds = new List<int>();
@@ -241,10 +243,10 @@ namespace BUS
             return ds;
         }
 
-        //lay danh sach
+
+        // Lấy danh sách
         public List<DAL.DaiLy> DSdaili(int curpage, int sl)
         {
-
             int t = (curpage - 1) * sl;
             var dl = db.DaiLies.ToList();
             var ds = dl.Skip(t).Take(sl).ToList();

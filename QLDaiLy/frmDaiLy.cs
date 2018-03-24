@@ -54,28 +54,33 @@ namespace QLDaiLy
             gridViewDaiLy.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
         }
 
+
         private List<int> st = new List<int> { 5, 10, 15, 20 };
         private void frmDaiLy_Load(object sender, EventArgs e)
         {
             BUS_DaiLy dl = new BUS_DaiLy();
             this.FormLoad();
-            cbsoluongtrang.DataSource = st;
-            int t = dl.SoLuongTrang(int.Parse(cbsoluongtrang.Text));
-            cbtrang.DataSource = dl.DStrang(t);
-            lbtrang.Text = "Trang " + cbtrang.Text + "/" + t.ToString();
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
-            if (int.Parse(cbtrang.Text) == 1)
+            cbSoLuongSP.DataSource = st;
+            int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
+            cbTrang.DataSource = dl.DStrang(t);
+            lbtrang.Text = "Trang " + cbTrang.Text + "/" + t.ToString();
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
+            if (int.Parse(cbTrang.Text) == 1)
             {
                 btnlui.Enabled = false;
             }
             else
+            {
                 btnlui.Enabled = true;
-            if (int.Parse(cbtrang.Text) == t)
+            }
+            if (int.Parse(cbTrang.Text) == t)
             {
                 btntien.Enabled = false;
             }
             else
+            {
                 btntien.Enabled = true;
+            }
         }
 
 
@@ -86,11 +91,13 @@ namespace QLDaiLy
                           .Where(dl => dl.TenDaiLy.ToLower().Contains(tukhoa.ToLower()) && dl.TinhTrang == 1)
                           .ToList();
 
-            daiLiesBindingSource.DataSource = query;
+            //daiLiesBindingSource.DataSource = query;
+            dgvDaiLy.DataSource = query;
 
             if (string.IsNullOrEmpty(txtTuKhoa.Text))
             {
-                daiLiesBindingSource.DataSource = db.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
+                //daiLiesBindingSource.DataSource = db.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
+                dgvDaiLy.DataSource = db.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
             }
         }
 
@@ -132,59 +139,63 @@ namespace QLDaiLy
                 return;
             }
         }
-        
-        private void cbsoluongtrang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BUS_DaiLy dl = new BUS_DaiLy();
-            int t = dl.SoLuongTrang(int.Parse(cbsoluongtrang.Text));
-            cbtrang.DataSource = dl.DStrang(t);
-            if (int.Parse(cbtrang.Text) == 1)
-            {
-                btnlui.Enabled = false;
-            }
-            else
-                btnlui.Enabled = true;
-            if (int.Parse(cbtrang.Text) == t)
-            {
-                btntien.Enabled = false;
-            }
-            else
-                btntien.Enabled = true;
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
-        }
 
-        private void cbtrang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BUS_DaiLy dl = new BUS_DaiLy();
-            int t = dl.SoLuongTrang(int.Parse(cbsoluongtrang.Text));
-            if (int.Parse(cbtrang.Text) == 1)
-            {
-                btnlui.Enabled = false;
-            }
-            else
-                btnlui.Enabled = true;
-            if (int.Parse(cbtrang.Text) == t)
-            {
-                btntien.Enabled = false;
-            }
-            else
-                btntien.Enabled = true;
-            lbtrang.Text = "Trang " + cbtrang.Text + "/" + t.ToString();
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
-        }
 
         private void btnlui_Click(object sender, EventArgs e)
         {
             BUS_DaiLy dl = new BUS_DaiLy();
-            cbtrang.Text = cbtrang.Text = (int.Parse(cbtrang.Text) - 1).ToString(); ;
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+            cbTrang.Text = cbTrang.Text = (int.Parse(cbTrang.Text) - 1).ToString(); ;
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
         }
+
 
         private void btntien_Click(object sender, EventArgs e)
         {
             BUS_DaiLy dl = new BUS_DaiLy();
-            cbtrang.Text = (int.Parse(cbtrang.Text) + 1).ToString();
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+            cbTrang.Text = (int.Parse(cbTrang.Text) + 1).ToString();
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
+        }
+
+
+        private void cbSoLuongSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BUS_DaiLy dl = new BUS_DaiLy();
+            int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
+            cbTrang.DataSource = dl.DStrang(t);
+            if (int.Parse(cbTrang.Text) == 1)
+            {
+                btnlui.Enabled = false;
+            }
+            else
+                btnlui.Enabled = true;
+            if (int.Parse(cbTrang.Text) == t)
+            {
+                btntien.Enabled = false;
+            }
+            else
+                btntien.Enabled = true;
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
+        }
+
+
+        private void cbTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BUS_DaiLy dl = new BUS_DaiLy();
+            int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
+            if (int.Parse(cbTrang.Text) == 1)
+            {
+                btnlui.Enabled = false;
+            }
+            else
+                btnlui.Enabled = true;
+            if (int.Parse(cbTrang.Text) == t)
+            {
+                btntien.Enabled = false;
+            }
+            else
+                btntien.Enabled = true;
+            lbtrang.Text = "Trang " + cbTrang.Text + "/" + t.ToString();
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
         }
     }
 }

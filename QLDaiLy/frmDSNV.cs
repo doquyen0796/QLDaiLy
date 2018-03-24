@@ -31,7 +31,7 @@ namespace QLDaiLy
                 // Bind data to control when loading complete
                 //nguoiDungsBindingSource.DataSource = dbContext.NguoiDungs.Local.ToBindingList();
 
-                nguoiDungsBindingSource.DataSource = dbContext.NguoiDungs.Where(nd => nd.TinhTrang == 1).ToList();
+                nguoiDungsBindingSource.DataSource = dbContext.NguoiDungs.Where(nd => nd.TinhTrang == 1 && nd.Loai == 0).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 

@@ -287,7 +287,7 @@ namespace BUS
 
                 db.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
                
             }

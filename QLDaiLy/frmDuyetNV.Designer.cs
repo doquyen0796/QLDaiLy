@@ -28,15 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtTuKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgvNhanVienMoi = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.nguoiDungsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewNVMoi = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMaNguoiDung = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTenDangNhap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoDienThoai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVienMoi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nguoiDungsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNVMoi)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTuKhoa
@@ -66,35 +74,126 @@
             // 
             // dgvNhanVienMoi
             // 
-            this.dgvNhanVienMoi.Location = new System.Drawing.Point(58, 98);
-            this.dgvNhanVienMoi.MainView = this.gridView1;
+            this.dgvNhanVienMoi.DataSource = this.nguoiDungsBindingSource;
+            this.dgvNhanVienMoi.Location = new System.Drawing.Point(269, 99);
+            this.dgvNhanVienMoi.MainView = this.gridViewNVMoi;
             this.dgvNhanVienMoi.Name = "dgvNhanVienMoi";
             this.dgvNhanVienMoi.Size = new System.Drawing.Size(735, 293);
             this.dgvNhanVienMoi.TabIndex = 6;
             this.dgvNhanVienMoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewNVMoi});
             // 
-            // gridView1
+            // nguoiDungsBindingSource
             // 
-            this.gridView1.GridControl = this.dgvNhanVienMoi;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.nguoiDungsBindingSource.DataSource = typeof(DAL.NguoiDung);
+            // 
+            // gridViewNVMoi
+            // 
+            this.gridViewNVMoi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMaNguoiDung,
+            this.colTenDangNhap,
+            this.colEmail,
+            this.colSoDienThoai,
+            this.colDiaChi});
+            this.gridViewNVMoi.GridControl = this.dgvNhanVienMoi;
+            this.gridViewNVMoi.Name = "gridViewNVMoi";
+            this.gridViewNVMoi.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            // 
+            // colMaNguoiDung
+            // 
+            this.colMaNguoiDung.AppearanceCell.Options.UseTextOptions = true;
+            this.colMaNguoiDung.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaNguoiDung.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaNguoiDung.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colMaNguoiDung.AppearanceHeader.Options.UseFont = true;
+            this.colMaNguoiDung.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMaNguoiDung.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaNguoiDung.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaNguoiDung.Caption = "Mã Người Dùng";
+            this.colMaNguoiDung.FieldName = "MaNguoiDung";
+            this.colMaNguoiDung.Name = "colMaNguoiDung";
+            // 
+            // colTenDangNhap
+            // 
+            this.colTenDangNhap.AppearanceCell.Options.UseTextOptions = true;
+            this.colTenDangNhap.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenDangNhap.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenDangNhap.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colTenDangNhap.AppearanceHeader.Options.UseFont = true;
+            this.colTenDangNhap.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTenDangNhap.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenDangNhap.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenDangNhap.Caption = "Tên Đăng Nhập";
+            this.colTenDangNhap.FieldName = "TenDangNhap";
+            this.colTenDangNhap.Name = "colTenDangNhap";
+            this.colTenDangNhap.Visible = true;
+            this.colTenDangNhap.VisibleIndex = 0;
+            // 
+            // colEmail
+            // 
+            this.colEmail.AppearanceCell.Options.UseTextOptions = true;
+            this.colEmail.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colEmail.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colEmail.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colEmail.AppearanceHeader.Options.UseFont = true;
+            this.colEmail.AppearanceHeader.Options.UseTextOptions = true;
+            this.colEmail.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colEmail.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colEmail.Caption = "Email";
+            this.colEmail.FieldName = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.Visible = true;
+            this.colEmail.VisibleIndex = 1;
+            // 
+            // colSoDienThoai
+            // 
+            this.colSoDienThoai.AppearanceCell.Options.UseTextOptions = true;
+            this.colSoDienThoai.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSoDienThoai.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colSoDienThoai.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colSoDienThoai.AppearanceHeader.Options.UseFont = true;
+            this.colSoDienThoai.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSoDienThoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSoDienThoai.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colSoDienThoai.Caption = "Số Điện Thoại";
+            this.colSoDienThoai.FieldName = "SoDienThoai";
+            this.colSoDienThoai.Name = "colSoDienThoai";
+            this.colSoDienThoai.Visible = true;
+            this.colSoDienThoai.VisibleIndex = 2;
+            // 
+            // colDiaChi
+            // 
+            this.colDiaChi.AppearanceCell.Options.UseTextOptions = true;
+            this.colDiaChi.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDiaChi.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDiaChi.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colDiaChi.AppearanceHeader.Options.UseFont = true;
+            this.colDiaChi.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDiaChi.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDiaChi.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDiaChi.Caption = "Địa Chỉ";
+            this.colDiaChi.FieldName = "DiaChi";
+            this.colDiaChi.Name = "colDiaChi";
+            this.colDiaChi.Visible = true;
+            this.colDiaChi.VisibleIndex = 3;
             // 
             // frmDuyetNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 431);
+            this.ClientSize = new System.Drawing.Size(1071, 431);
             this.Controls.Add(this.dgvNhanVienMoi);
             this.Controls.Add(this.txtTuKhoa);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl1);
             this.Name = "frmDuyetNV";
             this.Text = "Duyệt Nhân Viên";
+            this.Load += new System.EventHandler(this.frmDuyetNV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVienMoi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nguoiDungsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNVMoi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,6 +205,12 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.GridControl dgvNhanVienMoi;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewNVMoi;
+        private System.Windows.Forms.BindingSource nguoiDungsBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaNguoiDung;
+        private DevExpress.XtraGrid.Columns.GridColumn colTenDangNhap;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoDienThoai;
+        private DevExpress.XtraGrid.Columns.GridColumn colDiaChi;
     }
 }

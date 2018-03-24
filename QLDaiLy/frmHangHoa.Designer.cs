@@ -267,7 +267,7 @@
             // lbtrang
             // 
             this.lbtrang.AutoSize = true;
-            this.lbtrang.Location = new System.Drawing.Point(1121, 439);
+            this.lbtrang.Location = new System.Drawing.Point(1116, 439);
             this.lbtrang.Name = "lbtrang";
             this.lbtrang.Size = new System.Drawing.Size(35, 13);
             this.lbtrang.TabIndex = 24;
@@ -279,7 +279,7 @@
             this.btntien.Name = "btntien";
             this.btntien.Size = new System.Drawing.Size(52, 23);
             this.btntien.TabIndex = 23;
-            this.btntien.Text = "&>>";
+            this.btntien.Text = ">";
             this.btntien.UseVisualStyleBackColor = true;
             this.btntien.Click += new System.EventHandler(this.btntien_Click);
             // 
@@ -289,12 +289,13 @@
             this.btnlui.Name = "btnlui";
             this.btnlui.Size = new System.Drawing.Size(45, 23);
             this.btnlui.TabIndex = 22;
-            this.btnlui.Text = "&<<";
+            this.btnlui.Text = "<";
             this.btnlui.UseVisualStyleBackColor = true;
             this.btnlui.Click += new System.EventHandler(this.btnlui_Click);
             // 
             // cbtrang
             // 
+            this.cbtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbtrang.FormattingEnabled = true;
             this.cbtrang.Location = new System.Drawing.Point(904, 436);
             this.cbtrang.Name = "cbtrang";
@@ -304,6 +305,7 @@
             // 
             // cbsoluongtrang
             // 
+            this.cbsoluongtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbsoluongtrang.FormattingEnabled = true;
             this.cbsoluongtrang.Location = new System.Drawing.Point(798, 436);
             this.cbsoluongtrang.Name = "cbsoluongtrang";
