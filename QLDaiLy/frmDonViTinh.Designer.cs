@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 465);
+            this.ClientSize = new System.Drawing.Size(1171, 484);
             this.Controls.Add(this.dgvDonViTinh);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.txtTuKhoa);

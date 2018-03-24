@@ -103,5 +103,46 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
+
+        public int SoLuongTrang(int sl)
+        {
+            int st = 0;
+            try
+            {
+                var ds = db.HangHoas.ToList().Count;
+
+                st = ds / sl;
+                int du = ds % sl;
+                if (du != 0)
+                {
+                    st++;
+                }
+            }
+            catch
+            {
+
+            }
+            return st;
+        }
+
+        public List<int> DStrang(int sl)
+        {
+            List<int> ds = new List<int>();
+            for (int i = 1; i <= sl; i++)
+            {
+                ds.Add(i);
+            }
+            return ds;
+        }
+
+        //lay danh sach
+        public List<DAL.HangHoa> DShanghoa(int curpage, int sl)
+        {
+
+            int t = (curpage - 1) * sl;
+            var hh = db.HangHoas.ToList();
+            var ds = hh.Skip(t).Take(sl).ToList();
+            return ds;
+        }
     }
 }

@@ -54,10 +54,28 @@ namespace QLDaiLy
             gridViewDaiLy.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
         }
 
-
+        private List<int> st = new List<int> { 5, 10, 15, 20 };
         private void frmDaiLy_Load(object sender, EventArgs e)
         {
+            BUS_DaiLy dl = new BUS_DaiLy();
             this.FormLoad();
+            cbsoluongtrang.DataSource = st;
+            int t = dl.SoLuongTrang(int.Parse(cbsoluongtrang.Text));
+            cbtrang.DataSource = dl.DStrang(t);
+            lbtrang.Text = "Trang " + cbtrang.Text + "/" + t.ToString();
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+            if (int.Parse(cbtrang.Text) == 1)
+            {
+                btnlui.Enabled = false;
+            }
+            else
+                btnlui.Enabled = true;
+            if (int.Parse(cbtrang.Text) == t)
+            {
+                btntien.Enabled = false;
+            }
+            else
+                btntien.Enabled = true;
         }
 
 
@@ -113,6 +131,60 @@ namespace QLDaiLy
             {
                 return;
             }
+        }
+        
+        private void cbsoluongtrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BUS_DaiLy dl = new BUS_DaiLy();
+            int t = dl.SoLuongTrang(int.Parse(cbsoluongtrang.Text));
+            cbtrang.DataSource = dl.DStrang(t);
+            if (int.Parse(cbtrang.Text) == 1)
+            {
+                btnlui.Enabled = false;
+            }
+            else
+                btnlui.Enabled = true;
+            if (int.Parse(cbtrang.Text) == t)
+            {
+                btntien.Enabled = false;
+            }
+            else
+                btntien.Enabled = true;
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+        }
+
+        private void cbtrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BUS_DaiLy dl = new BUS_DaiLy();
+            int t = dl.SoLuongTrang(int.Parse(cbsoluongtrang.Text));
+            if (int.Parse(cbtrang.Text) == 1)
+            {
+                btnlui.Enabled = false;
+            }
+            else
+                btnlui.Enabled = true;
+            if (int.Parse(cbtrang.Text) == t)
+            {
+                btntien.Enabled = false;
+            }
+            else
+                btntien.Enabled = true;
+            lbtrang.Text = "Trang " + cbtrang.Text + "/" + t.ToString();
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+        }
+
+        private void btnlui_Click(object sender, EventArgs e)
+        {
+            BUS_DaiLy dl = new BUS_DaiLy();
+            cbtrang.Text = cbtrang.Text = (int.Parse(cbtrang.Text) - 1).ToString(); ;
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+        }
+
+        private void btntien_Click(object sender, EventArgs e)
+        {
+            BUS_DaiLy dl = new BUS_DaiLy();
+            cbtrang.Text = (int.Parse(cbtrang.Text) + 1).ToString();
+            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
         }
     }
 }

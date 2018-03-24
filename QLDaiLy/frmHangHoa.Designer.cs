@@ -48,6 +48,11 @@
             this.colSoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoaiDVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lbtrang = new System.Windows.Forms.Label();
+            this.btntien = new System.Windows.Forms.Button();
+            this.btnlui = new System.Windows.Forms.Button();
+            this.cbtrang = new System.Windows.Forms.ComboBox();
+            this.cbsoluongtrang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -259,11 +264,63 @@
             this.colLoaiDVT.FieldName = "DVT";
             this.colLoaiDVT.Name = "colLoaiDVT";
             // 
+            // lbtrang
+            // 
+            this.lbtrang.AutoSize = true;
+            this.lbtrang.Location = new System.Drawing.Point(1121, 439);
+            this.lbtrang.Name = "lbtrang";
+            this.lbtrang.Size = new System.Drawing.Size(35, 13);
+            this.lbtrang.TabIndex = 24;
+            this.lbtrang.Text = "label1";
+            // 
+            // btntien
+            // 
+            this.btntien.Location = new System.Drawing.Point(1047, 434);
+            this.btntien.Name = "btntien";
+            this.btntien.Size = new System.Drawing.Size(52, 23);
+            this.btntien.TabIndex = 23;
+            this.btntien.Text = "&>>";
+            this.btntien.UseVisualStyleBackColor = true;
+            this.btntien.Click += new System.EventHandler(this.btntien_Click);
+            // 
+            // btnlui
+            // 
+            this.btnlui.Location = new System.Drawing.Point(996, 434);
+            this.btnlui.Name = "btnlui";
+            this.btnlui.Size = new System.Drawing.Size(45, 23);
+            this.btnlui.TabIndex = 22;
+            this.btnlui.Text = "&<<";
+            this.btnlui.UseVisualStyleBackColor = true;
+            this.btnlui.Click += new System.EventHandler(this.btnlui_Click);
+            // 
+            // cbtrang
+            // 
+            this.cbtrang.FormattingEnabled = true;
+            this.cbtrang.Location = new System.Drawing.Point(904, 436);
+            this.cbtrang.Name = "cbtrang";
+            this.cbtrang.Size = new System.Drawing.Size(86, 21);
+            this.cbtrang.TabIndex = 21;
+            this.cbtrang.SelectedIndexChanged += new System.EventHandler(this.cbtrang_SelectedIndexChanged);
+            // 
+            // cbsoluongtrang
+            // 
+            this.cbsoluongtrang.FormattingEnabled = true;
+            this.cbsoluongtrang.Location = new System.Drawing.Point(798, 436);
+            this.cbsoluongtrang.Name = "cbsoluongtrang";
+            this.cbsoluongtrang.Size = new System.Drawing.Size(100, 21);
+            this.cbsoluongtrang.TabIndex = 20;
+            this.cbsoluongtrang.SelectedIndexChanged += new System.EventHandler(this.cbsoluongtrang_SelectedIndexChanged);
+            // 
             // frmHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 456);
+            this.ClientSize = new System.Drawing.Size(1199, 475);
+            this.Controls.Add(this.lbtrang);
+            this.Controls.Add(this.btntien);
+            this.Controls.Add(this.btnlui);
+            this.Controls.Add(this.cbtrang);
+            this.Controls.Add(this.cbsoluongtrang);
             this.Controls.Add(this.dgvHangHoa);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.txtTuKhoa);
@@ -303,5 +360,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoLuong;
         private DevExpress.XtraGrid.Columns.GridColumn colDonGia;
         private DevExpress.XtraGrid.Columns.GridColumn colLoaiDVT;
+        private System.Windows.Forms.Label lbtrang;
+        private System.Windows.Forms.Button btntien;
+        private System.Windows.Forms.Button btnlui;
+        private System.Windows.Forms.ComboBox cbtrang;
+        private System.Windows.Forms.ComboBox cbsoluongtrang;
     }
 }
