@@ -59,6 +59,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
             this.txtTuKhoa.TabIndex = 5;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
             // 

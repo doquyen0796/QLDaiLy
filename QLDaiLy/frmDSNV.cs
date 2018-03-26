@@ -14,6 +14,8 @@ namespace QLDaiLy
 {
     public partial class frmDSNV : DevExpress.XtraEditors.XtraForm
     {
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
         public frmDSNV()
         {
             InitializeComponent();
@@ -47,6 +49,22 @@ namespace QLDaiLy
         private void frmDSNV_Load(object sender, EventArgs e)
         {
             this.FormLoad();
+        }
+
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.NguoiDungs
+                          .Where(u => u.TenDangNhap.ToLower().Contains(tukhoa.ToLower()) && u.TinhTrang == 1 && u.Loai == 0 || u.Email.ToLower().Contains(tukhoa.ToLower()) && u.TinhTrang == 1 && u.Loai == 0)
+                          .ToList();
+
+            nguoiDungsBindingSource.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                nguoiDungsBindingSource.DataSource = db.NguoiDungs.Where(u => u.TinhTrang == 1 && u.Loai == 0).ToList();
+            }
         }
     }
 }
