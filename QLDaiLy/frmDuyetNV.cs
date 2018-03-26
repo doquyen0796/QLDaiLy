@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
+using BUS;
 
 namespace QLDaiLy
 {
@@ -36,7 +37,7 @@ namespace QLDaiLy
 
 
             // Make the grid read-only.
-            gridViewNVMoi.OptionsBehavior.Editable = false;
+            //gridViewNVMoi.OptionsBehavior.Editable = false;
             // Prevent the focused cell from being highlighted.
             gridViewNVMoi.OptionsSelection.EnableAppearanceFocusedCell = false;
             // Draw a dotted focus rectangle around the entire row.
@@ -47,6 +48,39 @@ namespace QLDaiLy
         private void frmDuyetNV_Load(object sender, EventArgs e)
         {
             this.FormLoad();
+        }
+
+
+        private void btnDuyet_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int mand = int.Parse(gridViewNVMoi.GetFocusedRowCellValue("MaNguoiDung").ToString());
+            string tennd = gridViewNVMoi.GetFocusedRowCellValue("TenDangNhap").ToString();
+            var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn duyệt nhân viên <{0}> ?", tennd), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (tb == DialogResult.Yes)
+            {
+                BUS_NguoiDung nd = new BUS_NguoiDung();
+                var flag = nd.DuyetNguoiDung(mand);
+                if (flag == true)
+                {
+                    MessageBox.Show(string.Format("Bạn đã duyệt nhân viên <{0}> thành công.", tennd), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.FormLoad();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi.\nBạn cần kiểm tra lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

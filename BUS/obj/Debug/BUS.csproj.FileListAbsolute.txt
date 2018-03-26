@@ -1,2 +1,0 @@
-E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\BUS\bin\Debug\BUS.pdb
-E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\BUS\bin\Debug\EntityFramework.SqlServer.dll

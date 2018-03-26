@@ -335,5 +335,36 @@ namespace BUS
                          .FirstOrDefault();
             return user;
         }
+
+
+        /// <summary>
+        /// Duyệt người dùng
+        /// </summary>
+        /// <param name="mand"></param>
+        /// <returns></returns>
+        public bool DuyetNguoiDung(int mand)
+        {
+            try
+            {
+                var nd = db.NguoiDungs
+                           .Where(u => u.MaNguoiDung == mand && u.Loai == -1)
+                           .FirstOrDefault();
+
+                if (nd == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    nd.Loai = 0;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

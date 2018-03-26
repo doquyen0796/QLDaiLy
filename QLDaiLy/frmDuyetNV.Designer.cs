@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDuyetNV));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtTuKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -40,11 +42,14 @@
             this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoDienThoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDuyet = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDuyet = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVienMoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiDungsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNVMoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDuyet)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTuKhoa
@@ -53,6 +58,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
             this.txtTuKhoa.TabIndex = 5;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
             // 
@@ -78,6 +84,8 @@
             this.dgvNhanVienMoi.Location = new System.Drawing.Point(269, 99);
             this.dgvNhanVienMoi.MainView = this.gridViewNVMoi;
             this.dgvNhanVienMoi.Name = "dgvNhanVienMoi";
+            this.dgvNhanVienMoi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnDuyet});
             this.dgvNhanVienMoi.Size = new System.Drawing.Size(735, 293);
             this.dgvNhanVienMoi.TabIndex = 6;
             this.dgvNhanVienMoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -94,7 +102,8 @@
             this.colTenDangNhap,
             this.colEmail,
             this.colSoDienThoai,
-            this.colDiaChi});
+            this.colDiaChi,
+            this.colDuyet});
             this.gridViewNVMoi.GridControl = this.dgvNhanVienMoi;
             this.gridViewNVMoi.Name = "gridViewNVMoi";
             this.gridViewNVMoi.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
@@ -112,6 +121,8 @@
             this.colMaNguoiDung.Caption = "Mã Người Dùng";
             this.colMaNguoiDung.FieldName = "MaNguoiDung";
             this.colMaNguoiDung.Name = "colMaNguoiDung";
+            this.colMaNguoiDung.OptionsColumn.AllowEdit = false;
+            this.colMaNguoiDung.OptionsColumn.ReadOnly = true;
             // 
             // colTenDangNhap
             // 
@@ -126,6 +137,8 @@
             this.colTenDangNhap.Caption = "Tên Đăng Nhập";
             this.colTenDangNhap.FieldName = "TenDangNhap";
             this.colTenDangNhap.Name = "colTenDangNhap";
+            this.colTenDangNhap.OptionsColumn.AllowEdit = false;
+            this.colTenDangNhap.OptionsColumn.ReadOnly = true;
             this.colTenDangNhap.Visible = true;
             this.colTenDangNhap.VisibleIndex = 0;
             // 
@@ -142,6 +155,8 @@
             this.colEmail.Caption = "Email";
             this.colEmail.FieldName = "Email";
             this.colEmail.Name = "colEmail";
+            this.colEmail.OptionsColumn.AllowEdit = false;
+            this.colEmail.OptionsColumn.ReadOnly = true;
             this.colEmail.Visible = true;
             this.colEmail.VisibleIndex = 1;
             // 
@@ -158,6 +173,8 @@
             this.colSoDienThoai.Caption = "Số Điện Thoại";
             this.colSoDienThoai.FieldName = "SoDienThoai";
             this.colSoDienThoai.Name = "colSoDienThoai";
+            this.colSoDienThoai.OptionsColumn.AllowEdit = false;
+            this.colSoDienThoai.OptionsColumn.ReadOnly = true;
             this.colSoDienThoai.Visible = true;
             this.colSoDienThoai.VisibleIndex = 2;
             // 
@@ -174,8 +191,33 @@
             this.colDiaChi.Caption = "Địa Chỉ";
             this.colDiaChi.FieldName = "DiaChi";
             this.colDiaChi.Name = "colDiaChi";
+            this.colDiaChi.OptionsColumn.AllowEdit = false;
+            this.colDiaChi.OptionsColumn.ReadOnly = true;
             this.colDiaChi.Visible = true;
             this.colDiaChi.VisibleIndex = 3;
+            // 
+            // colDuyet
+            // 
+            this.colDuyet.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colDuyet.AppearanceHeader.Options.UseFont = true;
+            this.colDuyet.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDuyet.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDuyet.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDuyet.Caption = "Duyệt";
+            this.colDuyet.ColumnEdit = this.btnDuyet;
+            this.colDuyet.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.colDuyet.Name = "colDuyet";
+            this.colDuyet.Visible = true;
+            this.colDuyet.VisibleIndex = 4;
+            // 
+            // btnDuyet
+            // 
+            this.btnDuyet.AutoHeight = false;
+            this.btnDuyet.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDuyet.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.btnDuyet.Name = "btnDuyet";
+            this.btnDuyet.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnDuyet.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDuyet_ButtonClick);
             // 
             // frmDuyetNV
             // 
@@ -194,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVienMoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiDungsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNVMoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDuyet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +255,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraGrid.Columns.GridColumn colSoDienThoai;
         private DevExpress.XtraGrid.Columns.GridColumn colDiaChi;
+        private DevExpress.XtraGrid.Columns.GridColumn colDuyet;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDuyet;
     }
 }
