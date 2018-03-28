@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
+using BUS;
 
 namespace QLDaiLy
 {
@@ -70,7 +71,24 @@ namespace QLDaiLy
 
         private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            int mand = int.Parse(gridViewNhanVien.GetFocusedRowCellValue("MaNguoiDung").ToString());
+            string tennd = gridViewNhanVien.GetFocusedRowCellValue("TenDangNhap").ToString();
 
+            var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn xóa nhân viên <{0}> ?", tennd), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (tb == DialogResult.Yes)
+            {
+                BUS_NguoiDung nd = new BUS_NguoiDung();
+                var flag = nd.XoaNguoiDung(mand);
+                if (flag == true)
+                {
+                    MessageBox.Show(string.Format("Bạn đã xóa nhân viên <{0}> thành công.", tennd), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.FormLoad();
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

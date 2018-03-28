@@ -395,5 +395,30 @@ namespace BUS
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// Xóa (ẩn) người dùng
+        /// </summary>
+        /// <param name="mand"></param>
+        /// <returns></returns>
+        public bool XoaNguoiDung(int mand)
+        {
+            try
+            {
+                var user = db.NguoiDungs
+                             .Where(u => u.MaNguoiDung == mand)
+                             .FirstOrDefault();
+
+                user.TinhTrang = 0;
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
