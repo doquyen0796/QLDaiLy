@@ -54,16 +54,16 @@
             // 
             // txtTuKhoa
             // 
-            this.txtTuKhoa.Location = new System.Drawing.Point(303, 41);
+            this.txtTuKhoa.Location = new System.Drawing.Point(395, 41);
             this.txtTuKhoa.Name = "txtTuKhoa";
-            this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
+            this.txtTuKhoa.Size = new System.Drawing.Size(357, 20);
             this.txtTuKhoa.TabIndex = 5;
             this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QLDaiLy.Properties.Resources.Find;
-            this.pictureBox1.Location = new System.Drawing.Point(197, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(289, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -72,7 +72,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(246, 44);
+            this.labelControl1.Location = new System.Drawing.Point(338, 44);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(40, 13);
             this.labelControl1.TabIndex = 4;

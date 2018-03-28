@@ -19,37 +19,16 @@ namespace QLDaiLy
             InitializeComponent();
         }
 
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (KiemTraDuLieu())
             {
                 BUS_NguoiDung nd = new BUS_NguoiDung();
-                var user = nd.NguoiDung12(txtTenDangNhap.Text, txtMatKhau.Text);
-                if (user != null)
+                if (nd.NhanVienChuaDuyet(txtTenDangNhap.Text) == false)  //  Admin + nhân viên đã được duyệt
                 {
-                    // Lưu ghi nhớ xuống dữ liệu
-                    if (ckbGhiNho.Checked == true)
-                    {
-                        nd.DangNhapCu();
-                        nd.NhoMatKhau(txtTenDangNhap.Text, 2);
-                    }
-                    else
-                    {
-                        nd.NhoMatKhau(txtTenDangNhap.Text, 0);
-                    }
-                    frmMain main = new frmMain();
-                    this.Hide();
-                    main.Show();
-                }
-                else
-                {
-                    var flag = nd.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text);
-
-                    if (flag == false)
-                    {
-                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
+                    var user = nd.NguoiDung12(txtTenDangNhap.Text, txtMatKhau.Text);
+                    if (user != null)
                     {
                         // Lưu ghi nhớ xuống dữ liệu
                         if (ckbGhiNho.Checked == true)
@@ -65,8 +44,36 @@ namespace QLDaiLy
                         this.Hide();
                         main.Show();
                     }
-                }
+                    else
+                    {
+                        var flag = nd.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text);
 
+                        if (flag == false)
+                        {
+                            MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            // Lưu ghi nhớ xuống dữ liệu
+                            if (ckbGhiNho.Checked == true)
+                            {
+                                nd.DangNhapCu();
+                                nd.NhoMatKhau(txtTenDangNhap.Text, 2);
+                            }
+                            else
+                            {
+                                nd.NhoMatKhau(txtTenDangNhap.Text, 0);
+                            }
+                            frmMain main = new frmMain();
+                            this.Hide();
+                            main.Show();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Tài khoản <{0}> chưa được duyệt.\nBạn hãy liên hệ Admin.", txtTenDangNhap.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -81,11 +88,18 @@ namespace QLDaiLy
 
         public bool KiemTraDuLieu()
         {
+            BUS_NguoiDung nd = new BUS_NguoiDung();
             ErrorChecker.Clear();  // giả sử ban đầu mọi dữ liệu là đúng
             if (string.IsNullOrWhiteSpace(txtTenDangNhap.Text))
             {
                 ErrorChecker.BlinkRate = 500;
                 ErrorChecker.SetError(txtTenDangNhap, "Không được để trống.");
+                return false;
+            }
+            if (nd.KTTaiKhoanTonTai(txtTenDangNhap.Text))
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtTenDangNhap, "Tài khoản không tồn tại trong hệ thống.");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtMatKhau.Text))

@@ -212,6 +212,7 @@
             this.navbarXoa.Caption = "Xóa Nhân Viên";
             this.navbarXoa.Name = "navbarXoa";
             this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
+            this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
             // 
             // navbarChucNangKhac
             // 

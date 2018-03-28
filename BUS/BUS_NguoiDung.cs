@@ -111,6 +111,35 @@ namespace BUS
         }
 
 
+        /// <summary>
+        /// Kiểm tra nhân viên đã được Admin duyệt hay chưa
+        /// </summary>
+        /// <param name="mand"></param>
+        /// <returns></returns>
+        public bool NhanVienChuaDuyet(string tendn)
+        {
+            try
+            {
+                var user = db.NguoiDungs
+                             .Where(u => u.TenDangNhap == tendn && u.TinhTrang == 1 && u.Loai == -1)
+                             .FirstOrDefault();
+
+                if (user != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         public bool DangNhap(string tendangnhap, string matkhau)
         {
             try

@@ -66,5 +66,11 @@ namespace QLDaiLy
                 nguoiDungsBindingSource.DataSource = db.NguoiDungs.Where(u => u.TinhTrang == 1 && u.Loai == 0).ToList();
             }
         }
+
+
+        private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
+        }
     }
 }
