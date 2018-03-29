@@ -143,6 +143,12 @@
     <Compile Include="frmQuiDinh.Designer.cs">
       <DependentUpon>frmQuiDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSoDaiLyToiDa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSoDaiLyToiDa.Designer.cs">
+      <DependentUpon>frmSoDaiLyToiDa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,12 @@
     </Compile>
     <Compile Include="frmThuTien.Designer.cs">
       <DependentUpon>frmThuTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTienNoToiDa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTienNoToiDa.Designer.cs">
+      <DependentUpon>frmTienNoToiDa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTTPhanMem.cs">
       <SubType>Form</SubType>
@@ -247,6 +259,9 @@
     <EmbeddedResource Include="frmQuiDinh.resx">
       <DependentUpon>frmQuiDinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSoDaiLyToiDa.resx">
+      <DependentUpon>frmSoDaiLyToiDa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThuTien.resx">
       <DependentUpon>frmThuTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTienNoToiDa.resx">
+      <DependentUpon>frmTienNoToiDa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTTPhanMem.resx">
       <DependentUpon>frmTTPhanMem.cs</DependentUpon>
