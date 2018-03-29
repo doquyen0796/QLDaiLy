@@ -21,6 +21,8 @@
         <AssociationConnector Association="QLDaiLyModel.FK__PhieuThuT__MaDai__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="QLDaiLyModel.FK__PhieuXuat__MaDai__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="QLDaiLyModel.FK__HangHoa__DVT__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDaiLyModel.FK__PhieuThuT__MaNha__36B12243" />
+        <AssociationConnector Association="QLDaiLyModel.FK__PhieuXuat__MaNha__2E1BDC42" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

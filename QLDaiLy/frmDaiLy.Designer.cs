@@ -38,7 +38,9 @@
             this.navbarThem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navbarCaiDat = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarSoDaiLyToiDa = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarTienNoToiDa = new DevExpress.XtraNavBar.NavBarItem();
             this.dgvDaiLy = new DevExpress.XtraGrid.GridControl();
             this.daiLiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewDaiLy = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -95,11 +97,13 @@
             this.navBarControl1.ActiveGroup = this.navbarQuanLy;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navbarQuanLy,
-            this.navbarChucNangKhac});
+            this.navbarCaiDat});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navbarThem,
             this.navbarSua,
-            this.navbarXoa});
+            this.navbarXoa,
+            this.navBarSoDaiLyToiDa,
+            this.navBarTienNoToiDa});
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -138,11 +142,27 @@
             this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
             this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
             // 
-            // navbarChucNangKhac
+            // navbarCaiDat
             // 
-            this.navbarChucNangKhac.Caption = "Chức Năng Khác";
-            this.navbarChucNangKhac.Expanded = true;
-            this.navbarChucNangKhac.Name = "navbarChucNangKhac";
+            this.navbarCaiDat.Caption = "Cài Đặt";
+            this.navbarCaiDat.Expanded = true;
+            this.navbarCaiDat.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSoDaiLyToiDa),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarTienNoToiDa)});
+            this.navbarCaiDat.Name = "navbarCaiDat";
+            // 
+            // navBarSoDaiLyToiDa
+            // 
+            this.navBarSoDaiLyToiDa.Caption = "Số Đại Lý Tối Đa Trong Quận";
+            this.navBarSoDaiLyToiDa.Name = "navBarSoDaiLyToiDa";
+            this.navBarSoDaiLyToiDa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarSoDaiLyToiDa.SmallImage")));
+            this.navBarSoDaiLyToiDa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarSoDaiLyToiDa_LinkClicked);
+            // 
+            // navBarTienNoToiDa
+            // 
+            this.navBarTienNoToiDa.Caption = "Tiền Nợ Tối Đa";
+            this.navBarTienNoToiDa.Name = "navBarTienNoToiDa";
+            this.navBarTienNoToiDa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarTienNoToiDa.SmallImage")));
             // 
             // dgvDaiLy
             // 
@@ -413,7 +433,7 @@
         private DevExpress.XtraNavBar.NavBarItem navbarThem;
         private DevExpress.XtraNavBar.NavBarItem navbarSua;
         private DevExpress.XtraNavBar.NavBarItem navbarXoa;
-        private DevExpress.XtraNavBar.NavBarGroup navbarChucNangKhac;
+        private DevExpress.XtraNavBar.NavBarGroup navbarCaiDat;
         private DevExpress.XtraGrid.GridControl dgvDaiLy;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDaiLy;
         private System.Windows.Forms.BindingSource daiLiesBindingSource;
@@ -431,5 +451,7 @@
         private System.Windows.Forms.Label lbtrang;
         private System.Windows.Forms.ComboBox cbTrang;
         private System.Windows.Forms.ComboBox cbSoLuongSP;
+        private DevExpress.XtraNavBar.NavBarItem navBarSoDaiLyToiDa;
+        private DevExpress.XtraNavBar.NavBarItem navBarTienNoToiDa;
     }
 }

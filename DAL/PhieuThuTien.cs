@@ -18,7 +18,9 @@ namespace DAL
         public Nullable<int> MaDaiLy { get; set; }
         public Nullable<System.DateTime> NgayThu { get; set; }
         public Nullable<double> SoTienThu { get; set; }
+        public Nullable<int> MaNhanVien { get; set; }
     
         public virtual DaiLy DaiLy { get; set; }
+        public virtual NguoiDung NguoiDung { get; set; }
     }
 }

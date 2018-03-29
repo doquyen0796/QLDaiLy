@@ -197,12 +197,6 @@
     <Compile Include="frmThuTien.Designer.cs">
       <DependentUpon>frmThuTien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTienNoToiDa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTienNoToiDa.Designer.cs">
-      <DependentUpon>frmTienNoToiDa.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTTPhanMem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,9 +279,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThuTien.resx">
       <DependentUpon>frmThuTien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTienNoToiDa.resx">
-      <DependentUpon>frmTienNoToiDa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTTPhanMem.resx">
       <DependentUpon>frmTTPhanMem.cs</DependentUpon>

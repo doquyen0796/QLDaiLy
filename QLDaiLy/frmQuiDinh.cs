@@ -17,50 +17,5 @@ namespace QLDaiLy
         {
             InitializeComponent();
         }
-
-
-        private Form f;
-
-        private void treeViewOptions_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            TreeNode node = treeViewOptions.SelectedNode;
-            switch (node.Name)
-            {
-                case "NodeSoDaiLyToiDa":
-                    f.Dispose();
-                    f = new frmSoDaiLyToiDa();
-                    f.TopLevel = false;
-
-                    MainPanel.Controls.Add(f);
-                    f.Dock = DockStyle.Fill;
-                    f.Show();
-                    break;
-
-
-                case "NodeTienNoToiDa":
-                    f.Dispose();
-                    f = new frmTienNoToiDa();
-                    f.TopLevel = false;
-
-                    MainPanel.Controls.Add(f);
-                    f.Dock = DockStyle.Fill;
-                    f.Show();
-                    break;
-            }
-        }
-
-
-        private void frmQuiDinh_Load(object sender, EventArgs e)
-        {
-            treeViewOptions.Nodes[0].ExpandAll();
-            treeViewOptions.Nodes[1].ExpandAll();
-
-            f = new frmSoDaiLyToiDa();
-            f.TopLevel = false;
-
-            MainPanel.Controls.Add(f);
-            f.Dock = DockStyle.Fill;
-            f.Show();
-        }
     }
 }

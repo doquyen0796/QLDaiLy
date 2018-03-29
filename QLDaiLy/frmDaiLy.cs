@@ -197,5 +197,12 @@ namespace QLDaiLy
             lbtrang.Text = "Trang " + cbTrang.Text + "/" + t.ToString();
             dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
         }
+
+
+        private void navBarSoDaiLyToiDa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmSoDaiLyToiDa frm = new frmSoDaiLyToiDa();
+            frm.ShowDialog();
+        }
     }
 }

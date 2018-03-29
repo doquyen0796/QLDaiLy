@@ -14,6 +14,13 @@ namespace DAL
     
     public partial class NguoiDung
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NguoiDung()
+        {
+            this.PhieuThuTiens = new HashSet<PhieuThuTien>();
+            this.PhieuXuatHangs = new HashSet<PhieuXuatHang>();
+        }
+    
         public int MaNguoiDung { get; set; }
         public string TenDangNhap { get; set; }
         public string Email { get; set; }
@@ -23,5 +30,10 @@ namespace DAL
         public Nullable<int> Loai { get; set; }
         public Nullable<int> GhiNho { get; set; }
         public Nullable<int> TinhTrang { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhieuThuTien> PhieuThuTiens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhieuXuatHang> PhieuXuatHangs { get; set; }
     }
 }

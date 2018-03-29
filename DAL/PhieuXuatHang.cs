@@ -24,9 +24,11 @@ namespace DAL
         public Nullable<int> MaDaiLy { get; set; }
         public Nullable<System.DateTime> NgayXuat { get; set; }
         public Nullable<double> TongTien { get; set; }
+        public Nullable<int> MaNhanVien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPhieuXuatHang> CTPhieuXuatHangs { get; set; }
         public virtual DaiLy DaiLy { get; set; }
+        public virtual NguoiDung NguoiDung { get; set; }
     }
 }
