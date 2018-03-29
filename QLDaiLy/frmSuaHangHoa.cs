@@ -132,5 +132,13 @@ namespace QLDaiLy
                 }
             }
         }
+
+
+        private void btnThemDVT_Click(object sender, EventArgs e)
+        {
+            frmThemDVT frm = new frmThemDVT();
+            frm.XuLyThemDVT += frmSuaHangHoa_Load;
+            frm.ShowDialog();
+        }
     }
 }

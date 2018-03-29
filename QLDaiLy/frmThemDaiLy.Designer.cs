@@ -49,6 +49,7 @@
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.dtpNgayTiepNhan = new DevExpress.XtraEditors.DateEdit();
+            this.btnThemLoaiDL = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDaiLy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
@@ -125,7 +126,7 @@
             // 
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(385, 334);
+            this.btnThem.Location = new System.Drawing.Point(419, 335);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(121, 23);
             this.btnThem.TabIndex = 10;
@@ -136,7 +137,7 @@
             // 
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(229, 334);
+            this.btnReset.Location = new System.Drawing.Point(263, 335);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(121, 23);
             this.btnReset.TabIndex = 11;
@@ -221,11 +222,23 @@
             this.dtpNgayTiepNhan.Size = new System.Drawing.Size(131, 20);
             this.dtpNgayTiepNhan.TabIndex = 20;
             // 
+            // btnThemLoaiDL
+            // 
+            this.btnThemLoaiDL.Image = ((System.Drawing.Image)(resources.GetObject("btnThemLoaiDL.Image")));
+            this.btnThemLoaiDL.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnThemLoaiDL.Location = new System.Drawing.Point(399, 134);
+            this.btnThemLoaiDL.Name = "btnThemLoaiDL";
+            this.btnThemLoaiDL.Size = new System.Drawing.Size(150, 23);
+            this.btnThemLoaiDL.TabIndex = 21;
+            this.btnThemLoaiDL.Text = "Thêm Loại Đại Lý";
+            this.btnThemLoaiDL.Click += new System.EventHandler(this.btnThemLoaiDL_Click);
+            // 
             // frmThemDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 397);
+            this.ClientSize = new System.Drawing.Size(601, 397);
+            this.Controls.Add(this.btnThemLoaiDL);
             this.Controls.Add(this.dtpNgayTiepNhan);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl9);
@@ -284,5 +297,6 @@
         private System.Windows.Forms.ErrorProvider ErrorChecker;
         private DevExpress.XtraEditors.DateEdit dtpNgayTiepNhan;
         private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.SimpleButton btnThemLoaiDL;
     }
 }

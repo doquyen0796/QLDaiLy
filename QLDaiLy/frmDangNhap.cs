@@ -28,7 +28,11 @@ namespace QLDaiLy
                 if (nd.NhanVienChuaDuyet(txtTenDangNhap.Text) == false)  //  Admin + nhân viên đã được duyệt
                 {
                     var user = nd.NguoiDung12(txtTenDangNhap.Text, txtMatKhau.Text);
-                    if (user != null)
+                    if (user == 0)  // người dùng đã bị xóa (ẩn)
+                    {
+                        MessageBox.Show("Bạn không có quyền truy cập hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    if (user == 1)
                     {
                         // Lưu ghi nhớ xuống dữ liệu
                         if (ckbGhiNho.Checked == true)
@@ -44,15 +48,19 @@ namespace QLDaiLy
                         this.Hide();
                         main.Show();
                     }
-                    else
+                    if (user == -1)  // trước đó người dùng KHÔNG chọn Ghi nhớ
                     {
                         var flag = nd.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text);
 
-                        if (flag == false)
+                        if (flag == -1)
                         {
-                            MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Sai mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        else
+                        if (flag == 0)  // người dùng đã bị xóa (ẩn)
+                        {
+                            MessageBox.Show("Bạn không có quyền truy cập hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        if (flag == 1)
                         {
                             // Lưu ghi nhớ xuống dữ liệu
                             if (ckbGhiNho.Checked == true)

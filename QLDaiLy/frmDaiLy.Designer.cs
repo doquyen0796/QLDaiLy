@@ -40,7 +40,6 @@
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarCaiDat = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarSoDaiLyToiDa = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarTienNoToiDa = new DevExpress.XtraNavBar.NavBarItem();
             this.dgvDaiLy = new DevExpress.XtraGrid.GridControl();
             this.daiLiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewDaiLy = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -102,8 +101,7 @@
             this.navbarThem,
             this.navbarSua,
             this.navbarXoa,
-            this.navBarSoDaiLyToiDa,
-            this.navBarTienNoToiDa});
+            this.navBarSoDaiLyToiDa});
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -147,8 +145,7 @@
             this.navbarCaiDat.Caption = "Cài Đặt";
             this.navbarCaiDat.Expanded = true;
             this.navbarCaiDat.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSoDaiLyToiDa),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarTienNoToiDa)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSoDaiLyToiDa)});
             this.navbarCaiDat.Name = "navbarCaiDat";
             // 
             // navBarSoDaiLyToiDa
@@ -157,12 +154,6 @@
             this.navBarSoDaiLyToiDa.Name = "navBarSoDaiLyToiDa";
             this.navBarSoDaiLyToiDa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarSoDaiLyToiDa.SmallImage")));
             this.navBarSoDaiLyToiDa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarSoDaiLyToiDa_LinkClicked);
-            // 
-            // navBarTienNoToiDa
-            // 
-            this.navBarTienNoToiDa.Caption = "Tiền Nợ Tối Đa";
-            this.navBarTienNoToiDa.Name = "navBarTienNoToiDa";
-            this.navBarTienNoToiDa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarTienNoToiDa.SmallImage")));
             // 
             // dgvDaiLy
             // 
@@ -452,6 +443,5 @@
         private System.Windows.Forms.ComboBox cbTrang;
         private System.Windows.Forms.ComboBox cbSoLuongSP;
         private DevExpress.XtraNavBar.NavBarItem navBarSoDaiLyToiDa;
-        private DevExpress.XtraNavBar.NavBarItem navBarTienNoToiDa;
     }
 }

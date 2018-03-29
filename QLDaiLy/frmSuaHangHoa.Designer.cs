@@ -43,6 +43,7 @@
             this.txtDonGia = new DevExpress.XtraEditors.TextEdit();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnThemDVT = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenHangHoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDVT.Properties)).BeginInit();
@@ -157,11 +158,23 @@
             // 
             this.ErrorChecker.ContainerControl = this;
             // 
+            // btnThemDVT
+            // 
+            this.btnThemDVT.Image = ((System.Drawing.Image)(resources.GetObject("btnThemDVT.Image")));
+            this.btnThemDVT.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnThemDVT.Location = new System.Drawing.Point(303, 96);
+            this.btnThemDVT.Name = "btnThemDVT";
+            this.btnThemDVT.Size = new System.Drawing.Size(150, 23);
+            this.btnThemDVT.TabIndex = 42;
+            this.btnThemDVT.Text = "Thêm đơn vị tính";
+            this.btnThemDVT.Click += new System.EventHandler(this.btnThemDVT_Click);
+            // 
             // frmSuaHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 260);
+            this.Controls.Add(this.btnThemDVT);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.txtDonGia);
             this.Controls.Add(this.cbDVT);
@@ -205,5 +218,6 @@
         public DevExpress.XtraEditors.LookUpEdit cbDVT;
         public DevExpress.XtraEditors.TextEdit txtDonGia;
         private System.Windows.Forms.ErrorProvider ErrorChecker;
+        private DevExpress.XtraEditors.SimpleButton btnThemDVT;
     }
 }

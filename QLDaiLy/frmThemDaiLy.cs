@@ -39,7 +39,7 @@ namespace QLDaiLy
             //  https://www.devexpress.com/Support/Center/Question/Details/Q20064/comboboxedit-how-do-you-set-the-datasource
 
             //  Lookup-edit Đại lý
-            BUS_DaiLy dl = new BUS_DaiLy();
+            BUS_LoaiDaiLy dl = new BUS_LoaiDaiLy();
             cbLoaiDL.Properties.DataSource = dl.DanhSachLoaiDL();
 
             cbLoaiDL.Properties.DisplayMember = "TenLoai";
@@ -178,6 +178,13 @@ namespace QLDaiLy
             txtEmail.Text = string.Empty;
             cbLoaiDL.EditValue = null;
             cbQuan.EditValue = null;
+        }
+
+
+        private void btnThemLoaiDL_Click(object sender, EventArgs e)
+        {
+            frmThemLoaiDaiLy frm = new frmThemLoaiDaiLy();
+            frm.ShowDialog();
         }
     }
 }

@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace QLDaiLy
 {
-    public partial class frmQuiDinh : DevExpress.XtraEditors.XtraForm
+    public partial class frmSuaLoaiDaiLy : DevExpress.XtraEditors.XtraForm
     {
-        public frmQuiDinh()
+        public frmSuaLoaiDaiLy()
         {
             InitializeComponent();
         }

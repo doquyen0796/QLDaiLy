@@ -45,6 +45,7 @@
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.cbDVT = new DevExpress.XtraEditors.LookUpEdit();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnThemDVT = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenHangHoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).BeginInit();
@@ -54,7 +55,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(37, 54);
+            this.labelControl1.Location = new System.Drawing.Point(48, 53);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(66, 13);
             this.labelControl1.TabIndex = 0;
@@ -62,7 +63,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(37, 104);
+            this.labelControl2.Location = new System.Drawing.Point(48, 103);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(52, 13);
             this.labelControl2.TabIndex = 1;
@@ -70,7 +71,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(37, 152);
+            this.labelControl3.Location = new System.Drawing.Point(48, 151);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(42, 13);
             this.labelControl3.TabIndex = 2;
@@ -78,7 +79,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(37, 199);
+            this.labelControl4.Location = new System.Drawing.Point(48, 198);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(37, 13);
             this.labelControl4.TabIndex = 3;
@@ -86,14 +87,14 @@
             // 
             // txtTenHangHoa
             // 
-            this.txtTenHangHoa.Location = new System.Drawing.Point(145, 51);
+            this.txtTenHangHoa.Location = new System.Drawing.Point(156, 50);
             this.txtTenHangHoa.Name = "txtTenHangHoa";
             this.txtTenHangHoa.Size = new System.Drawing.Size(311, 20);
             this.txtTenHangHoa.TabIndex = 4;
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(145, 149);
+            this.txtSoLuong.Location = new System.Drawing.Point(156, 148);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 5;
@@ -101,7 +102,7 @@
             // 
             // txtDonGia
             // 
-            this.txtDonGia.Location = new System.Drawing.Point(145, 196);
+            this.txtDonGia.Location = new System.Drawing.Point(156, 195);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(154, 20);
             this.txtDonGia.TabIndex = 6;
@@ -110,7 +111,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl5.Location = new System.Drawing.Point(109, 54);
+            this.labelControl5.Location = new System.Drawing.Point(120, 53);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(14, 13);
             this.labelControl5.TabIndex = 8;
@@ -119,7 +120,7 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl6.Location = new System.Drawing.Point(95, 104);
+            this.labelControl6.Location = new System.Drawing.Point(106, 103);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(14, 13);
             this.labelControl6.TabIndex = 9;
@@ -128,7 +129,7 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl7.Location = new System.Drawing.Point(85, 152);
+            this.labelControl7.Location = new System.Drawing.Point(96, 151);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(14, 13);
             this.labelControl7.TabIndex = 10;
@@ -137,7 +138,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl8.Location = new System.Drawing.Point(80, 199);
+            this.labelControl8.Location = new System.Drawing.Point(91, 198);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(14, 13);
             this.labelControl8.TabIndex = 11;
@@ -147,9 +148,9 @@
             // 
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(332, 260);
+            this.btnThem.Location = new System.Drawing.Point(343, 259);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(136, 23);
+            this.btnThem.Size = new System.Drawing.Size(152, 23);
             this.btnThem.TabIndex = 12;
             this.btnThem.Text = "Thêm hàng hóa";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -158,16 +159,16 @@
             // 
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(163, 260);
+            this.btnReset.Location = new System.Drawing.Point(156, 259);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(136, 23);
+            this.btnReset.Size = new System.Drawing.Size(152, 23);
             this.btnReset.TabIndex = 13;
             this.btnReset.Text = "Nhập lại";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // cbDVT
             // 
-            this.cbDVT.Location = new System.Drawing.Point(145, 101);
+            this.cbDVT.Location = new System.Drawing.Point(156, 100);
             this.cbDVT.Name = "cbDVT";
             this.cbDVT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -178,11 +179,23 @@
             // 
             this.ErrorChecker.ContainerControl = this;
             // 
+            // btnThemDVT
+            // 
+            this.btnThemDVT.Image = ((System.Drawing.Image)(resources.GetObject("btnThemDVT.Image")));
+            this.btnThemDVT.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnThemDVT.Location = new System.Drawing.Point(303, 98);
+            this.btnThemDVT.Name = "btnThemDVT";
+            this.btnThemDVT.Size = new System.Drawing.Size(150, 23);
+            this.btnThemDVT.TabIndex = 15;
+            this.btnThemDVT.Text = "Thêm đơn vị tính";
+            this.btnThemDVT.Click += new System.EventHandler(this.btnThemDVT_Click);
+            // 
             // frmThemHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 319);
+            this.ClientSize = new System.Drawing.Size(540, 319);
+            this.Controls.Add(this.btnThemDVT);
             this.Controls.Add(this.cbDVT);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnThem);
@@ -230,5 +243,6 @@
         private DevExpress.XtraEditors.SimpleButton btnReset;
         private DevExpress.XtraEditors.LookUpEdit cbDVT;
         private System.Windows.Forms.ErrorProvider ErrorChecker;
+        private DevExpress.XtraEditors.SimpleButton btnThemDVT;
     }
 }

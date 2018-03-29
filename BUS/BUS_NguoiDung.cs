@@ -140,25 +140,33 @@ namespace BUS
         }
 
 
-        public bool DangNhap(string tendangnhap, string matkhau)
+        public int DangNhap(string tendangnhap, string matkhau)
         {
             try
             {
                 string mk = Encrypt(matkhau);
 
                 var user = db.NguoiDungs
-                             .Where(u => u.TenDangNhap == tendangnhap && u.MatKhau == mk)
+                             .Where(u => u.TenDangNhap == tendangnhap && u.MatKhau == mk && u.TinhTrang == 1)
                              .FirstOrDefault();
 
+                var deleted_user = db.NguoiDungs
+                                     .Where(u => u.TenDangNhap == tendangnhap && u.TinhTrang == 0)
+                                     .FirstOrDefault();
+
+                if (deleted_user != null)  // người dùng đã bị xóa (ẩn)
+                {
+                    return 0;
+                }
                 if (user != null)  // đúng tên đăng nhập và mật khẩu
                 {
                     isLogin = true;
                     CurUser = user;
-                    return true;
+                    return 1;
                 }
-                else
+                else  // sai mật khẩu
                 {
-                    return false;
+                    return -1;
                 }
             }
             catch (Exception ex)
@@ -357,12 +365,29 @@ namespace BUS
         /// <param name="TenDN"></param>
         /// <param name="MK"></param>
         /// <returns></returns>
-        public DAL.NguoiDung NguoiDung12(string TenDN, string MK)
+        public int NguoiDung12(string TenDN, string MK)
         {
             var user = db.NguoiDungs
-                         .Where(u => u.GhiNho == 1 && u.MatKhau == MK || u.GhiNho == 2 && u.MatKhau == MK)
+                         .Where(u => u.GhiNho == 1 && u.MatKhau == MK && u.TinhTrang == 1 || u.GhiNho == 2 && u.MatKhau == MK && u.TinhTrang == 1)
                          .FirstOrDefault();
-            return user;
+
+            var deleted_user = db.NguoiDungs
+                                 .Where(u => u.GhiNho == 1 && u.MatKhau == MK && u.TinhTrang == 0 || u.GhiNho == 2 && u.MatKhau == MK && u.TinhTrang == 0)
+                                 .FirstOrDefault();
+
+            if (deleted_user != null)  // người dùng đã bị xóa (ẩn)
+            {
+                return 0;
+            }
+            if (user == null)  // trước đó người dùng KHÔNG chọn Ghi nhớ
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+            //return user;
         }
 
 

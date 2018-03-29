@@ -15,6 +15,7 @@ namespace BUS
             db = new DAL.QLDaiLyEntities();
         }
 
+
         public List<DAL.Quan> DanhSachQuan()
         {
             var quan = db.Quans.ToList();

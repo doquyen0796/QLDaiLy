@@ -131,17 +131,17 @@
     <Compile Include="frmHangHoa.Designer.cs">
       <DependentUpon>frmHangHoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLoaiDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiDaiLy.Designer.cs">
+      <DependentUpon>frmLoaiDaiLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmQuiDinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQuiDinh.Designer.cs">
-      <DependentUpon>frmQuiDinh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSoDaiLyToiDa.cs">
       <SubType>Form</SubType>
@@ -173,6 +173,12 @@
     <Compile Include="frmSuaHangHoa.Designer.cs">
       <DependentUpon>frmSuaHangHoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSuaLoaiDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuaLoaiDaiLy.Designer.cs">
+      <DependentUpon>frmSuaLoaiDaiLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,12 @@
     </Compile>
     <Compile Include="frmThemHangHoa.Designer.cs">
       <DependentUpon>frmThemHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemLoaiDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemLoaiDaiLy.Designer.cs">
+      <DependentUpon>frmThemLoaiDaiLy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThuTien.cs">
       <SubType>Form</SubType>
@@ -247,11 +259,11 @@
     <EmbeddedResource Include="frmHangHoa.resx">
       <DependentUpon>frmHangHoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiDaiLy.resx">
+      <DependentUpon>frmLoaiDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmQuiDinh.resx">
-      <DependentUpon>frmQuiDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSoDaiLyToiDa.resx">
       <DependentUpon>frmSoDaiLyToiDa.cs</DependentUpon>
@@ -268,6 +280,9 @@
     <EmbeddedResource Include="frmSuaHangHoa.resx">
       <DependentUpon>frmSuaHangHoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaLoaiDaiLy.resx">
+      <DependentUpon>frmSuaLoaiDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemDaiLy.resx">
       <DependentUpon>frmThemDaiLy.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemHangHoa.resx">
       <DependentUpon>frmThemHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemLoaiDaiLy.resx">
+      <DependentUpon>frmThemLoaiDaiLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThuTien.resx">
       <DependentUpon>frmThuTien.cs</DependentUpon>

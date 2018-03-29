@@ -50,6 +50,7 @@
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.txtMaDaiLy = new DevExpress.XtraEditors.TextEdit();
+            this.btnThemLoaiDL = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiepNhan.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiepNhan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbQuan.Properties)).BeginInit();
@@ -229,11 +230,23 @@
             this.txtMaDaiLy.TabIndex = 40;
             this.txtMaDaiLy.Visible = false;
             // 
+            // btnThemLoaiDL
+            // 
+            this.btnThemLoaiDL.Image = ((System.Drawing.Image)(resources.GetObject("btnThemLoaiDL.Image")));
+            this.btnThemLoaiDL.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnThemLoaiDL.Location = new System.Drawing.Point(412, 129);
+            this.btnThemLoaiDL.Name = "btnThemLoaiDL";
+            this.btnThemLoaiDL.Size = new System.Drawing.Size(150, 23);
+            this.btnThemLoaiDL.TabIndex = 41;
+            this.btnThemLoaiDL.Text = "Thêm Loại Đại Lý";
+            this.btnThemLoaiDL.Click += new System.EventHandler(this.btnThemLoaiDL_Click);
+            // 
             // frmSuaDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 397);
+            this.ClientSize = new System.Drawing.Size(627, 397);
+            this.Controls.Add(this.btnThemLoaiDL);
             this.Controls.Add(this.txtMaDaiLy);
             this.Controls.Add(this.labelControl11);
             this.Controls.Add(this.dtpNgayTiepNhan);
@@ -294,5 +307,6 @@
         public DevExpress.XtraEditors.TextEdit txtTenDaiLy;
         public DevExpress.XtraEditors.TextEdit txtMaDaiLy;
         private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.SimpleButton btnThemLoaiDL;
     }
 }

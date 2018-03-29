@@ -152,9 +152,10 @@ namespace QLDaiLy
             ViewForm(frm);
         }
 
-        private void btnQuiDinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
+        private void btnLoaiDaiLy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmQuiDinh frm = new frmQuiDinh();
+            frmLoaiDaiLy frm = new frmLoaiDaiLy();
             ViewForm(frm);
         }
     }

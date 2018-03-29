@@ -16,14 +16,6 @@ namespace BUS
         }
 
 
-        public List<DAL.LoaiDaiLy> DanhSachLoaiDL()
-        {
-            var loai = db.LoaiDaiLies.ToList();
-
-            return loai;
-        }
-
-
         /// <summary>
         /// Kiểm tra email đã tồn tại chưa
         /// </summary>

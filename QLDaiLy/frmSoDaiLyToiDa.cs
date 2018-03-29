@@ -31,26 +31,29 @@ namespace QLDaiLy
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            BUS_Quan q = new BUS_Quan();
-            int oldmax = q.LaySoDaiLyToiDa();
-            int newmax = int.Parse(txtSoDLToiDa.Text);
-            if (oldmax != newmax)
+            if (KiemTraDuLieu())
             {
-                var tb = MessageBox.Show(string.Format("Hiện tại, số đại lý tối đa trong một quận là {0}.\nBạn có chắc chắn muốn chỉnh sửa thành {1} ?", oldmax.ToString(), newmax.ToString()), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (tb == DialogResult.Yes)
+                BUS_Quan q = new BUS_Quan();
+                int oldmax = q.LaySoDaiLyToiDa();
+                int newmax = int.Parse(txtSoDLToiDa.Text);
+                if (oldmax != newmax)
                 {
-                    q.LuuSoDaiLyToiDa(newmax);
-                    MessageBox.Show("Bạn đã lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    var tb = MessageBox.Show(string.Format("Hiện tại, số đại lý tối đa trong một quận là {0}.\nBạn có chắc chắn muốn chỉnh sửa thành {1} ?", oldmax.ToString(), newmax.ToString()), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (tb == DialogResult.Yes)
+                    {
+                        q.LuuSoDaiLyToiDa(newmax);
+                        MessageBox.Show("Bạn đã lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
                 else
                 {
-                    return;
+                    this.Close();
                 }
-            }
-            else
-            {
-                this.Close();
             }
         }
 
@@ -59,6 +62,25 @@ namespace QLDaiLy
         {
             BUS_Quan q = new BUS_Quan();
             txtSoDLToiDa.Text = q.LaySoDaiLyToiDa().ToString();
+        }
+
+
+        private bool KiemTraDuLieu()
+        {
+            ErrorChecker.Clear();  //  giả sử ban đầu mọi dữ liệu là đúng
+
+            if (string.IsNullOrWhiteSpace(txtSoDLToiDa.Text) || string.IsNullOrEmpty(txtSoDLToiDa.Text))
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtSoDLToiDa, "Không được để trống.");
+                return false;
+            }
+            else
+            {
+                ErrorChecker.Clear();
+            }
+
+            return true;
         }
     }
 }
