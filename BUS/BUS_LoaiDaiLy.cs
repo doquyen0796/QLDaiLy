@@ -24,5 +24,56 @@ namespace BUS
 
             return loai;
         }
+
+
+        /// <summary>
+        /// Kiểm tra loại đại lý đã tồn tại hay chưa
+        /// </summary>
+        /// <param name="tenloai"></param>
+        /// <returns></returns>
+        public bool KiemTraTonTai(string tenloai)
+        {
+            var loai = db.LoaiDaiLies
+                         .Where(l => l.TenLoai == tenloai)
+                         .FirstOrDefault();
+
+            if (loai != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        /// <summary>
+        /// Thêm loại đại lý
+        /// </summary>
+        /// <param name="tenloai"></param>
+        /// <param name="TienNoToiDa"></param>
+        /// <returns></returns>
+        public bool ThemLoaiDaiLy(string tenloai, float TienNoToiDa)
+        {
+            try
+            {
+                DAL.LoaiDaiLy loai = new DAL.LoaiDaiLy
+                {
+                    TenLoai = tenloai,
+                    TienNoToiDa = TienNoToiDa,
+                    TinhTrang = 1
+                };
+
+                db.LoaiDaiLies.Add(loai);
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

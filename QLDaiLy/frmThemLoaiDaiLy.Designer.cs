@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemLoaiDaiLy));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -36,8 +37,10 @@
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -62,6 +65,7 @@
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(300, 20);
             this.txtTenLoai.TabIndex = 2;
+            this.txtTenLoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenLoai_KeyPress);
             // 
             // txtTienNo
             // 
@@ -69,6 +73,7 @@
             this.txtTienNo.Name = "txtTienNo";
             this.txtTienNo.Size = new System.Drawing.Size(172, 20);
             this.txtTienNo.TabIndex = 3;
+            this.txtTienNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTienNo_KeyPress);
             // 
             // btnThem
             // 
@@ -79,6 +84,7 @@
             this.btnThem.Size = new System.Drawing.Size(117, 23);
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // labelControl3
             // 
@@ -97,6 +103,10 @@
             this.labelControl4.Size = new System.Drawing.Size(14, 13);
             this.labelControl4.TabIndex = 6;
             this.labelControl4.Text = "(*)";
+            // 
+            // ErrorChecker
+            // 
+            this.ErrorChecker.ContainerControl = this;
             // 
             // frmThemLoaiDaiLy
             // 
@@ -117,6 +127,7 @@
             this.Text = "Thêm Loại Đại Lý";
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +142,6 @@
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.ErrorProvider ErrorChecker;
     }
 }

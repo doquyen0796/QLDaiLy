@@ -59,6 +59,7 @@ namespace QLDaiLy
         private void navbarThem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmThemLoaiDaiLy frm = new frmThemLoaiDaiLy();
+            frm.XuLyThemLoaiDaiLy += frmLoaiDaiLy_Load;
             frm.ShowDialog();
         }
 
