@@ -111,5 +111,13 @@ namespace QLDaiLy
                 donViTinhsBindingSource.DataSource = db.DonViTinhs.Where(d => d.TinhTrang == 1).ToList();
             }
         }
+
+
+        private void navBarUndo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmDVTNgungKinhDoanh frm = new frmDVTNgungKinhDoanh();
+            frm.XuLySuDungLaiDVT += frmDonViTinh_Load;
+            frm.ShowDialog();
+        }
     }
 }

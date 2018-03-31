@@ -73,7 +73,7 @@ namespace QLDaiLy
             if (loai.KiemTraTonTai(txtTenLoai.Text) == false)
             {
                 ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(txtTenLoai, "Loại đại lý đã tồn tại.");
+                ErrorChecker.SetError(txtTenLoai, "Loại đại lý đã tồn tại.\nGợi ý: Bạn hãy kiểm tra danh sách loại đại lý ngừng kinh doanh.");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtTienNo.Text) || string.IsNullOrEmpty(txtTienNo.Text))

@@ -29,7 +29,7 @@ namespace BUS
         public bool KiemTraTenDVT(string tendvt)
         {
             var dvt = db.DonViTinhs
-                        .Where(d => d.TenDVT == tendvt && d.TinhTrang == 1)
+                        .Where(d => d.TenDVT == tendvt)
                         .FirstOrDefault();
 
             if (dvt != null)  //  dvt đã tồn tại
@@ -44,7 +44,7 @@ namespace BUS
         public bool KiemTraTenDVT(int madvt, string tendvt)
         {
             var dvt = db.DonViTinhs
-                        .Where(d => d.TenDVT == tendvt && d.MaDVT != madvt && d.TinhTrang == 1)
+                        .Where(d => d.TenDVT == tendvt && d.MaDVT != madvt)
                         .FirstOrDefault();
 
             if (dvt != null)  //  dvt đã tồn tại
@@ -125,6 +125,31 @@ namespace BUS
 
                 dvt.TinhTrang = 0;
 
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Tái sử dụng đơn vị tính
+        /// </summary>
+        /// <param name="madvt"></param>
+        /// <returns></returns>
+        public bool TaiSuDungDonViTinh(int madvt)
+        {
+            try
+            {
+                var dvt = db.DonViTinhs
+                            .Where(d => d.MaDVT == madvt)
+                            .FirstOrDefault();
+
+                dvt.TinhTrang = 1;
                 db.SaveChanges();
 
                 return true;

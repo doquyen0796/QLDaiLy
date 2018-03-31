@@ -38,6 +38,7 @@
             this.navbarThem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
             this.dgvHangHoa = new DevExpress.XtraGrid.GridControl();
             this.hangHoasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,6 +54,8 @@
             this.btnlui = new System.Windows.Forms.Button();
             this.cbtrang = new System.Windows.Forms.ComboBox();
             this.cbsoluongtrang = new System.Windows.Forms.ComboBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -96,7 +99,8 @@
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navbarThem,
             this.navbarSua,
-            this.navbarXoa});
+            this.navbarXoa,
+            this.navBarUndo});
             this.navBarControl1.Location = new System.Drawing.Point(43, 95);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -111,7 +115,8 @@
             this.navbarQuanLy.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarThem),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo)});
             this.navbarQuanLy.Name = "navbarQuanLy";
             // 
             // navbarThem
@@ -134,6 +139,13 @@
             this.navbarXoa.Name = "navbarXoa";
             this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
             this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
+            // 
+            // navBarUndo
+            // 
+            this.navBarUndo.Caption = "Hàng Hóa Ngừng Kinh Doanh";
+            this.navBarUndo.Name = "navBarUndo";
+            this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
+            this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
             // 
             // navbarChucNangKhac
             // 
@@ -267,7 +279,7 @@
             // lbtrang
             // 
             this.lbtrang.AutoSize = true;
-            this.lbtrang.Location = new System.Drawing.Point(1116, 439);
+            this.lbtrang.Location = new System.Drawing.Point(1114, 446);
             this.lbtrang.Name = "lbtrang";
             this.lbtrang.Size = new System.Drawing.Size(35, 13);
             this.lbtrang.TabIndex = 24;
@@ -275,7 +287,7 @@
             // 
             // btntien
             // 
-            this.btntien.Location = new System.Drawing.Point(1047, 434);
+            this.btntien.Location = new System.Drawing.Point(1045, 441);
             this.btntien.Name = "btntien";
             this.btntien.Size = new System.Drawing.Size(52, 23);
             this.btntien.TabIndex = 23;
@@ -285,7 +297,7 @@
             // 
             // btnlui
             // 
-            this.btnlui.Location = new System.Drawing.Point(996, 434);
+            this.btnlui.Location = new System.Drawing.Point(994, 441);
             this.btnlui.Name = "btnlui";
             this.btnlui.Size = new System.Drawing.Size(45, 23);
             this.btnlui.TabIndex = 22;
@@ -297,9 +309,9 @@
             // 
             this.cbtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbtrang.FormattingEnabled = true;
-            this.cbtrang.Location = new System.Drawing.Point(904, 436);
+            this.cbtrang.Location = new System.Drawing.Point(889, 443);
             this.cbtrang.Name = "cbtrang";
-            this.cbtrang.Size = new System.Drawing.Size(86, 21);
+            this.cbtrang.Size = new System.Drawing.Size(78, 21);
             this.cbtrang.TabIndex = 21;
             this.cbtrang.SelectedIndexChanged += new System.EventHandler(this.cbtrang_SelectedIndexChanged);
             // 
@@ -307,17 +319,35 @@
             // 
             this.cbsoluongtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbsoluongtrang.FormattingEnabled = true;
-            this.cbsoluongtrang.Location = new System.Drawing.Point(798, 436);
+            this.cbsoluongtrang.Location = new System.Drawing.Point(424, 443);
             this.cbsoluongtrang.Name = "cbsoluongtrang";
-            this.cbsoluongtrang.Size = new System.Drawing.Size(100, 21);
+            this.cbsoluongtrang.Size = new System.Drawing.Size(78, 21);
             this.cbsoluongtrang.TabIndex = 20;
             this.cbsoluongtrang.SelectedIndexChanged += new System.EventHandler(this.cbsoluongtrang_SelectedIndexChanged);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(310, 446);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(108, 13);
+            this.labelControl2.TabIndex = 25;
+            this.labelControl2.Text = "Số hàng hóa mỗi trang";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(855, 446);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(28, 13);
+            this.labelControl3.TabIndex = 26;
+            this.labelControl3.Text = "Trang";
             // 
             // frmHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 475);
+            this.ClientSize = new System.Drawing.Size(1199, 485);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lbtrang);
             this.Controls.Add(this.btntien);
             this.Controls.Add(this.btnlui);
@@ -367,5 +397,8 @@
         private System.Windows.Forms.Button btnlui;
         private System.Windows.Forms.ComboBox cbtrang;
         private System.Windows.Forms.ComboBox cbsoluongtrang;
+        private DevExpress.XtraNavBar.NavBarItem navBarUndo;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

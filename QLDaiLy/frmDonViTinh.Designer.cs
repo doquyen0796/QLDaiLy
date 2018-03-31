@@ -44,6 +44,7 @@
             this.gridViewDVT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenDVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -87,7 +88,8 @@
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navbarThem,
             this.navbarSua,
-            this.navbarXoa});
+            this.navbarXoa,
+            this.navBarUndo});
             this.navBarControl1.Location = new System.Drawing.Point(38, 108);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -102,7 +104,8 @@
             this.navbarQuanLy.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarThem),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo)});
             this.navbarQuanLy.Name = "navbarQuanLy";
             // 
             // navbarThem
@@ -186,6 +189,13 @@
             this.colTenDVT.Visible = true;
             this.colTenDVT.VisibleIndex = 0;
             // 
+            // navBarUndo
+            // 
+            this.navBarUndo.Caption = "Tái Sử Dụng Đơn Vị Tính";
+            this.navBarUndo.Name = "navBarUndo";
+            this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
+            this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
+            // 
             // frmDonViTinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,5 +236,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMaDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTenDVT;
         private DevExpress.XtraNavBar.NavBarItem navbarXoa;
+        private DevExpress.XtraNavBar.NavBarItem navBarUndo;
     }
 }

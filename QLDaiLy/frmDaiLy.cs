@@ -210,6 +210,7 @@ namespace QLDaiLy
         private void navBarUndo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmDLNgungKinhDoanh frm = new frmDLNgungKinhDoanh();
+            frm.XuLyKinhDoanhLaiDaiLy += frmDaiLy_Load;
             frm.ShowDialog();
         }
     }

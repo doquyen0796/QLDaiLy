@@ -57,7 +57,7 @@ namespace QLDaiLy
             if (dvt.KiemTraTenDVT(txtTenDVT.Text) == false)
             {
                 ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(txtTenDVT, "Đơn vị tính đã tồn tại.");
+                ErrorChecker.SetError(txtTenDVT, "Đơn vị tính đã tồn tại.\nGợi ý: Bạn hãy kiểm tra danh sách đơn vị tính ngừng kinh doanh.");
                 return false;
             }
             else

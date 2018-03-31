@@ -38,6 +38,7 @@
             this.navbarThem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarCaiDat = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarSoDaiLyToiDa = new DevExpress.XtraNavBar.NavBarItem();
             this.dgvDaiLy = new DevExpress.XtraGrid.GridControl();
@@ -57,7 +58,8 @@
             this.lbtrang = new System.Windows.Forms.Label();
             this.cbTrang = new System.Windows.Forms.ComboBox();
             this.cbSoLuongSP = new System.Windows.Forms.ComboBox();
-            this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -143,6 +145,13 @@
             this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
             this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
             // 
+            // navBarUndo
+            // 
+            this.navBarUndo.Caption = "Đại Lý Ngừng Kinh Doanh";
+            this.navBarUndo.Name = "navBarUndo";
+            this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
+            this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
+            // 
             // navbarCaiDat
             // 
             this.navbarCaiDat.Caption = "Cài Đặt";
@@ -161,7 +170,7 @@
             // dgvDaiLy
             // 
             this.dgvDaiLy.DataSource = this.daiLiesBindingSource;
-            this.dgvDaiLy.Location = new System.Drawing.Point(293, 88);
+            this.dgvDaiLy.Location = new System.Drawing.Point(305, 88);
             this.dgvDaiLy.MainView = this.gridViewDaiLy;
             this.dgvDaiLy.Name = "dgvDaiLy";
             this.dgvDaiLy.Size = new System.Drawing.Size(967, 291);
@@ -341,7 +350,7 @@
             // 
             // btnlui
             // 
-            this.btnlui.Location = new System.Drawing.Point(1112, 393);
+            this.btnlui.Location = new System.Drawing.Point(1109, 403);
             this.btnlui.Name = "btnlui";
             this.btnlui.Size = new System.Drawing.Size(45, 23);
             this.btnlui.TabIndex = 17;
@@ -351,7 +360,7 @@
             // 
             // btntien
             // 
-            this.btntien.Location = new System.Drawing.Point(1163, 393);
+            this.btntien.Location = new System.Drawing.Point(1160, 403);
             this.btntien.Name = "btntien";
             this.btntien.Size = new System.Drawing.Size(52, 23);
             this.btntien.TabIndex = 18;
@@ -362,7 +371,7 @@
             // lbtrang
             // 
             this.lbtrang.AutoSize = true;
-            this.lbtrang.Location = new System.Drawing.Point(1237, 398);
+            this.lbtrang.Location = new System.Drawing.Point(1234, 408);
             this.lbtrang.Name = "lbtrang";
             this.lbtrang.Size = new System.Drawing.Size(35, 13);
             this.lbtrang.TabIndex = 19;
@@ -372,9 +381,9 @@
             // 
             this.cbTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrang.FormattingEnabled = true;
-            this.cbTrang.Location = new System.Drawing.Point(1017, 395);
+            this.cbTrang.Location = new System.Drawing.Point(1005, 405);
             this.cbTrang.Name = "cbTrang";
-            this.cbTrang.Size = new System.Drawing.Size(89, 21);
+            this.cbTrang.Size = new System.Drawing.Size(75, 21);
             this.cbTrang.TabIndex = 22;
             this.cbTrang.SelectedIndexChanged += new System.EventHandler(this.cbTrang_SelectedIndexChanged);
             // 
@@ -382,24 +391,35 @@
             // 
             this.cbSoLuongSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSoLuongSP.FormattingEnabled = true;
-            this.cbSoLuongSP.Location = new System.Drawing.Point(915, 395);
+            this.cbSoLuongSP.Location = new System.Drawing.Point(403, 405);
             this.cbSoLuongSP.Name = "cbSoLuongSP";
-            this.cbSoLuongSP.Size = new System.Drawing.Size(96, 21);
+            this.cbSoLuongSP.Size = new System.Drawing.Size(75, 21);
             this.cbSoLuongSP.TabIndex = 23;
             this.cbSoLuongSP.SelectedIndexChanged += new System.EventHandler(this.cbSoLuongSP_SelectedIndexChanged);
             // 
-            // navBarUndo
+            // labelControl2
             // 
-            this.navBarUndo.Caption = "Đại Lý Ngừng Kinh Doanh";
-            this.navBarUndo.Name = "navBarUndo";
-            this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
-            this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
+            this.labelControl2.Location = new System.Drawing.Point(309, 408);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(88, 13);
+            this.labelControl2.TabIndex = 24;
+            this.labelControl2.Text = "Số đại lý mỗi trang";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(971, 408);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(28, 13);
+            this.labelControl3.TabIndex = 25;
+            this.labelControl3.Text = "Trang";
             // 
             // frmDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 430);
+            this.ClientSize = new System.Drawing.Size(1284, 442);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.cbSoLuongSP);
             this.Controls.Add(this.cbTrang);
             this.Controls.Add(this.lbtrang);
@@ -454,5 +474,7 @@
         private System.Windows.Forms.ComboBox cbSoLuongSP;
         private DevExpress.XtraNavBar.NavBarItem navBarSoDaiLyToiDa;
         private DevExpress.XtraNavBar.NavBarItem navBarUndo;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

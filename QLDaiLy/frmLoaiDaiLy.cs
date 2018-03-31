@@ -79,5 +79,12 @@ namespace QLDaiLy
         {
 
         }
+
+
+        private void navBarUndo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmLoaiDLNgungKinhDoanh frm = new frmLoaiDLNgungKinhDoanh();
+            frm.ShowDialog();
+        }
     }
 }

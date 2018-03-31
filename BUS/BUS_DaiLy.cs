@@ -25,7 +25,7 @@ namespace BUS
         public bool KTEmailTonTai(string email)
         {
             var user = db.DaiLies
-                         .Where(u => u.Email == email)
+                         .Where(u => u.Email == email && u.TinhTrang == 1)
                          .FirstOrDefault();
 
             if (user != null && !string.IsNullOrEmpty(email))  // email đã tồn tại
@@ -47,7 +47,7 @@ namespace BUS
         public bool KTEmailTonTai(int madl, string email)
         {
             var user = db.DaiLies
-                         .Where(u => u.Email == email && u.MaDaiLy != madl)
+                         .Where(u => u.Email == email && u.MaDaiLy != madl && u.TinhTrang == 1)
                          .FirstOrDefault();
 
             if (user != null && !string.IsNullOrEmpty(email))  // email đã tồn tại
@@ -64,7 +64,7 @@ namespace BUS
         public bool KiemTraTenDaiLy(string tendl)
         {
             var dl = db.DaiLies
-                       .Where(d => d.TenDaiLy == tendl && d.TinhTrang == 1)
+                       .Where(d => d.TenDaiLy == tendl)
                        .FirstOrDefault();
 
             if (dl != null)  //  đại lý đã tồn tại
@@ -79,7 +79,7 @@ namespace BUS
         public bool KiemTraTenDaiLy(int madl, string tendl)
         {
             var dl = db.DaiLies
-                       .Where(d => d.MaDaiLy != madl && d.TenDaiLy == tendl && d.TinhTrang == 1)
+                       .Where(d => d.MaDaiLy != madl && d.TenDaiLy == tendl)
                        .FirstOrDefault();
 
             if (dl != null)  //  đại lý đã tồn tại
@@ -253,6 +253,46 @@ namespace BUS
             var dl = db.DaiLies.ToList();
             var ds = dl.Where(d => d.TinhTrang == 1).Skip(t).Take(sl).ToList();
             return ds;
+        }
+
+
+        /// <summary>
+        /// Tiếp tục kinh doanh đại lý
+        /// </summary>
+        /// <param name="madl"></param>
+        /// <param name="tenquan"></param>
+        /// <returns></returns>
+        public bool TiepTucKinhDoanh(int madl, string tenquan)
+        {
+            try
+            {
+                var daily = db.DaiLies
+                              .Where(d => d.MaDaiLy == madl)
+                              .FirstOrDefault();
+
+                daily.TinhTrang = 1;
+
+                // cộng TongSoDaiLy của quận tương ứng
+                var quan = db.Quans
+                             .Where(q => q.TenQuan == tenquan)
+                             .FirstOrDefault();
+
+                quan.TongSoDaiLy = quan.TongSoDaiLy + 1;
+
+                if (quan.TongSoDaiLy > quan.SoDaiLyToiDa)
+                {
+                    return false; // vượt quá số đại lý tối đa của quận
+                }
+                else
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

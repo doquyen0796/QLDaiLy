@@ -12,9 +12,9 @@ using System.Data.Entity;
 
 namespace QLDaiLy
 {
-    public partial class frmXuatHang : DevExpress.XtraEditors.XtraForm
+    public partial class frmLoaiDLNgungKinhDoanh : DevExpress.XtraEditors.XtraForm
     {
-        public frmXuatHang()
+        public frmLoaiDLNgungKinhDoanh()
         {
             InitializeComponent();
         }
@@ -26,36 +26,35 @@ namespace QLDaiLy
             // Instantiate a new DBContext
             DAL.QLDaiLyEntities dbContext = new DAL.QLDaiLyEntities();
             // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
-            dbContext.PhieuXuatHangs.LoadAsync().ContinueWith(loadTask =>
+            dbContext.LoaiDaiLies.LoadAsync().ContinueWith(loadTask =>
             {
                 // Bind data to control when loading complete
-                phieuXuatHangsBindingSource.DataSource = dbContext.PhieuXuatHangs.Local.ToBindingList();
+                //loaiDaiLiesBindingSource.DataSource = dbContext.LoaiDaiLies.Local.ToBindingList();
+
+                loaiDaiLiesBindingSource.DataSource = dbContext.LoaiDaiLies.Where(l => l.TinhTrang == 0).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
-            // Make the grid read-only.
-            gridViewPhieuXuatHang.OptionsBehavior.Editable = false;
             // Prevent the focused cell from being highlighted.
-            gridViewPhieuXuatHang.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewLDLNgungKD.OptionsSelection.EnableAppearanceFocusedCell = false;
             // Draw a dotted focus rectangle around the entire row.
-            gridViewPhieuXuatHang.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewLDLNgungKD.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
         }
 
 
-        private void frmXuatHang_Load(object sender, EventArgs e)
+        private void frmLoaiDLNgungKinhDoanh_Load(object sender, EventArgs e)
         {
             this.FormLoad();
         }
 
 
-        private void navbarThem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void btnKinhDoanh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            frmLapPhieuXuatHang frm = new frmLapPhieuXuatHang();
-            frm.ShowDialog();
+
         }
 
 
-        private void btnChiTiet_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace QLDaiLy
 {
-    partial class frmLoaiDaiLy
+    partial class frmLoaiDLNgungKinhDoanh
     {
         /// <summary>
         /// Required designer variable.
@@ -29,144 +29,80 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoaiDaiLy));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoaiDLNgungKinhDoanh));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtTuKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navbarQuanLy = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navbarThem = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
-            this.dgvLoaiDaiLy = new DevExpress.XtraGrid.GridControl();
+            this.dgvLDLNgungKD = new DevExpress.XtraGrid.GridControl();
             this.loaiDaiLiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridViewLoaiDaiLy = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewLDLNgungKD = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTienNoToiDa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnKinhDoanh = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiDaiLy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLDLNgungKD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loaiDaiLiesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewLoaiDaiLy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewLDLNgungKD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnKinhDoanh)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTuKhoa
             // 
-            this.txtTuKhoa.Location = new System.Drawing.Point(424, 49);
+            this.txtTuKhoa.Location = new System.Drawing.Point(164, 54);
             this.txtTuKhoa.Name = "txtTuKhoa";
-            this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
-            this.txtTuKhoa.TabIndex = 5;
+            this.txtTuKhoa.Size = new System.Drawing.Size(294, 20);
+            this.txtTuKhoa.TabIndex = 8;
             this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QLDaiLy.Properties.Resources.Find;
-            this.pictureBox1.Location = new System.Drawing.Point(318, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(58, 43);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(367, 52);
+            this.labelControl1.Location = new System.Drawing.Point(107, 57);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(40, 13);
-            this.labelControl1.TabIndex = 4;
+            this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Tìm kiếm";
             // 
-            // navBarControl1
+            // dgvLDLNgungKD
             // 
-            this.navBarControl1.ActiveGroup = this.navbarQuanLy;
-            this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navbarQuanLy,
-            this.navbarChucNangKhac});
-            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navbarThem,
-            this.navbarSua,
-            this.navbarXoa,
-            this.navBarUndo});
-            this.navBarControl1.Location = new System.Drawing.Point(44, 110);
-            this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
-            this.navBarControl1.Size = new System.Drawing.Size(224, 225);
-            this.navBarControl1.TabIndex = 10;
-            this.navBarControl1.Text = "navBarControl1";
-            // 
-            // navbarQuanLy
-            // 
-            this.navbarQuanLy.Caption = "Quản Lý";
-            this.navbarQuanLy.Expanded = true;
-            this.navbarQuanLy.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarThem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo)});
-            this.navbarQuanLy.Name = "navbarQuanLy";
-            // 
-            // navbarThem
-            // 
-            this.navbarThem.Caption = "Thêm Loại Đại Lý";
-            this.navbarThem.Name = "navbarThem";
-            this.navbarThem.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarThem.SmallImage")));
-            this.navbarThem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarThem_LinkClicked);
-            // 
-            // navbarSua
-            // 
-            this.navbarSua.Caption = "Sửa Thông Tin Loại Đại Lý";
-            this.navbarSua.Name = "navbarSua";
-            this.navbarSua.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarSua.SmallImage")));
-            this.navbarSua.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarSua_LinkClicked);
-            // 
-            // navbarXoa
-            // 
-            this.navbarXoa.Caption = "Ngừng Kinh Doanh Loại Đại Lý";
-            this.navbarXoa.Name = "navbarXoa";
-            this.navbarXoa.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarXoa.SmallImage")));
-            this.navbarXoa.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarXoa_LinkClicked);
-            // 
-            // navBarUndo
-            // 
-            this.navBarUndo.Caption = "Loại Đại Lý Ngừng Kinh Doanh";
-            this.navBarUndo.Name = "navBarUndo";
-            this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
-            this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
-            // 
-            // navbarChucNangKhac
-            // 
-            this.navbarChucNangKhac.Caption = "Chức Năng Khác";
-            this.navbarChucNangKhac.Expanded = true;
-            this.navbarChucNangKhac.Name = "navbarChucNangKhac";
-            // 
-            // dgvLoaiDaiLy
-            // 
-            this.dgvLoaiDaiLy.DataSource = this.loaiDaiLiesBindingSource;
-            this.dgvLoaiDaiLy.Location = new System.Drawing.Point(318, 110);
-            this.dgvLoaiDaiLy.MainView = this.gridViewLoaiDaiLy;
-            this.dgvLoaiDaiLy.Name = "dgvLoaiDaiLy";
-            this.dgvLoaiDaiLy.Size = new System.Drawing.Size(581, 237);
-            this.dgvLoaiDaiLy.TabIndex = 11;
-            this.dgvLoaiDaiLy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewLoaiDaiLy});
+            this.dgvLDLNgungKD.DataSource = this.loaiDaiLiesBindingSource;
+            this.dgvLDLNgungKD.Location = new System.Drawing.Point(33, 106);
+            this.dgvLDLNgungKD.MainView = this.gridViewLDLNgungKD;
+            this.dgvLDLNgungKD.Name = "dgvLDLNgungKD";
+            this.dgvLDLNgungKD.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnKinhDoanh});
+            this.dgvLDLNgungKD.Size = new System.Drawing.Size(646, 200);
+            this.dgvLDLNgungKD.TabIndex = 9;
+            this.dgvLDLNgungKD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewLDLNgungKD});
             // 
             // loaiDaiLiesBindingSource
             // 
             this.loaiDaiLiesBindingSource.DataSource = typeof(DAL.LoaiDaiLy);
             // 
-            // gridViewLoaiDaiLy
+            // gridViewLDLNgungKD
             // 
-            this.gridViewLoaiDaiLy.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewLDLNgungKD.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaLoai,
             this.colTenLoai,
-            this.colTienNoToiDa});
-            this.gridViewLoaiDaiLy.GridControl = this.dgvLoaiDaiLy;
-            this.gridViewLoaiDaiLy.Name = "gridViewLoaiDaiLy";
-            this.gridViewLoaiDaiLy.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.colTienNoToiDa,
+            this.gridColumn1});
+            this.gridViewLDLNgungKD.GridControl = this.dgvLDLNgungKD;
+            this.gridViewLDLNgungKD.Name = "gridViewLDLNgungKD";
+            this.gridViewLDLNgungKD.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             // 
             // colMaLoai
             // 
@@ -197,8 +133,11 @@
             this.colTenLoai.Caption = "Tên Loại";
             this.colTenLoai.FieldName = "TenLoai";
             this.colTenLoai.Name = "colTenLoai";
+            this.colTenLoai.OptionsColumn.AllowEdit = false;
+            this.colTenLoai.OptionsColumn.ReadOnly = true;
             this.colTenLoai.Visible = true;
             this.colTenLoai.VisibleIndex = 0;
+            this.colTenLoai.Width = 250;
             // 
             // colTienNoToiDa
             // 
@@ -215,28 +154,59 @@
             this.colTienNoToiDa.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colTienNoToiDa.FieldName = "TienNoToiDa";
             this.colTienNoToiDa.Name = "colTienNoToiDa";
+            this.colTienNoToiDa.OptionsColumn.AllowEdit = false;
+            this.colTienNoToiDa.OptionsColumn.ReadOnly = true;
             this.colTienNoToiDa.Visible = true;
             this.colTienNoToiDa.VisibleIndex = 1;
+            this.colTienNoToiDa.Width = 188;
             // 
-            // frmLoaiDaiLy
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.Caption = "Tiếp Tục Kinh Doanh";
+            this.gridColumn1.ColumnEdit = this.btnKinhDoanh;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.Width = 190;
+            // 
+            // btnKinhDoanh
+            // 
+            this.btnKinhDoanh.AutoHeight = false;
+            this.btnKinhDoanh.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnKinhDoanh.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnKinhDoanh.Name = "btnKinhDoanh";
+            this.btnKinhDoanh.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnKinhDoanh.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnKinhDoanh_ButtonClick);
+            // 
+            // frmLoaiDLNgungKinhDoanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 430);
-            this.Controls.Add(this.dgvLoaiDaiLy);
-            this.Controls.Add(this.navBarControl1);
+            this.ClientSize = new System.Drawing.Size(717, 343);
+            this.Controls.Add(this.dgvLDLNgungKD);
             this.Controls.Add(this.txtTuKhoa);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl1);
-            this.Name = "frmLoaiDaiLy";
-            this.Text = "Loại Đại Lý";
-            this.Load += new System.EventHandler(this.frmLoaiDaiLy_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "frmLoaiDLNgungKinhDoanh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Danh Sách Loại Đại Lý Ngừng Kinh Doanh";
+            this.Load += new System.EventHandler(this.frmLoaiDLNgungKinhDoanh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiDaiLy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLDLNgungKD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loaiDaiLiesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewLoaiDaiLy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewLDLNgungKD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnKinhDoanh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,18 +217,13 @@
         private DevExpress.XtraEditors.TextEdit txtTuKhoa;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraNavBar.NavBarControl navBarControl1;
-        private DevExpress.XtraNavBar.NavBarGroup navbarQuanLy;
-        private DevExpress.XtraNavBar.NavBarItem navbarThem;
-        private DevExpress.XtraNavBar.NavBarItem navbarSua;
-        private DevExpress.XtraNavBar.NavBarItem navbarXoa;
-        private DevExpress.XtraNavBar.NavBarGroup navbarChucNangKhac;
-        private DevExpress.XtraGrid.GridControl dgvLoaiDaiLy;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewLoaiDaiLy;
+        private DevExpress.XtraGrid.GridControl dgvLDLNgungKD;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewLDLNgungKD;
         private System.Windows.Forms.BindingSource loaiDaiLiesBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMaLoai;
         private DevExpress.XtraGrid.Columns.GridColumn colTenLoai;
         private DevExpress.XtraGrid.Columns.GridColumn colTienNoToiDa;
-        private DevExpress.XtraNavBar.NavBarItem navBarUndo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnKinhDoanh;
     }
 }

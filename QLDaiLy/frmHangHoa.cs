@@ -34,7 +34,7 @@ namespace QLDaiLy
                 // Bind data to control when loading complete
                 //hangHoasBindingSource.DataSource = dbContext.HangHoas.Local.ToBindingList();
 
-                hangHoasBindingSource.DataSource = dbContext.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+                dgvHangHoa.DataSource = dbContext.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
@@ -138,6 +138,7 @@ namespace QLDaiLy
             }
         }
 
+
         private void cbsoluongtrang_SelectedIndexChanged(object sender, EventArgs e)
         {
             BUS_HangHoa dl = new BUS_HangHoa();
@@ -157,6 +158,7 @@ namespace QLDaiLy
                 btntien.Enabled = true;
             dgvHangHoa.DataSource = dl.DShanghoa(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
         }
+
 
         private void cbtrang_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -178,6 +180,7 @@ namespace QLDaiLy
             dgvHangHoa.DataSource = dl.DShanghoa(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
         }
 
+
         private void btnlui_Click(object sender, EventArgs e)
         {
             BUS_HangHoa dl = new BUS_HangHoa();
@@ -185,11 +188,20 @@ namespace QLDaiLy
             dgvHangHoa.DataSource = dl.DShanghoa(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
         }
 
+
         private void btntien_Click(object sender, EventArgs e)
         {
             BUS_HangHoa dl = new BUS_HangHoa();
             cbtrang.Text = (int.Parse(cbtrang.Text) + 1).ToString();
             dgvHangHoa.DataSource = dl.DShanghoa(int.Parse(cbtrang.Text), int.Parse(cbsoluongtrang.Text));
+        }
+
+
+        private void navBarUndo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmHHNgungKinhDoanh frm = new frmHHNgungKinhDoanh();
+            frm.XuLyKinhDoanhLaiHangHoa += frmHangHoa_Load;
+            frm.ShowDialog();
         }
     }
 }

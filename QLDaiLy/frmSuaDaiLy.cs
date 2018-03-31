@@ -72,7 +72,7 @@ namespace QLDaiLy
             if (dl.KiemTraTenDaiLy(madl, txtTenDaiLy.Text) == false)
             {
                 ErrorChecker.BlinkRate = 500;
-                ErrorChecker.SetError(txtTenDaiLy, "Tên đại lý đã tồn tại.");
+                ErrorChecker.SetError(txtTenDaiLy, "Tên đại lý đã tồn tại.\nGợi ý: Bạn hãy kiểm tra danh sách đại lý ngừng kinh doanh.");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtDiaChi.Text) || string.IsNullOrEmpty(txtDiaChi.Text))

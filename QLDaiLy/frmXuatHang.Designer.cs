@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXuatHang));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtTuKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -37,21 +38,22 @@
             this.navbarQuanLy = new DevExpress.XtraNavBar.NavBarGroup();
             this.navbarThem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
-            this.dgvXuatHang = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dgvPhieuXuatHang = new DevExpress.XtraGrid.GridControl();
             this.phieuXuatHangsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewPhieuXuatHang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaPhieuXuat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaDaiLy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayXuat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTongTien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCTPhieuXuatHangs = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDaiLy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnChiTiet = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvXuatHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuXuatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phieuXuatHangsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPhieuXuatHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChiTiet)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTuKhoa
@@ -87,7 +89,7 @@
             this.navbarChucNangKhac});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navbarThem});
-            this.navBarControl1.Location = new System.Drawing.Point(43, 97);
+            this.navBarControl1.Location = new System.Drawing.Point(36, 97);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
             this.navBarControl1.Size = new System.Drawing.Size(224, 225);
@@ -107,6 +109,7 @@
             this.navbarThem.Caption = "Lập Phiếu Xuất Hàng";
             this.navbarThem.Name = "navbarThem";
             this.navbarThem.SmallImage = ((System.Drawing.Image)(resources.GetObject("navbarThem.SmallImage")));
+            this.navbarThem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navbarThem_LinkClicked);
             // 
             // navbarChucNangKhac
             // 
@@ -114,36 +117,46 @@
             this.navbarChucNangKhac.Expanded = true;
             this.navbarChucNangKhac.Name = "navbarChucNangKhac";
             // 
-            // dgvXuatHang
+            // dgvPhieuXuatHang
             // 
-            this.dgvXuatHang.DataSource = this.phieuXuatHangsBindingSource;
-            this.dgvXuatHang.Location = new System.Drawing.Point(315, 97);
-            this.dgvXuatHang.MainView = this.gridView1;
-            this.dgvXuatHang.Name = "dgvXuatHang";
-            this.dgvXuatHang.Size = new System.Drawing.Size(773, 315);
-            this.dgvXuatHang.TabIndex = 10;
-            this.dgvXuatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMaPhieuXuat,
-            this.colMaDaiLy,
-            this.colNgayXuat,
-            this.colTongTien,
-            this.colCTPhieuXuatHangs,
-            this.colDaiLy});
-            this.gridView1.GridControl = this.dgvXuatHang;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.dgvPhieuXuatHang.DataSource = this.phieuXuatHangsBindingSource;
+            this.dgvPhieuXuatHang.Location = new System.Drawing.Point(302, 97);
+            this.dgvPhieuXuatHang.MainView = this.gridViewPhieuXuatHang;
+            this.dgvPhieuXuatHang.Name = "dgvPhieuXuatHang";
+            this.dgvPhieuXuatHang.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnChiTiet});
+            this.dgvPhieuXuatHang.Size = new System.Drawing.Size(871, 315);
+            this.dgvPhieuXuatHang.TabIndex = 10;
+            this.dgvPhieuXuatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewPhieuXuatHang});
             // 
             // phieuXuatHangsBindingSource
             // 
             this.phieuXuatHangsBindingSource.DataSource = typeof(DAL.PhieuXuatHang);
             // 
+            // gridViewPhieuXuatHang
+            // 
+            this.gridViewPhieuXuatHang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMaPhieuXuat,
+            this.colMaDaiLy,
+            this.colNgayXuat,
+            this.colTongTien,
+            this.gridColumn1});
+            this.gridViewPhieuXuatHang.GridControl = this.dgvPhieuXuatHang;
+            this.gridViewPhieuXuatHang.Name = "gridViewPhieuXuatHang";
+            this.gridViewPhieuXuatHang.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            // 
             // colMaPhieuXuat
             // 
+            this.colMaPhieuXuat.AppearanceCell.Options.UseTextOptions = true;
+            this.colMaPhieuXuat.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaPhieuXuat.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaPhieuXuat.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colMaPhieuXuat.AppearanceHeader.Options.UseFont = true;
+            this.colMaPhieuXuat.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMaPhieuXuat.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaPhieuXuat.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaPhieuXuat.Caption = "Mã Phiếu Xuất";
             this.colMaPhieuXuat.FieldName = "MaPhieuXuat";
             this.colMaPhieuXuat.Name = "colMaPhieuXuat";
             this.colMaPhieuXuat.Visible = true;
@@ -151,13 +164,31 @@
             // 
             // colMaDaiLy
             // 
-            this.colMaDaiLy.FieldName = "MaDaiLy";
+            this.colMaDaiLy.AppearanceCell.Options.UseTextOptions = true;
+            this.colMaDaiLy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaDaiLy.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaDaiLy.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colMaDaiLy.AppearanceHeader.Options.UseFont = true;
+            this.colMaDaiLy.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMaDaiLy.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaDaiLy.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaDaiLy.Caption = "Tên Đại Lý";
+            this.colMaDaiLy.FieldName = "DaiLy.TenDaiLy";
             this.colMaDaiLy.Name = "colMaDaiLy";
             this.colMaDaiLy.Visible = true;
             this.colMaDaiLy.VisibleIndex = 1;
             // 
             // colNgayXuat
             // 
+            this.colNgayXuat.AppearanceCell.Options.UseTextOptions = true;
+            this.colNgayXuat.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNgayXuat.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNgayXuat.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colNgayXuat.AppearanceHeader.Options.UseFont = true;
+            this.colNgayXuat.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNgayXuat.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNgayXuat.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNgayXuat.Caption = "Ngày Xuất";
             this.colNgayXuat.FieldName = "NgayXuat";
             this.colNgayXuat.Name = "colNgayXuat";
             this.colNgayXuat.Visible = true;
@@ -165,43 +196,67 @@
             // 
             // colTongTien
             // 
+            this.colTongTien.AppearanceCell.Options.UseTextOptions = true;
+            this.colTongTien.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTongTien.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTongTien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colTongTien.AppearanceHeader.Options.UseFont = true;
+            this.colTongTien.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTongTien.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTongTien.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTongTien.Caption = "Tổng Tiền";
+            this.colTongTien.DisplayFormat.FormatString = "{0:N0}";
+            this.colTongTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colTongTien.FieldName = "TongTien";
             this.colTongTien.Name = "colTongTien";
             this.colTongTien.Visible = true;
             this.colTongTien.VisibleIndex = 3;
             // 
-            // colCTPhieuXuatHangs
+            // gridColumn1
             // 
-            this.colCTPhieuXuatHangs.FieldName = "CTPhieuXuatHangs";
-            this.colCTPhieuXuatHangs.Name = "colCTPhieuXuatHangs";
-            this.colCTPhieuXuatHangs.Visible = true;
-            this.colCTPhieuXuatHangs.VisibleIndex = 4;
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.Caption = "Xem Chi Tiết";
+            this.gridColumn1.ColumnEdit = this.btnChiTiet;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
             // 
-            // colDaiLy
+            // btnChiTiet
             // 
-            this.colDaiLy.FieldName = "DaiLy";
-            this.colDaiLy.Name = "colDaiLy";
-            this.colDaiLy.Visible = true;
-            this.colDaiLy.VisibleIndex = 5;
+            this.btnChiTiet.AutoHeight = false;
+            this.btnChiTiet.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnChiTiet.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnChiTiet.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnChiTiet_ButtonClick);
             // 
             // frmXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 484);
-            this.Controls.Add(this.dgvXuatHang);
+            this.ClientSize = new System.Drawing.Size(1217, 484);
+            this.Controls.Add(this.dgvPhieuXuatHang);
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.txtTuKhoa);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl1);
             this.Name = "frmXuatHang";
             this.Text = "Xuất Hàng";
+            this.Load += new System.EventHandler(this.frmXuatHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvXuatHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuXuatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phieuXuatHangsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPhieuXuatHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChiTiet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,14 +271,14 @@
         private DevExpress.XtraNavBar.NavBarGroup navbarQuanLy;
         private DevExpress.XtraNavBar.NavBarItem navbarThem;
         private DevExpress.XtraNavBar.NavBarGroup navbarChucNangKhac;
-        private DevExpress.XtraGrid.GridControl dgvXuatHang;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl dgvPhieuXuatHang;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPhieuXuatHang;
         private System.Windows.Forms.BindingSource phieuXuatHangsBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMaPhieuXuat;
         private DevExpress.XtraGrid.Columns.GridColumn colMaDaiLy;
         private DevExpress.XtraGrid.Columns.GridColumn colNgayXuat;
         private DevExpress.XtraGrid.Columns.GridColumn colTongTien;
-        private DevExpress.XtraGrid.Columns.GridColumn colCTPhieuXuatHangs;
-        private DevExpress.XtraGrid.Columns.GridColumn colDaiLy;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnChiTiet;
     }
 }

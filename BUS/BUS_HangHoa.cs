@@ -104,12 +104,13 @@ namespace BUS
             }
         }
 
+
         public int SoLuongTrang(int sl)
         {
             int st = 0;
             try
             {
-                var ds = db.HangHoas.ToList().Count;
+                var ds = db.HangHoas.Where(h => h.TinhTrang == 1).ToList().Count;
 
                 st = ds / sl;
                 int du = ds % sl;
@@ -125,6 +126,7 @@ namespace BUS
             return st;
         }
 
+
         public List<int> DStrang(int sl)
         {
             List<int> ds = new List<int>();
@@ -135,14 +137,40 @@ namespace BUS
             return ds;
         }
 
+
         //lay danh sach
         public List<DAL.HangHoa> DShanghoa(int curpage, int sl)
         {
 
             int t = (curpage - 1) * sl;
-            var hh = db.HangHoas.ToList();
+            var hh = db.HangHoas.Where(h => h.TinhTrang == 1).ToList();
             var ds = hh.Skip(t).Take(sl).ToList();
             return ds;
+        }
+
+
+        /// <summary>
+        /// Tiếp tục kinh doanh hàng hóa
+        /// </summary>
+        /// <param name="mahh"></param>
+        /// <returns></returns>
+        public bool TiepTucKinhDoanh(int mahh)
+        {
+            try
+            {
+                var hanghoa = db.HangHoas
+                                .Where(h => h.MaHangHoa == mahh)
+                                .FirstOrDefault();
+
+                hanghoa.TinhTrang = 1;
+                
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

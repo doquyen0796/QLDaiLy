@@ -131,17 +131,41 @@
     <Compile Include="frmDuyetNV.Designer.cs">
       <DependentUpon>frmDuyetNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDVTNgungKinhDoanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDVTNgungKinhDoanh.Designer.cs">
+      <DependentUpon>frmDVTNgungKinhDoanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHangHoa.Designer.cs">
       <DependentUpon>frmHangHoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHHNgungKinhDoanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHHNgungKinhDoanh.Designer.cs">
+      <DependentUpon>frmHHNgungKinhDoanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLapPhieuXuatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLapPhieuXuatHang.Designer.cs">
+      <DependentUpon>frmLapPhieuXuatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoaiDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLoaiDaiLy.Designer.cs">
       <DependentUpon>frmLoaiDaiLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiDLNgungKinhDoanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiDLNgungKinhDoanh.Designer.cs">
+      <DependentUpon>frmLoaiDLNgungKinhDoanh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -265,11 +289,23 @@
     <EmbeddedResource Include="frmDuyetNV.resx">
       <DependentUpon>frmDuyetNV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDVTNgungKinhDoanh.resx">
+      <DependentUpon>frmDVTNgungKinhDoanh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHangHoa.resx">
       <DependentUpon>frmHangHoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHHNgungKinhDoanh.resx">
+      <DependentUpon>frmHHNgungKinhDoanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLapPhieuXuatHang.resx">
+      <DependentUpon>frmLapPhieuXuatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoaiDaiLy.resx">
       <DependentUpon>frmLoaiDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiDLNgungKinhDoanh.resx">
+      <DependentUpon>frmLoaiDLNgungKinhDoanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
