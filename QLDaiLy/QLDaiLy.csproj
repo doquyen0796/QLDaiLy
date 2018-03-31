@@ -101,6 +101,12 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDLNgungKinhDoanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDLNgungKinhDoanh.Designer.cs">
+      <DependentUpon>frmDLNgungKinhDoanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDLNgungKinhDoanh.resx">
+      <DependentUpon>frmDLNgungKinhDoanh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +354,9 @@
     <Content Include="images\Enter.png" />
     <Content Include="images\Find.png" />
     <Content Include="images\splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

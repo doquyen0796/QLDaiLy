@@ -42,7 +42,7 @@ namespace QLDaiLy
                 // Bind data to control when loading complete
                 //daiLiesBindingSource.DataSource = dbContext.DaiLies.Local.ToBindingList();
 
-                daiLiesBindingSource.DataSource = dbContext.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
+                dgvDaiLy.DataSource = dbContext.DaiLies.Where(dl => dl.TinhTrang == 1).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
@@ -126,7 +126,8 @@ namespace QLDaiLy
             {
                 BUS_DaiLy dl = new BUS_DaiLy();
                 int madl = int.Parse(gridViewDaiLy.GetFocusedRowCellValue("MaDaiLy").ToString());
-                var tb = dl.XoaDaiLy(madl);
+                string tenquan = gridViewDaiLy.GetFocusedRowCellValue("Quan").ToString();
+                var tb = dl.XoaDaiLy(madl, tenquan);
 
                 if (tb == true)
                 {
@@ -202,6 +203,13 @@ namespace QLDaiLy
         private void navBarSoDaiLyToiDa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmSoDaiLyToiDa frm = new frmSoDaiLyToiDa();
+            frm.ShowDialog();
+        }
+
+
+        private void navBarUndo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmDLNgungKinhDoanh frm = new frmDLNgungKinhDoanh();
             frm.ShowDialog();
         }
     }

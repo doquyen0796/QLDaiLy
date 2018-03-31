@@ -57,6 +57,7 @@
             this.lbtrang = new System.Windows.Forms.Label();
             this.cbTrang = new System.Windows.Forms.ComboBox();
             this.cbSoLuongSP = new System.Windows.Forms.ComboBox();
+            this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -101,7 +102,8 @@
             this.navbarThem,
             this.navbarSua,
             this.navbarXoa,
-            this.navBarSoDaiLyToiDa});
+            this.navBarSoDaiLyToiDa,
+            this.navBarUndo});
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -116,7 +118,8 @@
             this.navbarQuanLy.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarThem),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo)});
             this.navbarQuanLy.Name = "navbarQuanLy";
             // 
             // navbarThem
@@ -385,6 +388,13 @@
             this.cbSoLuongSP.TabIndex = 23;
             this.cbSoLuongSP.SelectedIndexChanged += new System.EventHandler(this.cbSoLuongSP_SelectedIndexChanged);
             // 
+            // navBarUndo
+            // 
+            this.navBarUndo.Caption = "Đại Lý Ngừng Kinh Doanh";
+            this.navBarUndo.Name = "navBarUndo";
+            this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
+            this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
+            // 
             // frmDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,5 +453,6 @@
         private System.Windows.Forms.ComboBox cbTrang;
         private System.Windows.Forms.ComboBox cbSoLuongSP;
         private DevExpress.XtraNavBar.NavBarItem navBarSoDaiLyToiDa;
+        private DevExpress.XtraNavBar.NavBarItem navBarUndo;
     }
 }

@@ -109,7 +109,7 @@ namespace QLDaiLy
             }
             if (Regex.IsMatch(txtEmail.Text, pattern))
             {
-                if (dl.KTEmailTonTai(txtEmail.Text) == false)
+                if (dl.KTEmailTonTai(int.Parse(txtMaDaiLy.Text), txtEmail.Text) == false)
                 {
                     ErrorChecker.BlinkRate = 500;
                     ErrorChecker.SetError(txtEmail, "Email đã tồn tại trong hệ thống.");
@@ -134,26 +134,33 @@ namespace QLDaiLy
         {
             if (KiemTraDuLieu())
             {
-                var tb = MessageBox.Show("Bạn có chắc chắn muốn chỉnh sửa thông tin của đại lý ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (tb == DialogResult.Yes)
+                try
                 {
-                    BUS_DaiLy dl = new BUS_DaiLy();
-                    var flag = dl.SuaDaiLy(int.Parse(txtMaDaiLy.Text), txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
-
-                    if (flag == true)
+                    var tb = MessageBox.Show("Bạn có chắc chắn muốn chỉnh sửa thông tin của đại lý ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (tb == DialogResult.Yes)
                     {
-                        MessageBox.Show("Bạn đã chỉnh sửa thông tin đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        BUS_DaiLy dl = new BUS_DaiLy();
+                        var flag = dl.SuaDaiLy(int.Parse(txtMaDaiLy.Text), txtTenDaiLy.Text, int.Parse(cbLoaiDL.EditValue.ToString()), txtDiaChi.Text, cbQuan.EditValue.ToString(), txtEmail.Text, DateTime.Parse(dtpNgayTiepNhan.EditValue.ToString()));
 
-                        KhiSuaDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                        if (flag == true)
+                        {
+                            MessageBox.Show("Bạn đã chỉnh sửa thông tin đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            KhiSuaDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                        }
+                        else
+                        {
+                            MessageBox.Show("Email đã tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Email đã tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
-                else
+                catch (Exception)
                 {
-                    return;
+                    MessageBox.Show(string.Format("Thao tác không thành công. {0} đã đạt đến số đại lý tối đa.", cbQuan.EditValue.ToString()), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -171,6 +178,7 @@ namespace QLDaiLy
         private void btnThemLoaiDL_Click(object sender, EventArgs e)
         {
             frmThemLoaiDaiLy frm = new frmThemLoaiDaiLy();
+            frm.XuLyThemLoaiDaiLy += frmSuaDaiLy_Load;
             frm.ShowDialog();
         }
     }

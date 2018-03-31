@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,8 +102,8 @@ namespace BUS
         /// <param name="ngaytiepnhan"></param>
         public bool ThemDaiLy(string tendaily, int loai, string diachi, string quan, string email, DateTime ngaytiepnhan)
         {
-            try
-            {
+            //try
+            //{
                 if (KTEmailTonTai(email))
                 {
                     DAL.DaiLy u = new DAL.DaiLy
@@ -126,11 +127,11 @@ namespace BUS
                 {
                     return false;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
         }
 
 
@@ -146,8 +147,8 @@ namespace BUS
         /// <param name="ngaytiepnhan"></param>
         public bool SuaDaiLy(int madaily, string tendaily, int loai, string diachi, string quan, string email, DateTime ngaytiepnhan)
         {
-            try
-            {
+            //try
+            //{
                 if (KTEmailTonTai(madaily, email))
                 {
                     var dl = db.DaiLies
@@ -169,11 +170,11 @@ namespace BUS
                 {
                     return false;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
         }
 
 
@@ -181,8 +182,9 @@ namespace BUS
         /// Xóa đại lý
         /// </summary>
         /// <param name="madaily"></param>
+        /// <param name="tenquan"></param>
         /// <returns></returns>
-        public bool XoaDaiLy(int madaily)
+        public bool XoaDaiLy(int madaily, string tenquan)
         {
             try
             {
@@ -191,6 +193,14 @@ namespace BUS
                            .FirstOrDefault();
 
                 dl.TinhTrang = 0;
+
+                // trừ TongSoDaiLy của quận tương ứng
+                var quan = db.Quans
+                             .Where(q => q.TenQuan == tenquan)
+                             .FirstOrDefault();
+
+                quan.TongSoDaiLy = quan.TongSoDaiLy - 1;
+
                 db.SaveChanges();
 
                 return true;
@@ -208,7 +218,7 @@ namespace BUS
             int st = 0;
             try
             {
-                var ds = db.DaiLies.ToList().Count;
+                var ds = db.DaiLies.Where(d => d.TinhTrang == 1).ToList().Count;
 
                 st = ds / sl;
                 int du = ds % sl;
@@ -241,7 +251,7 @@ namespace BUS
         {
             int t = (curpage - 1) * sl;
             var dl = db.DaiLies.ToList();
-            var ds = dl.Skip(t).Take(sl).ToList();
+            var ds = dl.Where(d => d.TinhTrang == 1).Skip(t).Take(sl).ToList();
             return ds;
         }
     }
