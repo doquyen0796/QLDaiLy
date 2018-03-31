@@ -67,6 +67,10 @@ namespace QLDaiLy
         private void navbarSua_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmSuaLoaiDaiLy frm = new frmSuaLoaiDaiLy();
+            frm.txtMaLoai.Text = gridViewLoaiDaiLy.GetFocusedRowCellValue("MaLoai").ToString();
+            frm.txtTenLoai.Text = gridViewLoaiDaiLy.GetFocusedRowCellValue("TenLoai").ToString();
+            frm.txtTienNo.Text = gridViewLoaiDaiLy.GetFocusedRowCellValue("TienNoToiDa").ToString();
+            frm.XuLySuaLoaiDaiLy += frmLoaiDaiLy_Load;
             frm.ShowDialog();
         }
 

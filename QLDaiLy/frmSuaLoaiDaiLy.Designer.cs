@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaLoaiDaiLy));
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -38,9 +39,11 @@
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtMaLoai = new DevExpress.XtraEditors.TextEdit();
+            this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtTienNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLoai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl4
@@ -67,6 +70,7 @@
             this.txtTienNo.Name = "txtTienNo";
             this.txtTienNo.Size = new System.Drawing.Size(172, 20);
             this.txtTienNo.TabIndex = 10;
+            this.txtTienNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTienNo_KeyPress);
             // 
             // txtTenLoai
             // 
@@ -74,6 +78,7 @@
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(300, 20);
             this.txtTenLoai.TabIndex = 9;
+            this.txtTenLoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenLoai_KeyPress);
             // 
             // labelControl2
             // 
@@ -100,6 +105,7 @@
             this.btnLuu.Size = new System.Drawing.Size(165, 23);
             this.btnLuu.TabIndex = 11;
             this.btnLuu.Text = "Cập nhật thông tin";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // labelControl5
             // 
@@ -108,6 +114,7 @@
             this.labelControl5.Size = new System.Drawing.Size(36, 13);
             this.labelControl5.TabIndex = 14;
             this.labelControl5.Text = "Mã Loại";
+            this.labelControl5.Visible = false;
             // 
             // txtMaLoai
             // 
@@ -116,6 +123,11 @@
             this.txtMaLoai.Properties.ReadOnly = true;
             this.txtMaLoai.Size = new System.Drawing.Size(76, 20);
             this.txtMaLoai.TabIndex = 15;
+            this.txtMaLoai.Visible = false;
+            // 
+            // ErrorChecker
+            // 
+            this.ErrorChecker.ContainerControl = this;
             // 
             // frmSuaLoaiDaiLy
             // 
@@ -136,9 +148,11 @@
             this.Name = "frmSuaLoaiDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chỉnh Sửa Thông Tin Loại Đại Lý";
+            this.Load += new System.EventHandler(this.frmSuaLoaiDaiLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTienNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLoai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,11 +163,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
-        private DevExpress.XtraEditors.TextEdit txtTienNo;
-        private DevExpress.XtraEditors.TextEdit txtTenLoai;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit txtMaLoai;
+        public DevExpress.XtraEditors.TextEdit txtTienNo;
+        public DevExpress.XtraEditors.TextEdit txtTenLoai;
+        public DevExpress.XtraEditors.TextEdit txtMaLoai;
+        private System.Windows.Forms.ErrorProvider ErrorChecker;
     }
 }

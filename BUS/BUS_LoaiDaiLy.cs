@@ -49,6 +49,29 @@ namespace BUS
 
 
         /// <summary>
+        /// Kiểm tra loại đại lý đã tồn tại hay chưa
+        /// </summary>
+        /// <param name="maloai"></param>
+        /// <param name="tenloai"></param>
+        /// <returns></returns>
+        public bool KiemTraTonTai(int maloai, string tenloai)
+        {
+            var loai = db.LoaiDaiLies
+                         .Where(l => l.TenLoai == tenloai && l.MaLoai != maloai)
+                         .FirstOrDefault();
+
+            if (loai != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        /// <summary>
         /// Thêm loại đại lý
         /// </summary>
         /// <param name="tenloai"></param>
@@ -74,6 +97,28 @@ namespace BUS
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+
+        /// <summary>
+        /// Sửa thông tin loại đại lý
+        /// </summary>
+        /// <param name="maloai"></param>
+        /// <param name="tenloai"></param>
+        /// <param name="tiennotoida"></param>
+        /// <returns></returns>
+        public bool SuaLoaiDaiLy(int maloai, string tenloai, float tiennotoida)
+        {
+            var loai = db.LoaiDaiLies
+                         .Where(l => l.MaLoai == maloai)
+                         .FirstOrDefault();
+
+            loai.TenLoai = tenloai;
+            loai.TienNoToiDa = tiennotoida;
+
+            db.SaveChanges();
+
+            return true;
         }
     }
 }
