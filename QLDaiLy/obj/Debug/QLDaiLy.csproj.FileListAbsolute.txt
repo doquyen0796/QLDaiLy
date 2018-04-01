@@ -1,1 +1,1 @@
-E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\QLDaiLy\bin\Debug\DevExpress.Printing.v16.1.Core.dll
+E:\17HCB\1st\Nhap mon CNPM\Ly thuyet\Do An\Source\QLDaiLy\QLDaiLy\bin\Debug\DevExpress.BonusSkins.v16.1.dll

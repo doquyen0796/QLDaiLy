@@ -387,6 +387,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\cart.png" />
     <Content Include="images\Enter.png" />
     <Content Include="images\Find.png" />
     <Content Include="images\splash.jpg" />

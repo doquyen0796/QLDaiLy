@@ -17,6 +17,16 @@ namespace BUS
         }
 
 
+        public List<DAL.DaiLy> DanhSachDaiLy()
+        {
+            var dl = db.DaiLies
+                         .Where(d => d.TinhTrang == 1)
+                         .ToList();
+
+            return dl;
+        }
+
+
         /// <summary>
         /// Kiểm tra email đã tồn tại chưa
         /// </summary>

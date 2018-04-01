@@ -39,7 +39,7 @@ namespace QLDaiLy
         {
             //  https://www.devexpress.com/Support/Center/Question/Details/Q20064/comboboxedit-how-do-you-set-the-datasource
 
-            //  Lookup-edit Đại lý
+            //  Lookup-edit Loại Đại lý
             BUS_LoaiDaiLy dl = new BUS_LoaiDaiLy();
             cbLoaiDL.Properties.DataSource = dl.DanhSachLoaiDL();
 
