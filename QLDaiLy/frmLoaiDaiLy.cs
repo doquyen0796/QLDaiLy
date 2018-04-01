@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
+using BUS;
 
 namespace QLDaiLy
 {
@@ -77,7 +78,23 @@ namespace QLDaiLy
 
         private void navbarXoa_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-
+            int maloai = int.Parse(gridViewLoaiDaiLy.GetFocusedRowCellValue("MaLoai").ToString());
+            string tenloai = gridViewLoaiDaiLy.GetFocusedRowCellValue("TenLoai").ToString();
+            var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn ngừng kinh doanh loại đại lý <{0}> ?", tenloai), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (tb == DialogResult.Yes)
+            {
+                BUS_LoaiDaiLy loai = new BUS_LoaiDaiLy();
+                var flag = loai.XoaLoaiDaiLy(maloai);
+                if (flag == true)
+                {
+                    MessageBox.Show(string.Format("Bạn đã ngừng kinh doanh loại đại lý <{0}> thành công.", tenloai), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.FormLoad();
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
 

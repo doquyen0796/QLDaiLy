@@ -126,12 +126,13 @@ namespace QLDaiLy
             {
                 BUS_DaiLy dl = new BUS_DaiLy();
                 int madl = int.Parse(gridViewDaiLy.GetFocusedRowCellValue("MaDaiLy").ToString());
+                string tendl = gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString();
                 string tenquan = gridViewDaiLy.GetFocusedRowCellValue("Quan").ToString();
                 var tb = dl.XoaDaiLy(madl, tenquan);
 
                 if (tb == true)
                 {
-                    MessageBox.Show("Bạn đã ngừng kinh doanh đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format("Bạn đã ngừng kinh doanh đại lý <{0}> thành công.", tendl), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.FormLoad();
                 }
             }

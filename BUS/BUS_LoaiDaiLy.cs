@@ -120,5 +120,23 @@ namespace BUS
 
             return true;
         }
+
+
+        /// <summary>
+        /// Xóa (ngừng kinh doanh) loại đại lý
+        /// </summary>
+        /// <param name="maloai"></param>
+        /// <returns></returns>
+        public bool XoaLoaiDaiLy(int maloai)
+        {
+            var loai = db.LoaiDaiLies
+                         .Where(l => l.MaLoai == maloai)
+                         .FirstOrDefault();
+
+            loai.TinhTrang = 0;
+
+            db.SaveChanges();
+            return true;
+        }
     }
 }
