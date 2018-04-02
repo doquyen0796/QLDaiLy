@@ -138,5 +138,30 @@ namespace BUS
             db.SaveChanges();
             return true;
         }
+
+
+        /// <summary>
+        /// Tiếp tục kinh doanh loại đại lý
+        /// </summary>
+        /// <param name="maloai"></param>
+        /// <returns></returns>
+        public bool TiepTucKinhDoanh(int maloai)
+        {
+            try
+            {
+                var loai = db.LoaiDaiLies
+                            .Where(l => l.MaLoai == maloai)
+                            .FirstOrDefault();
+
+                loai.TinhTrang = 1;
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -9,11 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
+using BUS;
 
 namespace QLDaiLy
 {
     public partial class frmLoaiDLNgungKinhDoanh : DevExpress.XtraEditors.XtraForm
     {
+        public event EventHandler XuLyKinhDoanhLaiLoaiDaiLy;
+
+        private void KhiKinhDoanhLaiLoaiDaiLy(EventArgs e)
+        {
+            var handler = XuLyKinhDoanhLaiLoaiDaiLy;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
+
         public frmLoaiDLNgungKinhDoanh()
         {
             InitializeComponent();
@@ -50,7 +65,25 @@ namespace QLDaiLy
 
         private void btnKinhDoanh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            int maloai = int.Parse(gridViewLDLNgungKD.GetFocusedRowCellValue("MaLoai").ToString());
+            string tenloai = gridViewLDLNgungKD.GetFocusedRowCellValue("TenLoai").ToString();
 
+            var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn tiếp tục kinh doanh loại đại lý <{0}> ?", tenloai), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (tb == DialogResult.Yes)
+            {
+                BUS_LoaiDaiLy loai = new BUS_LoaiDaiLy();
+                var flag = loai.TiepTucKinhDoanh(maloai);
+                if (flag == true)
+                {
+                    MessageBox.Show(string.Format("Bạn đã tiếp tục kinh doanh loại đại lý <{0}> thành công.", tenloai), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.FormLoad();
+                    KhiKinhDoanhLaiLoaiDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
 
