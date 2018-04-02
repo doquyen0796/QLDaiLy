@@ -11,11 +11,15 @@ using DevExpress.XtraEditors;
 using BUS;
 using DevExpress.XtraEditors.Controls;
 using System.Data.Entity;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLDaiLy
 {
     public partial class frmLapPhieuXuatHang : DevExpress.XtraEditors.XtraForm
     {
+        DataTable dt = new DataTable();
+
+
         public frmLapPhieuXuatHang()
         {
             InitializeComponent();
@@ -26,8 +30,9 @@ namespace QLDaiLy
             dbContext.HangHoas.LoadAsync().ContinueWith(loadTask =>
             {
                 // Bind data to control when loading complete
-                //hangHoasBindingSource.DataSource = dbContext.HangHoas.Local.ToBindingList();
-                hangHoasBindingSource.DataSource = dbContext.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+                //hangHoasBindingSource1.DataSource = dbContext.HangHoas.Local.ToBindingList();
+
+                hangHoasBindingSource1.DataSource = dbContext.HangHoas.Where(h => h.TinhTrang == 1).ToList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
 
@@ -51,6 +56,158 @@ namespace QLDaiLy
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("TenDaiLy", "Tên Đại Lý"));
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("Quan", "Quận"));
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("DiaChi", "Địa Chỉ"));
+
+
+            //  Thêm hàng hóa vào giỏ hàng
+            dt = new DataTable();
+            dt.Columns.Add("Mã Hàng Hóa");
+            dt.Columns.Add("Tên Hàng Hóa");
+            dt.Columns.Add("Đơn Vị Tính");
+            dt.Columns.Add("Đơn Giá");
+            dt.Columns.Add("Số Lượng Mua");
+            dt.Columns.Add("Thành Tiền");
+
+            dgvGioHang.DataSource = dt;
+        }
+
+
+        private void btnMua_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            //  https://www.youtube.com/watch?v=2139TgNMD6s
+
+            DataRow dr = dt.NewRow();
+
+            // mã hàng hóa đang chọn mua
+            int mahh = int.Parse(gridViewHangHoa.GetFocusedRowCellValue("MaHangHoa").ToString());
+
+            if (gridViewGioHang.DataRowCount == 0) // giỏ hàng đang trống
+            {
+                //  Thêm hàng hóa vào giỏ hàng
+                dr[0] = gridViewHangHoa.GetFocusedRowCellValue("MaHangHoa").ToString();
+                dr[1] = gridViewHangHoa.GetFocusedRowCellValue("TenHangHoa").ToString();
+                dr[2] = gridViewHangHoa.GetFocusedRowCellValue("DonViTinh.TenDVT").ToString();
+                dr[3] = gridViewHangHoa.GetFocusedRowCellValue("DonGia").ToString();
+                dr[4] = 0;
+                dr[5] = TinhThanhTien(int.Parse(dr[3].ToString()), int.Parse(dr[4].ToString()));
+
+                dt.Rows.Add(dr);
+                dgvGioHang.DataSource = dt;
+            }
+            else
+            {
+                int flag = 1;
+                for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+                {
+                    // mã hàng hóa đang có trong giỏ hàng
+                    int mahh_giohang = int.Parse(gridViewGioHang.GetRowCellValue(i, gridViewGioHang.Columns[0]).ToString());
+
+                    if (mahh == mahh_giohang)  //  trùng mã hàng hóa => hàng hóa đã có trong giỏ hàng
+                    {
+                        flag = 0;
+                        break;
+                    }
+                }
+
+
+                if (flag == 1)
+                {
+                    //  Thêm hàng hóa vào giỏ hàng
+                    dr[0] = gridViewHangHoa.GetFocusedRowCellValue("MaHangHoa").ToString();
+                    dr[1] = gridViewHangHoa.GetFocusedRowCellValue("TenHangHoa").ToString();
+                    dr[2] = gridViewHangHoa.GetFocusedRowCellValue("DonViTinh.TenDVT").ToString();
+                    dr[3] = gridViewHangHoa.GetFocusedRowCellValue("DonGia").ToString();
+                    dr[4] = 0;
+                    dr[5] = TinhThanhTien(int.Parse(dr[3].ToString()), int.Parse(dr[4].ToString()));
+
+                    dt.Rows.Add(dr);
+                    dgvGioHang.DataSource = dt;
+                }
+                else
+                {
+                    string tenhh = gridViewHangHoa.GetFocusedRowCellValue("TenHangHoa").ToString();
+                    MessageBox.Show(string.Format("<{0}> đã có trong giỏ hàng.", tenhh), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private int TinhThanhTien(int dongia, int slmua)
+        {
+            return dongia * slmua;
+        }
+
+
+        private void gridViewGioHang_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            lbTongTien.Text = "0";
+        }
+
+
+        private void btnTinhTongTien_Click(object sender, EventArgs e)
+        {
+            if (gridViewGioHang.DataRowCount == 0)
+            {
+                MessageBox.Show("Giỏ hàng rỗng.");
+            }
+            else
+            {
+                int flag = 1;
+                for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+                {
+                    string slmua = gridViewGioHang.GetRowCellValue(i, gridViewGioHang.Columns[4]).ToString();
+
+                    //  https://stackoverflow.com/questions/19715303/regex-that-accepts-only-numbers-0-9-and-no-characters
+                    if (!System.Text.RegularExpressions.Regex.IsMatch(slmua, "^[0-9]*$") || string.IsNullOrEmpty(slmua) || int.Parse(slmua) < 0)
+                    {
+                        flag = 0;
+                        break;
+                    }
+                }
+
+                if (flag == 1)
+                {
+                    for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+                    {
+                        DataRow row = gridViewGioHang.GetDataRow(i);
+
+                        int dongia = int.Parse(row[3].ToString());
+                        int slmua = int.Parse(row[4].ToString());
+                        int thanhtien = TinhThanhTien(dongia, slmua);
+
+                        gridViewGioHang.SetRowCellValue(i, gridViewGioHang.Columns[5], thanhtien);
+                    }
+
+                    int tongtien = 0;
+                    for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+                    {
+                        DataRow row = gridViewGioHang.GetDataRow(i);
+                        tongtien = tongtien + int.Parse(row[5].ToString());
+                    }
+
+                    lbTongTien.Text = string.Format("{0:N0}", tongtien);
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng mua không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lbTongTien.Text))
+            {
+                MessageBox.Show("Giỏ hàng rỗng.");
+            }
+            if (float.Parse(lbTongTien.Text) == 0)
+            {
+                MessageBox.Show("Chưa tính tổng tiền.");
+            }
+            else
+            {
+                MessageBox.Show("OK");
+            }
         }
     }
 }
