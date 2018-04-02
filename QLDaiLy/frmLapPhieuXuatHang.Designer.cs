@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLapPhieuXuatHang));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbDaiLy = new DevExpress.XtraEditors.LookUpEdit();
@@ -45,9 +45,15 @@
             this.colSoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtSoLuongMua = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnMua = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.txtTuKhoa = new DevExpress.XtraEditors.TextEdit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.groupGioHang = new DevExpress.XtraEditors.GroupControl();
+            this.dgvGioHang = new DevExpress.XtraGrid.GridControl();
+            this.gridViewGioHang = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.cbDaiLy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayLap.Properties)).BeginInit();
@@ -56,8 +62,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangHoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hangHoasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHangHoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongMua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupGioHang)).BeginInit();
+            this.groupGioHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewGioHang)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -70,7 +82,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(46, 100);
+            this.labelControl2.Location = new System.Drawing.Point(565, 50);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(74, 13);
             this.labelControl2.TabIndex = 1;
@@ -78,7 +90,7 @@
             // 
             // cbDaiLy
             // 
-            this.cbDaiLy.Location = new System.Drawing.Point(139, 47);
+            this.cbDaiLy.Location = new System.Drawing.Point(94, 47);
             this.cbDaiLy.Name = "cbDaiLy";
             this.cbDaiLy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -89,7 +101,7 @@
             // dtpNgayLap
             // 
             this.dtpNgayLap.EditValue = null;
-            this.dtpNgayLap.Location = new System.Drawing.Point(139, 97);
+            this.dtpNgayLap.Location = new System.Drawing.Point(658, 47);
             this.dtpNgayLap.Name = "dtpNgayLap";
             this.dtpNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -103,9 +115,9 @@
             this.groupHangHoa.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupHangHoa.AppearanceCaption.Options.UseFont = true;
             this.groupHangHoa.Controls.Add(this.dgvHangHoa);
-            this.groupHangHoa.Location = new System.Drawing.Point(46, 151);
+            this.groupHangHoa.Location = new System.Drawing.Point(46, 126);
             this.groupHangHoa.Name = "groupHangHoa";
-            this.groupHangHoa.Size = new System.Drawing.Size(1042, 276);
+            this.groupHangHoa.Size = new System.Drawing.Size(1042, 245);
             this.groupHangHoa.TabIndex = 5;
             this.groupHangHoa.Text = "Chọn Hàng Hóa";
             // 
@@ -116,9 +128,9 @@
             this.dgvHangHoa.MainView = this.gridViewHangHoa;
             this.dgvHangHoa.Name = "dgvHangHoa";
             this.dgvHangHoa.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.txtSoLuongMua,
-            this.btnMua});
-            this.dgvHangHoa.Size = new System.Drawing.Size(1032, 247);
+            this.btnMua,
+            this.repositoryItemSpinEdit1});
+            this.dgvHangHoa.Size = new System.Drawing.Size(1032, 214);
             this.dgvHangHoa.TabIndex = 0;
             this.dgvHangHoa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewHangHoa});
@@ -242,17 +254,20 @@
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn1.Caption = "Số Lượng Mua";
-            this.gridColumn1.ColumnEdit = this.txtSoLuongMua;
+            this.gridColumn1.ColumnEdit = this.repositoryItemSpinEdit1;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
             this.gridColumn1.Width = 152;
             // 
-            // txtSoLuongMua
+            // repositoryItemSpinEdit1
             // 
-            this.txtSoLuongMua.AutoHeight = false;
-            this.txtSoLuongMua.Name = "txtSoLuongMua";
-            this.txtSoLuongMua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongMua_KeyPress);
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.HideSelection = false;
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this.repositoryItemSpinEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // gridColumn2
             // 
@@ -275,15 +290,69 @@
             // 
             this.btnMua.AutoHeight = false;
             this.btnMua.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnMua.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnMua.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnMua.Name = "btnMua";
             this.btnMua.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // txtTuKhoa
+            // 
+            this.txtTuKhoa.Location = new System.Drawing.Point(226, 91);
+            this.txtTuKhoa.Name = "txtTuKhoa";
+            this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
+            this.txtTuKhoa.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QLDaiLy.Properties.Resources.Find;
+            this.pictureBox1.Location = new System.Drawing.Point(120, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(169, 94);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(40, 13);
+            this.labelControl3.TabIndex = 7;
+            this.labelControl3.Text = "Tìm kiếm";
+            // 
+            // groupGioHang
+            // 
+            this.groupGioHang.Controls.Add(this.dgvGioHang);
+            this.groupGioHang.Location = new System.Drawing.Point(46, 403);
+            this.groupGioHang.Name = "groupGioHang";
+            this.groupGioHang.Size = new System.Drawing.Size(1042, 176);
+            this.groupGioHang.TabIndex = 9;
+            this.groupGioHang.Text = "Giỏ Hàng";
+            // 
+            // dgvGioHang
+            // 
+            this.dgvGioHang.Location = new System.Drawing.Point(5, 23);
+            this.dgvGioHang.MainView = this.gridViewGioHang;
+            this.dgvGioHang.Name = "dgvGioHang";
+            this.dgvGioHang.Size = new System.Drawing.Size(1032, 148);
+            this.dgvGioHang.TabIndex = 0;
+            this.dgvGioHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewGioHang});
+            // 
+            // gridViewGioHang
+            // 
+            this.gridViewGioHang.GridControl = this.dgvGioHang;
+            this.gridViewGioHang.Name = "gridViewGioHang";
+            this.gridViewGioHang.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             // 
             // frmLapPhieuXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 492);
+            this.ClientSize = new System.Drawing.Size(1136, 702);
+            this.Controls.Add(this.groupGioHang);
+            this.Controls.Add(this.txtTuKhoa);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.groupHangHoa);
             this.Controls.Add(this.dtpNgayLap);
             this.Controls.Add(this.cbDaiLy);
@@ -303,8 +372,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangHoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hangHoasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHangHoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongMua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupGioHang)).EndInit();
+            this.groupGioHang.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewGioHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,8 +401,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoLuong;
         private DevExpress.XtraGrid.Columns.GridColumn colDonGia;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtSoLuongMua;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnMua;
+        private DevExpress.XtraEditors.TextEdit txtTuKhoa;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.GroupControl groupGioHang;
+        private DevExpress.XtraGrid.GridControl dgvGioHang;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewGioHang;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
     }
 }

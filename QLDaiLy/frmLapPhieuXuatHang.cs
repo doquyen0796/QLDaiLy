@@ -52,14 +52,5 @@ namespace QLDaiLy
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("Quan", "Quận"));
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("DiaChi", "Địa Chỉ"));
         }
-
-
-        private void txtSoLuongMua_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) == false && char.IsControl(e.KeyChar) == false)
-            {
-                e.Handled = true;
-            }
-        }
     }
 }
