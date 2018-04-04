@@ -15,6 +15,8 @@ namespace QLDaiLy
 {
     public partial class frmLoaiDaiLy : DevExpress.XtraEditors.XtraForm
     {
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
         public frmLoaiDaiLy()
         {
             InitializeComponent();
@@ -53,7 +55,17 @@ namespace QLDaiLy
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.LoaiDaiLies
+                          .Where(l => l.TenLoai.ToLower().Contains(tukhoa.ToLower()) && l.TinhTrang == 1)
+                          .ToList();
 
+            dgvLoaiDaiLy.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                dgvLoaiDaiLy.DataSource = db.LoaiDaiLies.Where(l => l.TinhTrang == 1).ToList();
+            }
         }
 
 
