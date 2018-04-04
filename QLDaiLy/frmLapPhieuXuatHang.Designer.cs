@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLapPhieuXuatHang));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbDaiLy = new DevExpress.XtraEditors.LookUpEdit();
@@ -58,6 +58,7 @@
             this.lbTongTien = new DevExpress.XtraEditors.LabelControl();
             this.btnXoaGioHang = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoaHangHoa = new DevExpress.XtraEditors.SimpleButton();
+            this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cbDaiLy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayLap.Properties)).BeginInit();
@@ -74,6 +75,7 @@
             this.groupGioHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGioHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -98,7 +100,6 @@
             this.cbDaiLy.Name = "cbDaiLy";
             this.cbDaiLy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbDaiLy.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cbDaiLy.Size = new System.Drawing.Size(229, 20);
             this.cbDaiLy.TabIndex = 2;
             // 
@@ -157,54 +158,115 @@
             // 
             // colMaHangHoa
             // 
+            this.colMaHangHoa.AppearanceCell.Options.UseTextOptions = true;
+            this.colMaHangHoa.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaHangHoa.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaHangHoa.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colMaHangHoa.AppearanceHeader.Options.UseFont = true;
+            this.colMaHangHoa.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMaHangHoa.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMaHangHoa.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colMaHangHoa.Caption = "Mã Hàng Hóa";
             this.colMaHangHoa.FieldName = "MaHangHoa";
             this.colMaHangHoa.Name = "colMaHangHoa";
-            this.colMaHangHoa.Visible = true;
-            this.colMaHangHoa.VisibleIndex = 0;
+            this.colMaHangHoa.OptionsColumn.AllowEdit = false;
+            this.colMaHangHoa.OptionsColumn.ReadOnly = true;
             // 
             // colTenHangHoa
             // 
+            this.colTenHangHoa.AppearanceCell.Options.UseTextOptions = true;
+            this.colTenHangHoa.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenHangHoa.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenHangHoa.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colTenHangHoa.AppearanceHeader.Options.UseFont = true;
+            this.colTenHangHoa.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTenHangHoa.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTenHangHoa.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTenHangHoa.Caption = "Tên Hàng Hóa";
             this.colTenHangHoa.FieldName = "TenHangHoa";
             this.colTenHangHoa.Name = "colTenHangHoa";
+            this.colTenHangHoa.OptionsColumn.AllowEdit = false;
+            this.colTenHangHoa.OptionsColumn.ReadOnly = true;
             this.colTenHangHoa.Visible = true;
-            this.colTenHangHoa.VisibleIndex = 1;
+            this.colTenHangHoa.VisibleIndex = 0;
             // 
             // colDVT
             // 
+            this.colDVT.AppearanceCell.Options.UseTextOptions = true;
+            this.colDVT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDVT.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDVT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colDVT.AppearanceHeader.Options.UseFont = true;
+            this.colDVT.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDVT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDVT.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDVT.Caption = "Đơn Vị Tính";
             this.colDVT.FieldName = "DonViTinh.TenDVT";
             this.colDVT.Name = "colDVT";
+            this.colDVT.OptionsColumn.AllowEdit = false;
+            this.colDVT.OptionsColumn.ReadOnly = true;
             this.colDVT.Visible = true;
-            this.colDVT.VisibleIndex = 2;
+            this.colDVT.VisibleIndex = 1;
             // 
             // colSoLuong
             // 
+            this.colSoLuong.AppearanceCell.Options.UseTextOptions = true;
+            this.colSoLuong.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSoLuong.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colSoLuong.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colSoLuong.AppearanceHeader.Options.UseFont = true;
+            this.colSoLuong.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSoLuong.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSoLuong.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colSoLuong.Caption = "Số Lượng Tồn";
             this.colSoLuong.FieldName = "SoLuong";
             this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.OptionsColumn.AllowEdit = false;
+            this.colSoLuong.OptionsColumn.ReadOnly = true;
             this.colSoLuong.Visible = true;
-            this.colSoLuong.VisibleIndex = 3;
+            this.colSoLuong.VisibleIndex = 2;
             // 
             // colDonGia
             // 
+            this.colDonGia.AppearanceCell.Options.UseTextOptions = true;
+            this.colDonGia.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDonGia.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDonGia.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colDonGia.AppearanceHeader.Options.UseFont = true;
+            this.colDonGia.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDonGia.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDonGia.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colDonGia.Caption = "Đơn Giá";
             this.colDonGia.DisplayFormat.FormatString = "{0:N0}";
             this.colDonGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colDonGia.FieldName = "DonGia";
             this.colDonGia.Name = "colDonGia";
+            this.colDonGia.OptionsColumn.AllowEdit = false;
+            this.colDonGia.OptionsColumn.ReadOnly = true;
             this.colDonGia.Visible = true;
-            this.colDonGia.VisibleIndex = 4;
+            this.colDonGia.VisibleIndex = 3;
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn1.Caption = "Mua";
             this.gridColumn1.ColumnEdit = this.btnMua;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 5;
+            this.gridColumn1.VisibleIndex = 4;
             // 
             // btnMua
             // 
             this.btnMua.AutoHeight = false;
             this.btnMua.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnMua.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnMua.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnMua.Name = "btnMua";
             this.btnMua.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnMua.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnMua_ButtonClick);
@@ -219,6 +281,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
             this.txtTuKhoa.TabIndex = 8;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
             // 
@@ -267,6 +330,7 @@
             this.gridViewGioHang.Name = "gridViewGioHang";
             this.gridViewGioHang.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridViewGioHang.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewGioHang_CellValueChanged);
+            
             // 
             // btnTinhTongTien
             // 
@@ -302,21 +366,31 @@
             // 
             // btnXoaGioHang
             // 
+            this.btnXoaGioHang.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaGioHang.Image")));
+            this.btnXoaGioHang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btnXoaGioHang.Location = new System.Drawing.Point(75, 549);
             this.btnXoaGioHang.Name = "btnXoaGioHang";
             this.btnXoaGioHang.Size = new System.Drawing.Size(160, 23);
             this.btnXoaGioHang.TabIndex = 14;
             this.btnXoaGioHang.Text = "Xóa Giỏ Hàng";
             this.btnXoaGioHang.ToolTip = "Xóa Tất Cả Hàng Hóa Khỏi Giỏ Hàng";
+            this.btnXoaGioHang.Click += new System.EventHandler(this.btnXoaGioHang_Click);
             // 
             // btnXoaHangHoa
             // 
+            this.btnXoaHangHoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaHangHoa.Image")));
+            this.btnXoaHangHoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btnXoaHangHoa.Location = new System.Drawing.Point(280, 549);
             this.btnXoaHangHoa.Name = "btnXoaHangHoa";
             this.btnXoaHangHoa.Size = new System.Drawing.Size(160, 23);
             this.btnXoaHangHoa.TabIndex = 15;
             this.btnXoaHangHoa.Text = "Xóa Hàng Hóa";
             this.btnXoaHangHoa.ToolTip = "Xóa Hàng Hóa Đang Chọn Khỏi Giỏ Hàng";
+            this.btnXoaHangHoa.Click += new System.EventHandler(this.btnXoaHangHoa_Click);
+            // 
+            // ErrorChecker
+            // 
+            this.ErrorChecker.ContainerControl = this;
             // 
             // frmLapPhieuXuatHang
             // 
@@ -359,6 +433,7 @@
             this.groupGioHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGioHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,5 +468,6 @@
         private DevExpress.XtraEditors.LabelControl lbTongTien;
         private DevExpress.XtraEditors.SimpleButton btnXoaGioHang;
         private DevExpress.XtraEditors.SimpleButton btnXoaHangHoa;
+        private System.Windows.Forms.ErrorProvider ErrorChecker;
     }
 }

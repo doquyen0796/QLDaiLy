@@ -12,11 +12,14 @@ using BUS;
 using DevExpress.XtraEditors.Controls;
 using System.Data.Entity;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Globalization;
 
 namespace QLDaiLy
 {
     public partial class frmLapPhieuXuatHang : DevExpress.XtraEditors.XtraForm
     {
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
         DataTable dt = new DataTable();
 
 
@@ -38,8 +41,10 @@ namespace QLDaiLy
 
             // Prevent the focused cell from being highlighted.
             gridViewHangHoa.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewGioHang.OptionsSelection.EnableAppearanceFocusedCell = false;
             // Draw a dotted focus rectangle around the entire row.
             gridViewHangHoa.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewGioHang.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
         }
 
 
@@ -57,6 +62,9 @@ namespace QLDaiLy
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("Quan", "Quận"));
             cbDaiLy.Properties.Columns.Add(new LookUpColumnInfo("DiaChi", "Địa Chỉ"));
 
+            //  Date edit
+            dtpNgayLap.EditValue = DateTime.Now;
+
 
             //  Thêm hàng hóa vào giỏ hàng
             dt = new DataTable();
@@ -71,6 +79,26 @@ namespace QLDaiLy
         }
 
 
+        private bool KiemTraDuLieu()
+        {
+            ErrorChecker.Clear();  //  giả sử ban đầu mọi dữ liệu là đúng
+
+            if (cbDaiLy.EditValue == null)
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(cbDaiLy, "Không được để trống.");
+                return false;
+            }
+            else
+            {
+                ErrorChecker.Clear();
+            }
+
+            return true;
+        }
+
+
+        //  Thêm hàng hóa vào giỏ hàng
         private void btnMua_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             //  https://www.youtube.com/watch?v=2139TgNMD6s
@@ -88,10 +116,52 @@ namespace QLDaiLy
                 dr[2] = gridViewHangHoa.GetFocusedRowCellValue("DonViTinh.TenDVT").ToString();
                 dr[3] = gridViewHangHoa.GetFocusedRowCellValue("DonGia").ToString();
                 dr[4] = 0;
-                dr[5] = TinhThanhTien(int.Parse(dr[3].ToString()), int.Parse(dr[4].ToString()));
+                dr[5] = int.Parse(dr[3].ToString()) * int.Parse(dr[4].ToString());
 
                 dt.Rows.Add(dr);
                 dgvGioHang.DataSource = dt;
+
+
+                gridViewGioHang.Columns[0].Visible = false;
+                //  https://documentation.devexpress.com/WindowsForms/DevExpress.XtraGrid.Columns.GridColumn.ReadOnly.property
+                gridViewGioHang.Columns[0].OptionsColumn.AllowEdit = false;
+                gridViewGioHang.Columns[1].OptionsColumn.AllowEdit = false;
+                gridViewGioHang.Columns[2].OptionsColumn.AllowEdit = false;
+                gridViewGioHang.Columns[3].OptionsColumn.AllowEdit = false;
+                gridViewGioHang.Columns[5].OptionsColumn.AllowEdit = false;
+
+                gridViewGioHang.Columns[0].OptionsColumn.ReadOnly = true; 
+                gridViewGioHang.Columns[1].OptionsColumn.ReadOnly = true;
+                gridViewGioHang.Columns[2].OptionsColumn.ReadOnly = true;
+                gridViewGioHang.Columns[3].OptionsColumn.ReadOnly = true;
+                gridViewGioHang.Columns[5].OptionsColumn.ReadOnly = true;
+
+                gridViewGioHang.Columns[1].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[1].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[2].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[2].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[3].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[3].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[4].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[4].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[5].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[5].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+
+                gridViewGioHang.Columns[1].AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+                gridViewGioHang.Columns[1].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[1].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[2].AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+                gridViewGioHang.Columns[2].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[2].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[3].AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+                gridViewGioHang.Columns[3].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[3].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[4].AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+                gridViewGioHang.Columns[4].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[4].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                gridViewGioHang.Columns[5].AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+                gridViewGioHang.Columns[5].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gridViewGioHang.Columns[5].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             }
             else
             {
@@ -108,7 +178,6 @@ namespace QLDaiLy
                     }
                 }
 
-
                 if (flag == 1)
                 {
                     //  Thêm hàng hóa vào giỏ hàng
@@ -117,7 +186,7 @@ namespace QLDaiLy
                     dr[2] = gridViewHangHoa.GetFocusedRowCellValue("DonViTinh.TenDVT").ToString();
                     dr[3] = gridViewHangHoa.GetFocusedRowCellValue("DonGia").ToString();
                     dr[4] = 0;
-                    dr[5] = TinhThanhTien(int.Parse(dr[3].ToString()), int.Parse(dr[4].ToString()));
+                    dr[5] = int.Parse(dr[3].ToString()) * int.Parse(dr[4].ToString());
 
                     dt.Rows.Add(dr);
                     dgvGioHang.DataSource = dt;
@@ -131,9 +200,30 @@ namespace QLDaiLy
         }
 
 
-        private int TinhThanhTien(int dongia, int slmua)
+        private int TinhTongTien()
         {
-            return dongia * slmua;
+            for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+            {
+                DataRow row = gridViewGioHang.GetDataRow(i);
+
+                int dongia = int.Parse(row[3].ToString());
+                int slmua = int.Parse(row[4].ToString());
+                int thanhtien = dongia * slmua;
+
+                gridViewGioHang.SetRowCellValue(i, gridViewGioHang.Columns[5], string.Format("{0:N0}", thanhtien));
+            }
+            
+            int tongtien = 0;
+            for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+            {
+                DataRow row = gridViewGioHang.GetDataRow(i);
+
+                //  https://stackoverflow.com/questions/4094334/how-to-format-a-currency-string-to-integer
+                int thanhtien = int.Parse(row[5].ToString(), NumberStyles.Currency);
+                tongtien = tongtien + thanhtien;
+            }
+
+            return tongtien;
         }
 
 
@@ -143,48 +233,57 @@ namespace QLDaiLy
         }
 
 
+        private bool SoLuongMuaHopLe()
+        {
+            for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+            {
+                string slmua = gridViewGioHang.GetRowCellValue(i, gridViewGioHang.Columns[4]).ToString();
+
+                //  https://stackoverflow.com/questions/19715303/regex-that-accepts-only-numbers-0-9-and-no-characters
+                if (!System.Text.RegularExpressions.Regex.IsMatch(slmua, "^[0-9]*$") || string.IsNullOrEmpty(slmua) || int.Parse(slmua) < 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
         private void btnTinhTongTien_Click(object sender, EventArgs e)
         {
             if (gridViewGioHang.DataRowCount == 0)
             {
-                MessageBox.Show("Giỏ hàng rỗng.");
+                MessageBox.Show("Giỏ hàng rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {
-                int flag = 1;
-                for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+                if (SoLuongMuaHopLe())
                 {
-                    string slmua = gridViewGioHang.GetRowCellValue(i, gridViewGioHang.Columns[4]).ToString();
-
-                    //  https://stackoverflow.com/questions/19715303/regex-that-accepts-only-numbers-0-9-and-no-characters
-                    if (!System.Text.RegularExpressions.Regex.IsMatch(slmua, "^[0-9]*$") || string.IsNullOrEmpty(slmua) || int.Parse(slmua) < 0)
-                    {
-                        flag = 0;
-                        break;
-                    }
-                }
-
-                if (flag == 1)
-                {
+                    // kiểm tra đã nhập số lượng mua hay chưa
+                    int flag = 1;
                     for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
                     {
                         DataRow row = gridViewGioHang.GetDataRow(i);
 
-                        int dongia = int.Parse(row[3].ToString());
                         int slmua = int.Parse(row[4].ToString());
-                        int thanhtien = TinhThanhTien(dongia, slmua);
 
-                        gridViewGioHang.SetRowCellValue(i, gridViewGioHang.Columns[5], thanhtien);
+                        if (slmua == 0)
+                        {
+                            flag = 0;
+                            break;
+                        }
                     }
 
-                    int tongtien = 0;
-                    for (int i = 0; i < gridViewGioHang.DataRowCount; i++)
+                    if (flag == 0)
                     {
-                        DataRow row = gridViewGioHang.GetDataRow(i);
-                        tongtien = tongtien + int.Parse(row[5].ToString());
+                        MessageBox.Show("Chưa nhập số lượng mua.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    lbTongTien.Text = string.Format("{0:N0}", tongtien);
+                    else
+                    {
+                        int tongtien = TinhTongTien();
+                        lbTongTien.Text = string.Format("{0:N0}", tongtien);
+                    }
                 }
                 else
                 {
@@ -196,17 +295,90 @@ namespace QLDaiLy
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(lbTongTien.Text))
+            if (KiemTraDuLieu())
             {
-                MessageBox.Show("Giỏ hàng rỗng.");
+                if (string.IsNullOrEmpty(lbTongTien.Text) || gridViewGioHang.DataRowCount == 0)
+                {
+                    MessageBox.Show("Giỏ hàng rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (float.Parse(lbTongTien.Text) == 0)
+                {
+                    MessageBox.Show("Chưa tính tổng tiền.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("OK", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            if (float.Parse(lbTongTien.Text) == 0)
+        }
+
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.HangHoas
+                          .Where(hh => hh.TenHangHoa.ToLower().Contains(tukhoa.ToLower()) && hh.TinhTrang == 1)
+                          .ToList();
+
+            dgvHangHoa.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
             {
-                MessageBox.Show("Chưa tính tổng tiền.");
+                dgvHangHoa.DataSource = db.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+            }
+        }
+
+
+        private void btnXoaGioHang_Click(object sender, EventArgs e)
+        {
+            if (gridViewGioHang.DataRowCount == 0)
+            {
+                MessageBox.Show("Giỏ hàng rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("OK");
+                var tb = MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả hàng hóa khỏi giỏ hàng ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (tb == DialogResult.Yes)
+                {
+                    gridViewGioHang.OptionsSelection.MultiSelect = true;
+                    gridViewGioHang.SelectAll();
+                    gridViewGioHang.DeleteSelectedRows();
+                    lbTongTien.Text = "0";
+                    gridViewGioHang.OptionsSelection.MultiSelect = false;
+                    MessageBox.Show("Bạn đã xóa giỏ hàng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+
+
+        private void btnXoaHangHoa_Click(object sender, EventArgs e)
+        {
+            if (gridViewGioHang.DataRowCount == 0)
+            {
+                MessageBox.Show("Giỏ hàng rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string tenhh = gridViewGioHang.GetFocusedRowCellValue(gridViewGioHang.Columns[1]).ToString();
+
+                var tb = MessageBox.Show(string.Format("Bạn có chắc chắn muốn xóa <{0}> khỏi giỏ hàng ?", tenhh), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (tb == DialogResult.Yes)
+                {
+                    gridViewGioHang.DeleteSelectedRows();
+                    int tongtien = TinhTongTien();
+                    lbTongTien.Text = string.Format("{0:N0}", tongtien);
+                    MessageBox.Show(string.Format("Bạn đã xóa <{0}> khỏi giỏ hàng thành công.", tenhh), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    return;
+                }
             }
         }
     }
