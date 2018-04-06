@@ -78,8 +78,8 @@ namespace QLDaiLy
                 if (flag == true)
                 {
                     MessageBox.Show(string.Format("Bạn đã tiếp tục kinh doanh đại lý <{0}> thành công.", tendl), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.FormLoad();
                     KhiKinhDoanhLaiDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                    this.FormLoad();
                 }
                 else
                 {

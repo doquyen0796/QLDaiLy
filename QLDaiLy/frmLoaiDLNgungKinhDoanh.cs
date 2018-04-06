@@ -76,8 +76,8 @@ namespace QLDaiLy
                 if (flag == true)
                 {
                     MessageBox.Show(string.Format("Bạn đã tiếp tục kinh doanh loại đại lý <{0}> thành công.", tenloai), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.FormLoad();
                     KhiKinhDoanhLaiLoaiDaiLy(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                    this.FormLoad();
                 }
             }
             else
@@ -89,7 +89,17 @@ namespace QLDaiLy
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.LoaiDaiLies
+                          .Where(l => l.TenLoai.ToLower().Contains(tukhoa.ToLower()) && l.TinhTrang == 0)
+                          .ToList();
 
+            dgvLDLNgungKD.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                dgvLDLNgungKD.DataSource = db.LoaiDaiLies.Where(l => l.TinhTrang == 0).ToList();
+            }
         }
     }
 }

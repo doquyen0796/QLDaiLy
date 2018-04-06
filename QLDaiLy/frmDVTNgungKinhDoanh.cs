@@ -76,8 +76,8 @@ namespace QLDaiLy
                 if (flag == true)
                 {
                     MessageBox.Show(string.Format("Bạn đã tiếp tục sử dụng đơn vị tính <{0}> thành công.", tendvt), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.FormLoad();
                     KhiSuDungLaiDVT(EventArgs.Empty);   //  https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx
+                    this.FormLoad();
                 }
             }
             else
