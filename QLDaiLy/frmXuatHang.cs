@@ -32,9 +32,7 @@ namespace QLDaiLy
                 phieuXuatHangsBindingSource.DataSource = dbContext.PhieuXuatHangs.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
-
-            // Make the grid read-only.
-            gridViewPhieuXuatHang.OptionsBehavior.Editable = false;
+            
             // Prevent the focused cell from being highlighted.
             gridViewPhieuXuatHang.OptionsSelection.EnableAppearanceFocusedCell = false;
             // Draw a dotted focus rectangle around the entire row.
@@ -51,13 +49,15 @@ namespace QLDaiLy
         private void navbarThem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             frmLapPhieuXuatHang frm = new frmLapPhieuXuatHang();
+            frm.XuLyThemPhieuXuat += frmXuatHang_Load;
             frm.ShowDialog();
         }
 
 
         private void btnChiTiet_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            frmCTPhieuXuatHang frm = new frmCTPhieuXuatHang();
+            frm.ShowDialog();
         }
     }
 }

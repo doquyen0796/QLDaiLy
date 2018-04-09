@@ -59,6 +59,8 @@
             this.btnXoaGioHang = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoaHangHoa = new DevExpress.XtraEditors.SimpleButton();
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lbTienNo = new DevExpress.XtraEditors.LabelControl();
+            this.lbTienNoHienTai = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.cbDaiLy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayLap.Properties)).BeginInit();
@@ -88,7 +90,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(568, 28);
+            this.labelControl2.Location = new System.Drawing.Point(704, 28);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(74, 13);
             this.labelControl2.TabIndex = 1;
@@ -106,7 +108,7 @@
             // dtpNgayLap
             // 
             this.dtpNgayLap.EditValue = null;
-            this.dtpNgayLap.Location = new System.Drawing.Point(661, 25);
+            this.dtpNgayLap.Location = new System.Drawing.Point(797, 25);
             this.dtpNgayLap.Name = "dtpNgayLap";
             this.dtpNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -330,7 +332,6 @@
             this.gridViewGioHang.Name = "gridViewGioHang";
             this.gridViewGioHang.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridViewGioHang.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewGioHang_CellValueChanged);
-            
             // 
             // btnTinhTongTien
             // 
@@ -392,11 +393,35 @@
             // 
             this.ErrorChecker.ContainerControl = this;
             // 
+            // lbTienNo
+            // 
+            this.lbTienNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienNo.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lbTienNo.Location = new System.Drawing.Point(514, 28);
+            this.lbTienNo.Name = "lbTienNo";
+            this.lbTienNo.Size = new System.Drawing.Size(52, 14);
+            this.lbTienNo.TabIndex = 16;
+            this.lbTienNo.Text = "lbTienNo";
+            this.lbTienNo.Visible = false;
+            // 
+            // lbTienNoHienTai
+            // 
+            this.lbTienNoHienTai.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTienNoHienTai.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lbTienNoHienTai.Location = new System.Drawing.Point(395, 28);
+            this.lbTienNoHienTai.Name = "lbTienNoHienTai";
+            this.lbTienNoHienTai.Size = new System.Drawing.Size(101, 14);
+            this.lbTienNoHienTai.TabIndex = 17;
+            this.lbTienNoHienTai.Text = "Tiền Nợ Hiện Tại:";
+            this.lbTienNoHienTai.Visible = false;
+            // 
             // frmLapPhieuXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 637);
+            this.Controls.Add(this.lbTienNoHienTai);
+            this.Controls.Add(this.lbTienNo);
             this.Controls.Add(this.btnXoaHangHoa);
             this.Controls.Add(this.btnXoaGioHang);
             this.Controls.Add(this.lbTongTien);
@@ -469,5 +494,7 @@
         private DevExpress.XtraEditors.SimpleButton btnXoaGioHang;
         private DevExpress.XtraEditors.SimpleButton btnXoaHangHoa;
         private System.Windows.Forms.ErrorProvider ErrorChecker;
+        private DevExpress.XtraEditors.LabelControl lbTienNo;
+        private DevExpress.XtraEditors.LabelControl lbTienNoHienTai;
     }
 }

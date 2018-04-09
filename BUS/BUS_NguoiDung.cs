@@ -341,6 +341,10 @@ namespace BUS
             var user = db.NguoiDungs
                          .Where(u => u.GhiNho == 2)
                          .FirstOrDefault();
+
+            isLogin = true;
+            CurUser = user;
+
             return user;
         }
 
@@ -355,6 +359,7 @@ namespace BUS
             var user = db.NguoiDungs
                          .Where(u => u.GhiNho == 1 && u.TenDangNhap == TenDN)
                          .FirstOrDefault();
+
             return user;
         }
 

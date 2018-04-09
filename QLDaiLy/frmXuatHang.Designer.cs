@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXuatHang));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtTuKhoa = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -159,6 +159,8 @@
             this.colMaPhieuXuat.Caption = "Mã Phiếu Xuất";
             this.colMaPhieuXuat.FieldName = "MaPhieuXuat";
             this.colMaPhieuXuat.Name = "colMaPhieuXuat";
+            this.colMaPhieuXuat.OptionsColumn.AllowEdit = false;
+            this.colMaPhieuXuat.OptionsColumn.ReadOnly = true;
             this.colMaPhieuXuat.Visible = true;
             this.colMaPhieuXuat.VisibleIndex = 0;
             // 
@@ -175,6 +177,8 @@
             this.colMaDaiLy.Caption = "Tên Đại Lý";
             this.colMaDaiLy.FieldName = "DaiLy.TenDaiLy";
             this.colMaDaiLy.Name = "colMaDaiLy";
+            this.colMaDaiLy.OptionsColumn.AllowEdit = false;
+            this.colMaDaiLy.OptionsColumn.ReadOnly = true;
             this.colMaDaiLy.Visible = true;
             this.colMaDaiLy.VisibleIndex = 1;
             // 
@@ -191,6 +195,8 @@
             this.colNgayXuat.Caption = "Ngày Xuất";
             this.colNgayXuat.FieldName = "NgayXuat";
             this.colNgayXuat.Name = "colNgayXuat";
+            this.colNgayXuat.OptionsColumn.AllowEdit = false;
+            this.colNgayXuat.OptionsColumn.ReadOnly = true;
             this.colNgayXuat.Visible = true;
             this.colNgayXuat.VisibleIndex = 2;
             // 
@@ -209,6 +215,8 @@
             this.colTongTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colTongTien.FieldName = "TongTien";
             this.colTongTien.Name = "colTongTien";
+            this.colTongTien.OptionsColumn.AllowEdit = false;
+            this.colTongTien.OptionsColumn.ReadOnly = true;
             this.colTongTien.Visible = true;
             this.colTongTien.VisibleIndex = 3;
             // 
@@ -232,7 +240,7 @@
             // 
             this.btnChiTiet.AutoHeight = false;
             this.btnChiTiet.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnChiTiet.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnChiTiet.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnChiTiet.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnChiTiet_ButtonClick);
