@@ -470,5 +470,20 @@ namespace QLDaiLy
                 }
             }
         }
+
+
+        private void cbDaiLy_EditValueChanged(object sender, EventArgs e)
+        {
+            int madl = int.Parse(cbDaiLy.EditValue.ToString());
+
+            var daily = db.DaiLies
+                          .Where(d => d.MaDaiLy == madl)
+                          .FirstOrDefault();
+
+            lbTienNo.Text = string.Format("{0:N0}", daily.TienNo);
+
+            lbTienNoHienTai.Visible = true;
+            lbTienNo.Visible = true;
+        }
     }
 }
