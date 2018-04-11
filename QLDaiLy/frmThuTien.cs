@@ -14,6 +14,9 @@ namespace QLDaiLy
 {
     public partial class frmThuTien : DevExpress.XtraEditors.XtraForm
     {
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
+
         public frmThuTien()
         {
             InitializeComponent();
@@ -56,7 +59,17 @@ namespace QLDaiLy
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.PhieuThuTiens
+                          .Where(p => p.MaPhieuThu.ToString() == tukhoa)
+                          .ToList();
 
+            dgvThuTien.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                dgvThuTien.DataSource = db.PhieuThuTiens.ToList();
+            }
         }
     }
 }

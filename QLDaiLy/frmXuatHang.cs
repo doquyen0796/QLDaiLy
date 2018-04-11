@@ -14,6 +14,9 @@ namespace QLDaiLy
 {
     public partial class frmXuatHang : DevExpress.XtraEditors.XtraForm
     {
+        DAL.QLDaiLyEntities db = new DAL.QLDaiLyEntities();
+
+
         public frmXuatHang()
         {
             InitializeComponent();
@@ -58,6 +61,22 @@ namespace QLDaiLy
         {
             frmCTPhieuXuatHang frm = new frmCTPhieuXuatHang();
             frm.ShowDialog();
+        }
+
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+            var tukhoa = txtTuKhoa.Text;
+            var query = db.PhieuXuatHangs
+                          .Where(p => p.MaPhieuXuat.ToString() == tukhoa)
+                          .ToList();
+
+            dgvPhieuXuatHang.DataSource = query;
+
+            if (string.IsNullOrEmpty(txtTuKhoa.Text))
+            {
+                dgvPhieuXuatHang.DataSource = db.PhieuXuatHangs.ToList();
+            }
         }
     }
 }
