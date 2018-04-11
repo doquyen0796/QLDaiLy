@@ -158,5 +158,17 @@ namespace QLDaiLy
             frmLoaiDaiLy frm = new frmLoaiDaiLy();
             ViewForm(frm);
         }
+
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            int flag = (int)BUS_NguoiDung.CurUser.Loai;
+
+            if (flag != 1)
+            {
+                ribbonPageQuanTri.Visible = false;
+                //ribbonGroupQLNV.Enabled = false;
+            }
+        }
     }
 }
