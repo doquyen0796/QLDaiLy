@@ -56,9 +56,10 @@
             // 
             // lbMaPhieuXuat
             // 
+            this.lbMaPhieuXuat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMaPhieuXuat.Location = new System.Drawing.Point(184, 46);
             this.lbMaPhieuXuat.Name = "lbMaPhieuXuat";
-            this.lbMaPhieuXuat.Size = new System.Drawing.Size(70, 13);
+            this.lbMaPhieuXuat.Size = new System.Drawing.Size(92, 14);
             this.lbMaPhieuXuat.TabIndex = 1;
             this.lbMaPhieuXuat.Text = "lbMaPhieuXuat";
             // 
@@ -72,9 +73,10 @@
             // 
             // lbNhanVien
             // 
+            this.lbNhanVien.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNhanVien.Location = new System.Drawing.Point(515, 87);
             this.lbNhanVien.Name = "lbNhanVien";
-            this.lbNhanVien.Size = new System.Drawing.Size(53, 13);
+            this.lbNhanVien.Size = new System.Drawing.Size(68, 14);
             this.lbNhanVien.TabIndex = 3;
             this.lbNhanVien.Text = "lbNhanVien";
             // 
@@ -88,9 +90,10 @@
             // 
             // lbNgayLap
             // 
+            this.lbNgayLap.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNgayLap.Location = new System.Drawing.Point(515, 46);
             this.lbNgayLap.Name = "lbNgayLap";
-            this.lbNgayLap.Size = new System.Drawing.Size(50, 13);
+            this.lbNgayLap.Size = new System.Drawing.Size(63, 14);
             this.lbNgayLap.TabIndex = 5;
             this.lbNgayLap.Text = "lbNgayLap";
             // 
@@ -138,9 +141,10 @@
             // 
             // lbTenDaiLy
             // 
+            this.lbTenDaiLy.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTenDaiLy.Location = new System.Drawing.Point(184, 87);
             this.lbTenDaiLy.Name = "lbTenDaiLy";
-            this.lbTenDaiLy.Size = new System.Drawing.Size(52, 13);
+            this.lbTenDaiLy.Size = new System.Drawing.Size(66, 14);
             this.lbTenDaiLy.TabIndex = 10;
             this.lbTenDaiLy.Text = "lbTenDaiLy";
             // 
@@ -186,17 +190,17 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl lbMaPhieuXuat;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl lbNhanVien;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl lbNgayLap;
         private DevExpress.XtraGrid.GridControl dgvHangHoa;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewHangHoa;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl lbTongTien;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl lbTenDaiLy;
         private DevExpress.XtraEditors.SimpleButton btnDong;
+        public DevExpress.XtraEditors.LabelControl lbMaPhieuXuat;
+        public DevExpress.XtraEditors.LabelControl lbNhanVien;
+        public DevExpress.XtraEditors.LabelControl lbNgayLap;
+        public DevExpress.XtraEditors.LabelControl lbTongTien;
+        public DevExpress.XtraEditors.LabelControl lbTenDaiLy;
     }
 }

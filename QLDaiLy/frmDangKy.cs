@@ -143,6 +143,15 @@ namespace QLDaiLy
         }
 
 
+        private void txtTenDangNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) == false && char.IsControl(e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
+        }
+
+
         private void frmDangKy_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmDangNhap dangnhap = new frmDangNhap();

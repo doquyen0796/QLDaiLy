@@ -60,6 +60,14 @@ namespace QLDaiLy
         private void btnChiTiet_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             frmCTPhieuXuatHang frm = new frmCTPhieuXuatHang();
+            frm.lbMaPhieuXuat.Text = gridViewPhieuXuatHang.GetFocusedRowCellValue("MaPhieuXuat").ToString();
+            frm.lbNgayLap.Text = gridViewPhieuXuatHang.GetFocusedRowCellValue("NgayXuat").ToString();
+            frm.lbTenDaiLy.Text = gridViewPhieuXuatHang.GetFocusedRowCellValue("DaiLy.TenDaiLy").ToString();
+            frm.lbNhanVien.Text = gridViewPhieuXuatHang.GetFocusedRowCellValue("NguoiDung.TenDangNhap").ToString();
+
+            double tongtien = double.Parse(gridViewPhieuXuatHang.GetFocusedRowCellValue("TongTien").ToString());
+            frm.lbTongTien.Text = string.Format("{0:N0}", tongtien);
+
             frm.ShowDialog();
         }
 
