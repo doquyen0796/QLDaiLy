@@ -47,6 +47,7 @@
             this.colTongTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnChiTiet = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colNhanVien = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -139,6 +140,7 @@
             // 
             this.gridViewPhieuXuatHang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaPhieuXuat,
+            this.colNhanVien,
             this.colMaDaiLy,
             this.colNgayXuat,
             this.colTongTien,
@@ -181,7 +183,7 @@
             this.colMaDaiLy.OptionsColumn.AllowEdit = false;
             this.colMaDaiLy.OptionsColumn.ReadOnly = true;
             this.colMaDaiLy.Visible = true;
-            this.colMaDaiLy.VisibleIndex = 1;
+            this.colMaDaiLy.VisibleIndex = 2;
             // 
             // colNgayXuat
             // 
@@ -199,7 +201,7 @@
             this.colNgayXuat.OptionsColumn.AllowEdit = false;
             this.colNgayXuat.OptionsColumn.ReadOnly = true;
             this.colNgayXuat.Visible = true;
-            this.colNgayXuat.VisibleIndex = 2;
+            this.colNgayXuat.VisibleIndex = 3;
             // 
             // colTongTien
             // 
@@ -219,7 +221,7 @@
             this.colTongTien.OptionsColumn.AllowEdit = false;
             this.colTongTien.OptionsColumn.ReadOnly = true;
             this.colTongTien.Visible = true;
-            this.colTongTien.VisibleIndex = 3;
+            this.colTongTien.VisibleIndex = 4;
             // 
             // gridColumn1
             // 
@@ -235,7 +237,7 @@
             this.gridColumn1.ColumnEdit = this.btnChiTiet;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
+            this.gridColumn1.VisibleIndex = 5;
             // 
             // btnChiTiet
             // 
@@ -245,6 +247,24 @@
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnChiTiet.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnChiTiet_ButtonClick);
+            // 
+            // colNhanVien
+            // 
+            this.colNhanVien.AppearanceCell.Options.UseTextOptions = true;
+            this.colNhanVien.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNhanVien.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNhanVien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colNhanVien.AppearanceHeader.Options.UseFont = true;
+            this.colNhanVien.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNhanVien.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNhanVien.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNhanVien.Caption = "Nhân Viên Lập Phiếu";
+            this.colNhanVien.FieldName = "NguoiDung.TenDangNhap";
+            this.colNhanVien.Name = "colNhanVien";
+            this.colNhanVien.OptionsColumn.AllowEdit = false;
+            this.colNhanVien.OptionsColumn.ReadOnly = true;
+            this.colNhanVien.Visible = true;
+            this.colNhanVien.VisibleIndex = 1;
             // 
             // frmXuatHang
             // 
@@ -289,5 +309,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTongTien;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnChiTiet;
+        private DevExpress.XtraGrid.Columns.GridColumn colNhanVien;
     }
 }

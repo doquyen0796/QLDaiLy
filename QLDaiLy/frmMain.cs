@@ -160,6 +160,13 @@ namespace QLDaiLy
         }
 
 
+        private void btnTraCuuDL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTraCuuDaiLy frm = new frmTraCuuDaiLy();
+            ViewForm(frm);
+        }
+
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             int flag = (int)BUS_NguoiDung.CurUser.Loai;

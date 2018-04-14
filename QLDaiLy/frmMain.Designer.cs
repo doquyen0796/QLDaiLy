@@ -62,8 +62,11 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnTaiKhoan = new DevExpress.XtraBars.BarSubItem();
             this.tabManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.btnTraCuuDL = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -88,9 +91,10 @@
             this.barSubItem1,
             this.btnTTTaiKhoan,
             this.btnDoiMatKhau,
-            this.btnLoaiDaiLy});
+            this.btnLoaiDaiLy,
+            this.btnTraCuuDL});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 56;
+            this.ribbonControl1.MaxItemId = 59;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -303,6 +307,7 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.btnLoaiDaiLy);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnXuatHang);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnThuTien);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnTraCuuDL);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Kinh Doanh";
             // 
@@ -359,6 +364,21 @@
             this.tabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
             this.tabManager.MdiParent = this;
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbonControl1;
+            // 
+            // btnTraCuuDL
+            // 
+            this.btnTraCuuDL.Caption = "Tra Cứu Đại Lý";
+            this.btnTraCuuDL.Glyph = ((System.Drawing.Image)(resources.GetObject("btnTraCuuDL.Glyph")));
+            this.btnTraCuuDL.Id = 58;
+            this.btnTraCuuDL.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTraCuuDL.LargeGlyph")));
+            this.btnTraCuuDL.Name = "btnTraCuuDL";
+            this.btnTraCuuDL.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnTraCuuDL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraCuuDL_ItemClick);
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -375,6 +395,7 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,6 +438,8 @@
         private DevExpress.XtraBars.BarButtonItem btnDoiMatKhau;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tabManager;
         private DevExpress.XtraBars.BarButtonItem btnLoaiDaiLy;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarButtonItem btnTraCuuDL;
     }
 }
 
