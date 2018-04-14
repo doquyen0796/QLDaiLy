@@ -39,6 +39,8 @@
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarXuatExcel = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarXuatDSExcel = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarCaiDat = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarSoDaiLyToiDa = new DevExpress.XtraNavBar.NavBarItem();
             this.dgvDaiLy = new DevExpress.XtraGrid.GridControl();
@@ -60,6 +62,10 @@
             this.cbSoLuongSP = new System.Windows.Forms.ComboBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -105,7 +111,9 @@
             this.navbarSua,
             this.navbarXoa,
             this.navBarSoDaiLyToiDa,
-            this.navBarUndo});
+            this.navBarUndo,
+            this.navBarXuatExcel,
+            this.navBarXuatDSExcel});
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -121,7 +129,9 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarThem),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarXuatExcel),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarXuatDSExcel)});
             this.navbarQuanLy.Name = "navbarQuanLy";
             // 
             // navbarThem
@@ -151,6 +161,18 @@
             this.navBarUndo.Name = "navBarUndo";
             this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
             this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
+            // 
+            // navBarXuatExcel
+            // 
+            this.navBarXuatExcel.Caption = "Xuất Thông Tin Đại Lý (Excel)";
+            this.navBarXuatExcel.Name = "navBarXuatExcel";
+            this.navBarXuatExcel.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarXuatExcel_LinkClicked);
+            // 
+            // navBarXuatDSExcel
+            // 
+            this.navBarXuatDSExcel.Caption = "Xuất Danh Sách (Excel)";
+            this.navBarXuatDSExcel.Name = "navBarXuatDSExcel";
+            this.navBarXuatDSExcel.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarXuatDSExcel_LinkClicked);
             // 
             // navbarCaiDat
             // 
@@ -350,7 +372,7 @@
             // 
             // btnlui
             // 
-            this.btnlui.Location = new System.Drawing.Point(1109, 403);
+            this.btnlui.Location = new System.Drawing.Point(1104, 434);
             this.btnlui.Name = "btnlui";
             this.btnlui.Size = new System.Drawing.Size(45, 23);
             this.btnlui.TabIndex = 17;
@@ -360,7 +382,7 @@
             // 
             // btntien
             // 
-            this.btntien.Location = new System.Drawing.Point(1160, 403);
+            this.btntien.Location = new System.Drawing.Point(1155, 434);
             this.btntien.Name = "btntien";
             this.btntien.Size = new System.Drawing.Size(52, 23);
             this.btntien.TabIndex = 18;
@@ -371,7 +393,7 @@
             // lbtrang
             // 
             this.lbtrang.AutoSize = true;
-            this.lbtrang.Location = new System.Drawing.Point(1234, 408);
+            this.lbtrang.Location = new System.Drawing.Point(1229, 439);
             this.lbtrang.Name = "lbtrang";
             this.lbtrang.Size = new System.Drawing.Size(35, 13);
             this.lbtrang.TabIndex = 19;
@@ -381,7 +403,7 @@
             // 
             this.cbTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrang.FormattingEnabled = true;
-            this.cbTrang.Location = new System.Drawing.Point(1005, 405);
+            this.cbTrang.Location = new System.Drawing.Point(1000, 436);
             this.cbTrang.Name = "cbTrang";
             this.cbTrang.Size = new System.Drawing.Size(75, 21);
             this.cbTrang.TabIndex = 22;
@@ -391,7 +413,7 @@
             // 
             this.cbSoLuongSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSoLuongSP.FormattingEnabled = true;
-            this.cbSoLuongSP.Location = new System.Drawing.Point(403, 405);
+            this.cbSoLuongSP.Location = new System.Drawing.Point(398, 436);
             this.cbSoLuongSP.Name = "cbSoLuongSP";
             this.cbSoLuongSP.Size = new System.Drawing.Size(75, 21);
             this.cbSoLuongSP.TabIndex = 23;
@@ -399,7 +421,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(309, 408);
+            this.labelControl2.Location = new System.Drawing.Point(304, 439);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(88, 13);
             this.labelControl2.TabIndex = 24;
@@ -407,17 +429,48 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(971, 408);
+            this.labelControl3.Location = new System.Drawing.Point(966, 439);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(28, 13);
             this.labelControl3.TabIndex = 25;
             this.labelControl3.Text = "Trang";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1158, 406);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Processing: 0";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(304, 396);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(817, 23);
+            this.progressBar1.TabIndex = 28;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(0, 0);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(100, 23);
+            this.progressBar2.TabIndex = 30;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;         
+            // 
             // frmDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 442);
+            this.ClientSize = new System.Drawing.Size(1284, 469);
+            this.Controls.Add(this.progressBar2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.cbSoLuongSP);
@@ -476,5 +529,11 @@
         private DevExpress.XtraNavBar.NavBarItem navBarUndo;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraNavBar.NavBarItem navBarXuatExcel;
+        private DevExpress.XtraNavBar.NavBarItem navBarXuatDSExcel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

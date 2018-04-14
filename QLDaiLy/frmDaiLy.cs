@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
 using BUS;
+using System.Threading;
+using Microsoft.Office.Interop.Excel;
 
 namespace QLDaiLy
 {
@@ -213,6 +215,118 @@ namespace QLDaiLy
             frmDLNgungKinhDoanh frm = new frmDLNgungKinhDoanh();
             frm.XuLyKinhDoanhLaiDaiLy += frmDaiLy_Load;
             frm.ShowDialog();
+        }
+
+
+        private void navBarXuatExcel_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var flag = MessageBox.Show(string.Format("Bạn muốn xuất thông tin đại lý <{0}> dưới định dạng Excel ?", gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString()), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (flag == DialogResult.Yes)
+            {
+
+                //BUS_DaiLy dl = new BUS_DaiLy();
+                //int madl = int.Parse(gridViewDaiLy.GetFocusedRowCellValue("MaDaiLy").ToString());
+                //string tendl = gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString();
+                //string tenquan = gridViewDaiLy.GetFocusedRowCellValue("Quan").ToString();
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+        struct Data
+        {
+            public List<DAL.DaiLy> DaiLi;
+            public string FileName { get; set; }
+        }
+        Data DSDaiLi;
+        /// <summary>
+        /// Xuất danh sách đại lý dưới định dạng Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void navBarXuatDSExcel_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var dl = new BUS_DaiLy();
+            var flag = MessageBox.Show("Bạn muốn xuất danh sách đại lý dưới định dạng Excel ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (flag == DialogResult.Yes)
+            {
+                progressBar1.Visible = true;
+                label1.Visible = true;
+                if (backgroundWorker1.IsBusy)
+                    return;
+                using (SaveFileDialog sf = new SaveFileDialog() { Filter = "Excel workbook|*.xls" })
+                {
+                    if (sf.ShowDialog() == DialogResult.OK)
+                    {
+                        DSDaiLi.FileName = sf.FileName;
+                        DSDaiLi.DaiLi = dl.DanhSachDaiLy();
+                        progressBar1.Minimum = 0;
+                        progressBar1.Value = 0;
+                        backgroundWorker1.RunWorkerAsync(DSDaiLi);
+                    }
+                };
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                Thread.Sleep(100);
+                label1.Text = "Successfully ! ";
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+            label1.Text = string.Format("Processing ... {0}", e.ProgressPercentage);
+            progressBar1.Update();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<DAL.DaiLy> ds = ((Data)e.Argument).DaiLi;
+            string filename = ((Data)e.Argument).FileName;
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet ws = (Worksheet)excel.ActiveSheet;
+            excel.Visible = false;
+            int index = 1;
+            int process = ds.Count();
+            ws.Cells[1, 1] = "Mã Đại Lí";
+            ws.Cells[1, 2] = "Tên Đại Lí";
+            ws.Cells[1, 3] = "Quận";
+            ws.Cells[1, 4] = "Địa Chỉ";
+            ws.Cells[1, 5] = "Email";
+            ws.Cells[1, 6] = "Ngày Tiếp Nhận";
+            ws.Cells[1, 7] = "Tiền Nợ";
+            foreach (DAL.DaiLy dl in ds)
+            {
+                if (!backgroundWorker1.CancellationPending)
+                {
+                    backgroundWorker1.ReportProgress(index++ * 100 / process);
+                    ws.Cells[index, 1] = dl.MaDaiLy.ToString();
+                    ws.Cells[index, 2] = dl.TenDaiLy.ToString();
+                    ws.Cells[index, 3] = dl.Quan.ToString();
+                    ws.Cells[index, 4] = dl.DiaChi.ToString();
+                    ws.Cells[index, 5] = dl.Email.ToString();
+                    ws.Cells[index, 6] = (DateTime)dl.NgayTiepNhan;
+                    ws.Cells[index, 7] = dl.TienNo.ToString();
+                }
+
+            }
+            ws.SaveAs(filename, XlFileFormat.xlWorkbookDefault, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+            excel.Quit();
         }
     }
 }
