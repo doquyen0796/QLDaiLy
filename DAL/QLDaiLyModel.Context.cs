@@ -46,5 +46,18 @@ namespace DAL
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_DanhSachDaiLy1_Result>("sp_DanhSachDaiLy1");
         }
+    
+        public virtual ObjectResult<sp_BaoCaoDoanhSo_Result> sp_BaoCaoDoanhSo(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("fromDate", fromDate) :
+                new ObjectParameter("fromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("toDate", toDate) :
+                new ObjectParameter("toDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_BaoCaoDoanhSo_Result>("sp_BaoCaoDoanhSo", fromDateParameter, toDateParameter);
+        }
     }
 }

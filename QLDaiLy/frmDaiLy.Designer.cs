@@ -64,7 +64,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -117,7 +116,7 @@
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
-            this.navBarControl1.Size = new System.Drawing.Size(224, 225);
+            this.navBarControl1.Size = new System.Drawing.Size(224, 274);
             this.navBarControl1.TabIndex = 8;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -443,6 +442,7 @@
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 29;
             this.label1.Text = "Processing: 0";
+            this.label1.Visible = false;
             // 
             // progressBar1
             // 
@@ -450,25 +450,18 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(817, 23);
             this.progressBar1.TabIndex = 28;
-            // 
-            // progressBar2
-            // 
-            this.progressBar2.Location = new System.Drawing.Point(0, 0);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(100, 23);
-            this.progressBar2.TabIndex = 30;
+            this.progressBar1.Visible = false;
             // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;         
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             // 
             // frmDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 469);
-            this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.labelControl3);
@@ -533,7 +526,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarXuatDSExcel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ProgressBar progressBar2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

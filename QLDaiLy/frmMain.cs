@@ -131,7 +131,7 @@ namespace QLDaiLy
         private void btnBaoCaoDS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmBaoCaoDS frm = new frmBaoCaoDS();
-            ViewForm(frm);
+            frm.ShowDialog();
         }
 
         private void btnBaoCaoCN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

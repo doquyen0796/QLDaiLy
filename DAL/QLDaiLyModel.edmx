@@ -208,6 +208,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_BaoCaoDoanhSo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="QLDaiLyModelStoreContainer">
           <EntitySet Name="CTPhieuXuatHang" EntityType="Self.CTPhieuXuatHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaiLy" EntityType="Self.DaiLy" Schema="dbo" store:Type="Tables" />
@@ -504,6 +508,10 @@
             <End Role="NguoiDung" EntitySet="NguoiDungs" />
             <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
           </AssociationSet>
+          <FunctionImport Name="sp_BaoCaoDoanhSo" ReturnType="Collection(QLDaiLyModel.sp_BaoCaoDoanhSo_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_DanhSachDaiLy_Result">
           <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
@@ -547,6 +555,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_BaoCaoDoanhSo_Result">
+          <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="SoPhieuXuat" Nullable="true" />
+          <Property Type="Double" Name="TongTriGia" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -656,6 +669,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_BaoCaoDoanhSo" FunctionName="QLDaiLyModel.Store.sp_BaoCaoDoanhSo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLDaiLyModel.sp_BaoCaoDoanhSo_Result">
+                <ScalarProperty Name="TenDaiLy" ColumnName="TenDaiLy" />
+                <ScalarProperty Name="SoPhieuXuat" ColumnName="SoPhieuXuat" />
+                <ScalarProperty Name="TongTriGia" ColumnName="TongTriGia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
