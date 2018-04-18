@@ -274,26 +274,8 @@ namespace QLDaiLy
             {
                 return;
             }
-        }
-
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                Thread.Sleep(100);
-                label1.Text = "Successfully ! ";
-            }
-        }
-
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            progressBar1.Value = e.ProgressPercentage;
-            label1.Text = string.Format("Processing ... {0}", e.ProgressPercentage);
-            progressBar1.Update();
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        }    
+        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
             List<DAL.DaiLy> ds = ((Data)e.Argument).DaiLi;
             string filename = ((Data)e.Argument).FileName;
@@ -327,6 +309,35 @@ namespace QLDaiLy
             }
             ws.SaveAs(filename, XlFileFormat.xlWorkbookDefault, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
             excel.Quit();
+        }
+
+        private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+            label1.Text = string.Format("Processing ... {0}", e.ProgressPercentage);
+            progressBar1.Update();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                Thread.Sleep(100);
+                label1.Text = "Successfully ! ";
+            }
+        }
+
+        private void label1_TextChanged(object sender, EventArgs e)
+        {
+            if(label1.Text =="Successfully ! ")
+            {
+                var tb = MessageBox.Show("Xuất file thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(tb == DialogResult.OK)
+                {
+                    progressBar1.Visible = false;
+                    label1.Visible = false;
+                }
+            }
         }
     }
 }

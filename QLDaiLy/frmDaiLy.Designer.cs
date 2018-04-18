@@ -443,6 +443,7 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Processing: 0";
             this.label1.Visible = false;
+            this.label1.TextChanged += new System.EventHandler(this.label1_TextChanged);
             // 
             // progressBar1
             // 
@@ -456,6 +457,9 @@
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork_1);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged_1);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted_1);
             // 
             // frmDaiLy
             // 

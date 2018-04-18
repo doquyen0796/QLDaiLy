@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDaiLyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTPhieuXuatHang">
+    <Key>
+      <PropertyRef Name="MaPhieuXuat" />
+      <PropertyRef Name="MaHangHoa" />
+    </Key>
+    <Property Name="MaPhieuXuat" Type="Int32" Nullable="false" />
+    <Property Name="MaHangHoa" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongXuat" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="ThanhTien" Type="Double" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.FK__CTPhieuXu__MaHan__2B3F6F97" FromRole="CTPhieuXuatHang" ToRole="HangHoa" />
+    <NavigationProperty Name="PhieuXuatHang" Relationship="Self.FK__CTPhieuXu__MaPhi__2A4B4B5E" FromRole="CTPhieuXuatHang" ToRole="PhieuXuatHang" />
+  </EntityType>
+  <EntityType Name="DaiLy">
+    <Key>
+      <PropertyRef Name="MaDaiLy" />
+    </Key>
+    <Property Name="MaDaiLy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDaiLy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Quan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTiepNhan" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TienNo" Type="Double" />
+    <NavigationProperty Name="LoaiDaiLy" Relationship="Self.FK__DaiLy__Loai__1DE57479" FromRole="DaiLy" ToRole="LoaiDaiLy" />
+    <NavigationProperty Name="Quan1" Relationship="Self.FK__DaiLy__Quan__1ED998B2" FromRole="DaiLy" ToRole="Quan" />
+    <NavigationProperty Name="PhieuThuTiens" Relationship="Self.FK__PhieuThuT__MaDai__2F10007B" FromRole="DaiLy" ToRole="PhieuThuTien" />
+    <NavigationProperty Name="PhieuXuatHangs" Relationship="Self.FK__PhieuXuat__MaDai__276EDEB3" FromRole="DaiLy" ToRole="PhieuXuatHang" />
+    <Property Name="TinhTrang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DonViTinh">
+    <Key>
+      <PropertyRef Name="MaDVT" />
+    </Key>
+    <Property Name="MaDVT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HangHoas" Relationship="Self.FK__HangHoa__DVT__239E4DCF" FromRole="DonViTinh" ToRole="HangHoa" />
+    <Property Name="TinhTrang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="MaHangHoa" />
+    </Key>
+    <Property Name="MaHangHoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHangHoa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DVT" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <NavigationProperty Name="CTPhieuXuatHangs" Relationship="Self.FK__CTPhieuXu__MaHan__2B3F6F97" FromRole="HangHoa" ToRole="CTPhieuXuatHang" />
+    <NavigationProperty Name="DonViTinh" Relationship="Self.FK__HangHoa__DVT__239E4DCF" FromRole="HangHoa" ToRole="DonViTinh" />
+    <Property Name="TinhTrang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LoaiDaiLy">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TienNoToiDa" Type="Double" />
+    <NavigationProperty Name="DaiLies" Relationship="Self.FK__DaiLy__Loai__1DE57479" FromRole="LoaiDaiLy" ToRole="DaiLy" />
+    <Property Name="TinhTrang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="Int32" />
+    <Property Name="GhiNho" Type="Int32" />
+    <Property Name="TinhTrang" Type="Int32" />
+    <NavigationProperty Name="PhieuThuTiens" Relationship="QLDaiLyModel.FK__PhieuThuT__MaNha__36B12243" FromRole="NguoiDung" ToRole="PhieuThuTien" />
+    <NavigationProperty Name="PhieuXuatHangs" Relationship="QLDaiLyModel.FK__PhieuXuat__MaNha__2E1BDC42" FromRole="NguoiDung" ToRole="PhieuXuatHang" />
+  </EntityType>
+  <EntityType Name="PhieuThuTien">
+    <Key>
+      <PropertyRef Name="MaPhieuThu" />
+    </Key>
+    <Property Name="MaPhieuThu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDaiLy" Type="Int32" />
+    <Property Name="NgayThu" Type="DateTime" Precision="3" />
+    <Property Name="SoTienThu" Type="Double" />
+    <NavigationProperty Name="DaiLy" Relationship="Self.FK__PhieuThuT__MaDai__2F10007B" FromRole="PhieuThuTien" ToRole="DaiLy" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <NavigationProperty Name="NguoiDung" Relationship="QLDaiLyModel.FK__PhieuThuT__MaNha__36B12243" FromRole="PhieuThuTien" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="PhieuXuatHang">
+    <Key>
+      <PropertyRef Name="MaPhieuXuat" />
+    </Key>
+    <Property Name="MaPhieuXuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDaiLy" Type="Int32" />
+    <Property Name="NgayXuat" Type="DateTime" Precision="3" />
+    <Property Name="TongTien" Type="Double" />
+    <NavigationProperty Name="CTPhieuXuatHangs" Relationship="Self.FK__CTPhieuXu__MaPhi__2A4B4B5E" FromRole="PhieuXuatHang" ToRole="CTPhieuXuatHang" />
+    <NavigationProperty Name="DaiLy" Relationship="Self.FK__PhieuXuat__MaDai__276EDEB3" FromRole="PhieuXuatHang" ToRole="DaiLy" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <NavigationProperty Name="NguoiDung" Relationship="QLDaiLyModel.FK__PhieuXuat__MaNha__2E1BDC42" FromRole="PhieuXuatHang" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="Quan">
+    <Key>
+      <PropertyRef Name="TenQuan" />
+    </Key>
+    <Property Name="TenQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TongSoDaiLy" Type="Int32" />
+    <Property Name="SoDaiLyToiDa" Type="Int32" />
+    <NavigationProperty Name="DaiLies" Relationship="Self.FK__DaiLy__Quan__1ED998B2" FromRole="Quan" ToRole="DaiLy" />
+  </EntityType>
+  <Association Name="FK__CTPhieuXu__MaHan__2B3F6F97">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="CTPhieuXuatHang" Type="Self.CTPhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="MaHangHoa" />
+      </Principal>
+      <Dependent Role="CTPhieuXuatHang">
+        <PropertyRef Name="MaHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPhieuXu__MaPhi__2A4B4B5E">
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="1" />
+    <End Role="CTPhieuXuatHang" Type="Self.CTPhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuXuatHang">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Principal>
+      <Dependent Role="CTPhieuXuatHang">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DaiLy__Loai__1DE57479">
+    <End Role="LoaiDaiLy" Type="Self.LoaiDaiLy" Multiplicity="0..1" />
+    <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDaiLy">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="DaiLy">
+        <PropertyRef Name="Loai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DaiLy__Quan__1ED998B2">
+    <End Role="Quan" Type="Self.Quan" Multiplicity="0..1" />
+    <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quan">
+        <PropertyRef Name="TenQuan" />
+      </Principal>
+      <Dependent Role="DaiLy">
+        <PropertyRef Name="Quan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuThuT__MaDai__2F10007B">
+    <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="0..1" />
+    <End Role="PhieuThuTien" Type="Self.PhieuThuTien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DaiLy">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="PhieuThuTien">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuXuat__MaDai__276EDEB3">
+    <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="0..1" />
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DaiLy">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="PhieuXuatHang">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HangHoa__DVT__239E4DCF">
+    <End Role="DonViTinh" Type="Self.DonViTinh" Multiplicity="0..1" />
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonViTinh">
+        <PropertyRef Name="MaDVT" />
+      </Principal>
+      <Dependent Role="HangHoa">
+        <PropertyRef Name="DVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLDaiLyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTPhieuXuatHangs" EntityType="Self.CTPhieuXuatHang" />
+    <EntitySet Name="DaiLies" EntityType="Self.DaiLy" />
+    <EntitySet Name="DonViTinhs" EntityType="Self.DonViTinh" />
+    <EntitySet Name="HangHoas" EntityType="Self.HangHoa" />
+    <EntitySet Name="LoaiDaiLies" EntityType="Self.LoaiDaiLy" />
+    <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+    <EntitySet Name="PhieuThuTiens" EntityType="Self.PhieuThuTien" />
+    <EntitySet Name="PhieuXuatHangs" EntityType="Self.PhieuXuatHang" />
+    <EntitySet Name="Quans" EntityType="Self.Quan" />
+    <AssociationSet Name="FK__CTPhieuXu__MaHan__2B3F6F97" Association="Self.FK__CTPhieuXu__MaHan__2B3F6F97">
+      <End Role="HangHoa" EntitySet="HangHoas" />
+      <End Role="CTPhieuXuatHang" EntitySet="CTPhieuXuatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPhieuXu__MaPhi__2A4B4B5E" Association="Self.FK__CTPhieuXu__MaPhi__2A4B4B5E">
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
+      <End Role="CTPhieuXuatHang" EntitySet="CTPhieuXuatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DaiLy__Loai__1DE57479" Association="Self.FK__DaiLy__Loai__1DE57479">
+      <End Role="LoaiDaiLy" EntitySet="LoaiDaiLies" />
+      <End Role="DaiLy" EntitySet="DaiLies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DaiLy__Quan__1ED998B2" Association="Self.FK__DaiLy__Quan__1ED998B2">
+      <End Role="Quan" EntitySet="Quans" />
+      <End Role="DaiLy" EntitySet="DaiLies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuThuT__MaDai__2F10007B" Association="Self.FK__PhieuThuT__MaDai__2F10007B">
+      <End Role="DaiLy" EntitySet="DaiLies" />
+      <End Role="PhieuThuTien" EntitySet="PhieuThuTiens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuXuat__MaDai__276EDEB3" Association="Self.FK__PhieuXuat__MaDai__276EDEB3">
+      <End Role="DaiLy" EntitySet="DaiLies" />
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HangHoa__DVT__239E4DCF" Association="Self.FK__HangHoa__DVT__239E4DCF">
+      <End Role="DonViTinh" EntitySet="DonViTinhs" />
+      <End Role="HangHoa" EntitySet="HangHoas" />
+    </AssociationSet>
+    <FunctionImport Name="sp_DanhSachDaiLy" ReturnType="Collection(QLDaiLyModel.sp_DanhSachDaiLy_Result)" />
+    <FunctionImport Name="sp_DanhSachDaiLy1" ReturnType="Collection(QLDaiLyModel.sp_DanhSachDaiLy1_Result)" />
+    <AssociationSet Name="FK__PhieuThuT__MaNha__36B12243" Association="QLDaiLyModel.FK__PhieuThuT__MaNha__36B12243">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="PhieuThuTien" EntitySet="PhieuThuTiens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuXuat__MaNha__2E1BDC42" Association="QLDaiLyModel.FK__PhieuXuat__MaNha__2E1BDC42">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
+    </AssociationSet>
+    <FunctionImport Name="sp_BaoCaoDoanhSo" ReturnType="Collection(QLDaiLyModel.sp_BaoCaoDoanhSo_Result)">
+      <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="toDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_DanhSachDaiLy_Result">
+    <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Quan" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayTiepNhan" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="TienNo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_DanhSachDaiLy1_Result">
+    <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Quan" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayTiepNhan" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="TienNo" Nullable="true" />
+  </ComplexType>
+  <Association Name="FK__PhieuThuT__MaNha__36B12243">
+    <End Type="QLDaiLyModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+    <End Type="QLDaiLyModel.PhieuThuTien" Role="PhieuThuTien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="PhieuThuTien">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuXuat__MaNha__2E1BDC42">
+    <End Type="QLDaiLyModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+    <End Type="QLDaiLyModel.PhieuXuatHang" Role="PhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="PhieuXuatHang">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_BaoCaoDoanhSo_Result">
+    <Property Type="String" Name="TenDaiLy" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="SoPhieuXuat" Nullable="true" />
+    <Property Type="Double" Name="TongTriGia" Nullable="true" />
+  </ComplexType>
+</Schema>
