@@ -40,6 +40,7 @@
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarChucNangKhac = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarXuatDSExcel = new DevExpress.XtraNavBar.NavBarItem();
             this.dgvHangHoa = new DevExpress.XtraGrid.GridControl();
             this.hangHoasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewHangHoa = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,6 +57,9 @@
             this.cbsoluongtrang = new System.Windows.Forms.ComboBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -100,7 +104,8 @@
             this.navbarThem,
             this.navbarSua,
             this.navbarXoa,
-            this.navBarUndo});
+            this.navBarUndo,
+            this.navBarXuatDSExcel});
             this.navBarControl1.Location = new System.Drawing.Point(43, 95);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 224;
@@ -151,7 +156,15 @@
             // 
             this.navbarChucNangKhac.Caption = "Chức Năng Khác";
             this.navbarChucNangKhac.Expanded = true;
+            this.navbarChucNangKhac.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarXuatDSExcel)});
             this.navbarChucNangKhac.Name = "navbarChucNangKhac";
+            // 
+            // navBarXuatDSExcel
+            // 
+            this.navBarXuatDSExcel.Caption = "Xuất Danh Sách (Excel)";
+            this.navBarXuatDSExcel.Name = "navBarXuatDSExcel";
+            this.navBarXuatDSExcel.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarXuatDSExcel_LinkClicked);
             // 
             // dgvHangHoa
             // 
@@ -279,7 +292,7 @@
             // lbtrang
             // 
             this.lbtrang.AutoSize = true;
-            this.lbtrang.Location = new System.Drawing.Point(1114, 446);
+            this.lbtrang.Location = new System.Drawing.Point(1117, 472);
             this.lbtrang.Name = "lbtrang";
             this.lbtrang.Size = new System.Drawing.Size(35, 13);
             this.lbtrang.TabIndex = 24;
@@ -287,7 +300,7 @@
             // 
             // btntien
             // 
-            this.btntien.Location = new System.Drawing.Point(1045, 441);
+            this.btntien.Location = new System.Drawing.Point(1048, 467);
             this.btntien.Name = "btntien";
             this.btntien.Size = new System.Drawing.Size(52, 23);
             this.btntien.TabIndex = 23;
@@ -297,7 +310,7 @@
             // 
             // btnlui
             // 
-            this.btnlui.Location = new System.Drawing.Point(994, 441);
+            this.btnlui.Location = new System.Drawing.Point(997, 467);
             this.btnlui.Name = "btnlui";
             this.btnlui.Size = new System.Drawing.Size(45, 23);
             this.btnlui.TabIndex = 22;
@@ -309,7 +322,7 @@
             // 
             this.cbtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbtrang.FormattingEnabled = true;
-            this.cbtrang.Location = new System.Drawing.Point(889, 443);
+            this.cbtrang.Location = new System.Drawing.Point(892, 469);
             this.cbtrang.Name = "cbtrang";
             this.cbtrang.Size = new System.Drawing.Size(78, 21);
             this.cbtrang.TabIndex = 21;
@@ -319,7 +332,7 @@
             // 
             this.cbsoluongtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbsoluongtrang.FormattingEnabled = true;
-            this.cbsoluongtrang.Location = new System.Drawing.Point(424, 443);
+            this.cbsoluongtrang.Location = new System.Drawing.Point(427, 469);
             this.cbsoluongtrang.Name = "cbsoluongtrang";
             this.cbsoluongtrang.Size = new System.Drawing.Size(78, 21);
             this.cbsoluongtrang.TabIndex = 20;
@@ -327,7 +340,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(310, 446);
+            this.labelControl2.Location = new System.Drawing.Point(313, 472);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(108, 13);
             this.labelControl2.TabIndex = 25;
@@ -335,17 +348,46 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(855, 446);
+            this.labelControl3.Location = new System.Drawing.Point(858, 472);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(28, 13);
             this.labelControl3.TabIndex = 26;
             this.labelControl3.Text = "Trang";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(306, 438);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(699, 23);
+            this.progressBar1.TabIndex = 29;
+            this.progressBar1.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1029, 440);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Processing: 0 %";
+            this.label1.Visible = false;
+            this.label1.TextChanged += new System.EventHandler(this.label1_TextChanged);
+            // 
             // frmHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 485);
+            this.ClientSize = new System.Drawing.Size(1199, 502);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lbtrang);
@@ -400,5 +442,9 @@
         private DevExpress.XtraNavBar.NavBarItem navBarUndo;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraNavBar.NavBarItem navBarXuatDSExcel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label1;
     }
 }

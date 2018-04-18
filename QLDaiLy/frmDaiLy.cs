@@ -274,7 +274,9 @@ namespace QLDaiLy
             {
                 return;
             }
-        }    
+        }
+        
+
         private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
             List<DAL.DaiLy> ds = ((Data)e.Argument).DaiLi;
@@ -323,13 +325,13 @@ namespace QLDaiLy
             if (e.Error == null)
             {
                 Thread.Sleep(100);
-                label1.Text = "Successfully ! ";
+                label1.Text = "Successful!";
             }
         }
 
         private void label1_TextChanged(object sender, EventArgs e)
         {
-            if(label1.Text =="Successfully ! ")
+            if(label1.Text == "Successful!")
             {
                 var tb = MessageBox.Show("Xuất file thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(tb == DialogResult.OK)

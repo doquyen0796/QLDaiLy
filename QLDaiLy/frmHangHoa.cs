@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
 using BUS;
+using Microsoft.Office.Interop.Excel;
+using System.Threading;
 
 namespace QLDaiLy
 {
@@ -202,6 +204,112 @@ namespace QLDaiLy
             frmHHNgungKinhDoanh frm = new frmHHNgungKinhDoanh();
             frm.XuLyKinhDoanhLaiHangHoa += frmHangHoa_Load;
             frm.ShowDialog();
+        }
+
+
+
+        struct Data
+        {
+            public List<BUS_HangHoa.HH> HangHoa;
+            public string FileName { get; set; }
+        }
+        Data DSHH;
+        /// <summary>
+        /// Xuất danh sách hàng hóa dưới định dạng Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void navBarXuatDSExcel_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var flag = MessageBox.Show("Bạn muốn xuất danh sách hàng hóa dưới định dạng Excel ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (flag == DialogResult.Yes)
+            {           
+                progressBar1.Visible = true;
+                label1.Visible = true;
+                if (backgroundWorker1.IsBusy)
+                   return;
+                using (SaveFileDialog sf = new SaveFileDialog() { Filter = "Excel workbook|*.xls" })
+                {
+                    BUS_HangHoa ds = new BUS_HangHoa();
+                   if (sf.ShowDialog() == DialogResult.OK)
+                  {
+                       DSHH.FileName = sf.FileName;
+                       DSHH.HangHoa = ds.DanhSachHH();
+                       progressBar1.Minimum = 0;
+                       progressBar1.Value = 0;
+                        backgroundWorker1.RunWorkerAsync(DSHH);
+                   }
+                };
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<BUS_HangHoa.HH> ds = ((Data)e.Argument).HangHoa;
+            string filename = ((Data)e.Argument).FileName;
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet ws = (Worksheet)excel.ActiveSheet;
+            excel.Visible = false;
+            int index = 1;
+            int process = ds.Count();
+            ws.Cells[1, 1] = "Mã Hàng Hóa";
+            ws.Cells[1, 2] = "Tên Hàng Hóa";
+            ws.Cells[1, 3] = "Đơn Vị Tính";
+            ws.Cells[1, 4] = "Số Lượng";      
+            ws.Cells[1, 5] = "Đơn Giá";
+
+            foreach (BUS_HangHoa.HH dl in ds)
+            {
+                if (!backgroundWorker1.CancellationPending)
+                {
+                    backgroundWorker1.ReportProgress(index++ * 100 / process);
+                    ws.Cells[index, 1] = dl.MaHH.ToString();
+                    ws.Cells[index, 2] = dl.TenHH.ToString();             
+                    ws.Cells[index, 3] = dl.DVT.ToString();
+                    ws.Cells[index, 4] = dl.sl.ToString();
+                    ws.Cells[index, 5] = dl.DonGia.ToString();              
+                }
+
+            }
+            ws.SaveAs(filename, XlFileFormat.xlWorkbookDefault, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+            excel.Quit();
+        }
+
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+            label1.Text = string.Format("Processing ... {0} %", e.ProgressPercentage);
+            progressBar1.Update();
+        }
+
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                Thread.Sleep(100);
+                label1.Text = "Successful!";
+            }
+        }
+
+        private void label1_TextChanged(object sender, EventArgs e)
+        {
+            if (label1.Text == "Successful!")
+            {
+                var tb = MessageBox.Show("Xuất file thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (tb == DialogResult.OK)
+                {
+                    progressBar1.Visible = false;
+                    label1.Visible = false;
+                }
+            }
         }
     }
 }
