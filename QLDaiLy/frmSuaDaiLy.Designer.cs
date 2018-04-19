@@ -72,7 +72,7 @@
             this.dtpNgayTiepNhan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayTiepNhan.Size = new System.Drawing.Size(131, 20);
-            this.dtpNgayTiepNhan.TabIndex = 38;
+            this.dtpNgayTiepNhan.TabIndex = 1;
             // 
             // labelControl10
             // 
@@ -125,7 +125,7 @@
             this.cbQuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbQuan.Size = new System.Drawing.Size(223, 20);
-            this.cbQuan.TabIndex = 32;
+            this.cbQuan.TabIndex = 4;
             // 
             // cbLoaiDL
             // 
@@ -134,7 +134,7 @@
             this.cbLoaiDL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbLoaiDL.Size = new System.Drawing.Size(223, 20);
-            this.cbLoaiDL.TabIndex = 31;
+            this.cbLoaiDL.TabIndex = 3;
             // 
             // btnSua
             // 
@@ -143,7 +143,7 @@
             this.btnSua.Location = new System.Drawing.Point(351, 329);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(158, 23);
-            this.btnSua.TabIndex = 29;
+            this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Cập nhật thông tin";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -152,7 +152,7 @@
             this.txtEmail.Location = new System.Drawing.Point(147, 266);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
-            this.txtEmail.TabIndex = 28;
+            this.txtEmail.TabIndex = 6;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtDiaChi
@@ -160,14 +160,14 @@
             this.txtDiaChi.Location = new System.Drawing.Point(147, 221);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(294, 20);
-            this.txtDiaChi.TabIndex = 27;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtTenDaiLy
             // 
             this.txtTenDaiLy.Location = new System.Drawing.Point(147, 86);
             this.txtTenDaiLy.Name = "txtTenDaiLy";
             this.txtTenDaiLy.Size = new System.Drawing.Size(294, 20);
-            this.txtTenDaiLy.TabIndex = 26;
+            this.txtTenDaiLy.TabIndex = 2;
             // 
             // labelControl5
             // 
@@ -243,6 +243,7 @@
             // 
             // frmSuaDaiLy
             // 
+            this.AcceptButton = this.btnSua;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 397);

@@ -85,12 +85,6 @@
       <DependentUpon>BaoCaoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="frmBaoCaoCN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoCN.Designer.cs">
-      <DependentUpon>frmBaoCaoCN.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBaoCaoDS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +193,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.Designer.cs">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSoDaiLyToiDa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,9 +297,6 @@
     <Compile Include="reportBaoCaoDoanhSo.Designer.cs">
       <DependentUpon>reportBaoCaoDoanhSo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmBaoCaoCN.resx">
-      <DependentUpon>frmBaoCaoCN.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCaoDS.resx">
       <DependentUpon>frmBaoCaoDS.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuenMatKhau.resx">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSoDaiLyToiDa.resx">
       <DependentUpon>frmSoDaiLyToiDa.cs</DependentUpon>

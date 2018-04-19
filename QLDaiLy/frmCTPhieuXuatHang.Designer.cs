@@ -277,7 +277,7 @@
             this.btnDong.Location = new System.Drawing.Point(615, 370);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(115, 23);
-            this.btnDong.TabIndex = 11;
+            this.btnDong.TabIndex = 1;
             this.btnDong.Text = "Đóng";
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
@@ -301,6 +301,7 @@
             // 
             // frmCTPhieuXuatHang
             // 
+            this.AcceptButton = this.btnDong;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 434);

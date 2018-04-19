@@ -119,7 +119,7 @@
             this.btnDoiMatKhau.Location = new System.Drawing.Point(153, 189);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(112, 23);
-            this.btnDoiMatKhau.TabIndex = 34;
+            this.btnDoiMatKhau.TabIndex = 36;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
@@ -140,6 +140,7 @@
             // 
             // frmTTTaiKhoan
             // 
+            this.AcceptButton = this.btnLuuTT;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 247);

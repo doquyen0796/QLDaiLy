@@ -63,6 +63,12 @@ namespace QLDaiLy
                 ErrorChecker.SetError(txtXacNhanMK, "Mật khẩu phải trùng nhau.");
                 return false;
             }
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                ErrorChecker.BlinkRate = 500;
+                ErrorChecker.SetError(txtEmail, "Không được để trống.");
+                return false;
+            }
             if (txtSDT.Text.Length > 0 && txtSDT.Text.Length < 10)
             {
                 ErrorChecker.BlinkRate = 500;

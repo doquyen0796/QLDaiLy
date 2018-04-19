@@ -179,7 +179,6 @@ namespace BUS
         {
             public string MaHH { get; set; }
             public string TenHH { get; set; }
-            public string CTPX { get; set; }
             public string DVT { get; set; }
             public string DonGia { get; set; }
             public string sl { get; set; }
@@ -194,11 +193,14 @@ namespace BUS
                
                 hh.MaHH = h.MaHangHoa.ToString();
                 hh.TenHH = h.TenHangHoa;
-                hh.CTPX = h.CTPhieuXuatHangs.ToString();
                 hh.DonGia = h.DonGia.ToString();
                 hh.sl = h.SoLuong.ToString();
-                var donvi = db.DonViTinhs.Where(dv => dv.MaDVT == h.DVT).FirstOrDefault();
+
+                var donvi = db.DonViTinhs
+                              .Where(dv => dv.MaDVT == h.DVT)
+                              .FirstOrDefault();
                 hh.DVT = donvi.TenDVT;
+
                 dshh.Add(hh);
             }
             return dshh;
