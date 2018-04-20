@@ -90,14 +90,14 @@
             this.txtTenHangHoa.Location = new System.Drawing.Point(156, 50);
             this.txtTenHangHoa.Name = "txtTenHangHoa";
             this.txtTenHangHoa.Size = new System.Drawing.Size(311, 20);
-            this.txtTenHangHoa.TabIndex = 4;
+            this.txtTenHangHoa.TabIndex = 1;
             // 
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(156, 148);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
-            this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.TabIndex = 3;
             this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtDonGia
@@ -105,7 +105,7 @@
             this.txtDonGia.Location = new System.Drawing.Point(156, 195);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(154, 20);
-            this.txtDonGia.TabIndex = 6;
+            this.txtDonGia.TabIndex = 4;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // labelControl5
@@ -151,7 +151,7 @@
             this.btnThem.Location = new System.Drawing.Point(343, 259);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(152, 23);
-            this.btnThem.TabIndex = 12;
+            this.btnThem.TabIndex = 5;
             this.btnThem.Text = "Thêm hàng hóa";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -162,7 +162,7 @@
             this.btnReset.Location = new System.Drawing.Point(156, 259);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(152, 23);
-            this.btnReset.TabIndex = 13;
+            this.btnReset.TabIndex = 6;
             this.btnReset.Text = "Nhập lại";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -173,7 +173,7 @@
             this.cbDVT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbDVT.Size = new System.Drawing.Size(100, 20);
-            this.cbDVT.TabIndex = 14;
+            this.cbDVT.TabIndex = 2;
             // 
             // ErrorChecker
             // 
@@ -192,6 +192,7 @@
             // 
             // frmThemHangHoa
             // 
+            this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 319);

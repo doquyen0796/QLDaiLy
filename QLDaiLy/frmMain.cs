@@ -134,11 +134,6 @@ namespace QLDaiLy
             frm.ShowDialog();
         }
 
-        private void btnBaoCaoCN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            frmBaoCaoCN frm = new frmBaoCaoCN();
-            ViewForm(frm);
-        }
 
         private void btnDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

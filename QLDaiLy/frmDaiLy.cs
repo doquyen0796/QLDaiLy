@@ -245,25 +245,6 @@ namespace QLDaiLy
         }
 
 
-        private void navBarXuatExcel_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            var flag = MessageBox.Show(string.Format("Bạn muốn xuất thông tin đại lý <{0}> dưới định dạng Excel ?", gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString()), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (flag == DialogResult.Yes)
-            {
-
-                //BUS_DaiLy dl = new BUS_DaiLy();
-                //int madl = int.Parse(gridViewDaiLy.GetFocusedRowCellValue("MaDaiLy").ToString());
-                //string tendl = gridViewDaiLy.GetFocusedRowCellValue("TenDaiLy").ToString();
-                //string tenquan = gridViewDaiLy.GetFocusedRowCellValue("Quan").ToString();
-
-            }
-            else
-            {
-                return;
-            }
-        }
-
-
         struct Data
         {
             public List<DAL.DaiLy> DaiLi;
@@ -334,7 +315,6 @@ namespace QLDaiLy
                     ws.Cells[index, 6] = (DateTime)dl.NgayTiepNhan;
                     ws.Cells[index, 7] = dl.TienNo.ToString();
                 }
-
             }
             ws.SaveAs(filename, XlFileFormat.xlWorkbookDefault, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
             excel.Quit();

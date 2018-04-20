@@ -40,6 +40,7 @@
             this.ErrorChecker = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ckbGhiNho = new DevExpress.XtraEditors.CheckEdit();
+            this.btnQuenMK = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorChecker)).BeginInit();
@@ -81,7 +82,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(472, 166);
+            this.btnDangNhap.Location = new System.Drawing.Point(436, 133);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(325, 166);
+            this.btnDangKy.Location = new System.Drawing.Point(265, 183);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(118, 23);
             this.btnDangKy.TabIndex = 5;
@@ -138,12 +139,22 @@
             this.ckbGhiNho.Size = new System.Drawing.Size(75, 19);
             this.ckbGhiNho.TabIndex = 9;
             // 
+            // btnQuenMK
+            // 
+            this.btnQuenMK.Location = new System.Drawing.Point(415, 183);
+            this.btnQuenMK.Name = "btnQuenMK";
+            this.btnQuenMK.Size = new System.Drawing.Size(118, 23);
+            this.btnQuenMK.TabIndex = 11;
+            this.btnQuenMK.Text = "Quên mật khẩu?";
+            this.btnQuenMK.Click += new System.EventHandler(this.btnQuenMK_Click);
+            // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 222);
+            this.ClientSize = new System.Drawing.Size(590, 236);
+            this.Controls.Add(this.btnQuenMK);
             this.Controls.Add(this.ckbGhiNho);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelControl4);
@@ -184,5 +195,6 @@
         private System.Windows.Forms.ErrorProvider ErrorChecker;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.CheckEdit ckbGhiNho;
+        private DevExpress.XtraEditors.SimpleButton btnQuenMK;
     }
 }

@@ -124,7 +124,7 @@
             this.txtTenHangHoa.Location = new System.Drawing.Point(157, 52);
             this.txtTenHangHoa.Name = "txtTenHangHoa";
             this.txtTenHangHoa.Size = new System.Drawing.Size(277, 20);
-            this.txtTenHangHoa.TabIndex = 38;
+            this.txtTenHangHoa.TabIndex = 1;
             // 
             // cbDVT
             // 
@@ -133,14 +133,14 @@
             this.cbDVT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbDVT.Size = new System.Drawing.Size(116, 20);
-            this.cbDVT.TabIndex = 39;
+            this.cbDVT.TabIndex = 2;
             // 
             // txtDonGia
             // 
             this.txtDonGia.Location = new System.Drawing.Point(157, 148);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(156, 20);
-            this.txtDonGia.TabIndex = 40;
+            this.txtDonGia.TabIndex = 3;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // btnSua
@@ -150,7 +150,7 @@
             this.btnSua.Location = new System.Drawing.Point(287, 206);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(166, 23);
-            this.btnSua.TabIndex = 41;
+            this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Cập nhật thông tin";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -171,6 +171,7 @@
             // 
             // frmSuaHangHoa
             // 
+            this.AcceptButton = this.btnSua;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 260);

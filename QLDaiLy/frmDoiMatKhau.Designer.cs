@@ -126,9 +126,9 @@
             // 
             this.btnDoiMatKhau.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiMatKhau.Image")));
             this.btnDoiMatKhau.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(306, 173);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(291, 173);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Size = new System.Drawing.Size(105, 23);
+            this.btnDoiMatKhau.Size = new System.Drawing.Size(120, 23);
             this.btnDoiMatKhau.TabIndex = 16;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
@@ -139,6 +139,7 @@
             // 
             // frmDoiMatKhau
             // 
+            this.AcceptButton = this.btnDoiMatKhau;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 228);

@@ -105,21 +105,21 @@
             this.txtTenDaiLy.Location = new System.Drawing.Point(144, 91);
             this.txtTenDaiLy.Name = "txtTenDaiLy";
             this.txtTenDaiLy.Size = new System.Drawing.Size(294, 20);
-            this.txtTenDaiLy.TabIndex = 5;
+            this.txtTenDaiLy.TabIndex = 2;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(144, 226);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(294, 20);
-            this.txtDiaChi.TabIndex = 8;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(144, 271);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
-            this.txtEmail.TabIndex = 9;
+            this.txtEmail.TabIndex = 6;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // btnThem
@@ -129,7 +129,7 @@
             this.btnThem.Location = new System.Drawing.Point(419, 335);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(121, 23);
-            this.btnThem.TabIndex = 10;
+            this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm đại lý";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -140,7 +140,7 @@
             this.btnReset.Location = new System.Drawing.Point(263, 335);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(121, 23);
-            this.btnReset.TabIndex = 11;
+            this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Nhập lại";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -151,7 +151,7 @@
             this.cbLoaiDL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbLoaiDL.Size = new System.Drawing.Size(223, 20);
-            this.cbLoaiDL.TabIndex = 12;
+            this.cbLoaiDL.TabIndex = 3;
             // 
             // cbQuan
             // 
@@ -160,7 +160,7 @@
             this.cbQuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbQuan.Size = new System.Drawing.Size(223, 20);
-            this.cbQuan.TabIndex = 13;
+            this.cbQuan.TabIndex = 4;
             // 
             // labelControl6
             // 
@@ -220,7 +220,7 @@
             this.dtpNgayTiepNhan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayTiepNhan.Size = new System.Drawing.Size(131, 20);
-            this.dtpNgayTiepNhan.TabIndex = 20;
+            this.dtpNgayTiepNhan.TabIndex = 1;
             // 
             // btnThemLoaiDL
             // 
@@ -235,6 +235,7 @@
             // 
             // frmThemDaiLy
             // 
+            this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 397);

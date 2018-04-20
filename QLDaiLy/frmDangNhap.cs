@@ -158,5 +158,12 @@ namespace QLDaiLy
                 ckbGhiNho.Checked = false;
             }
         }
+
+
+        private void btnQuenMK_Click(object sender, EventArgs e)
+        {
+            frmQuenMatKhau frm = new frmQuenMatKhau();
+            frm.ShowDialog();
+        }
     }
 }

@@ -58,7 +58,7 @@
             this.cbDaiLy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbDaiLy.Size = new System.Drawing.Size(208, 20);
-            this.cbDaiLy.TabIndex = 0;
+            this.cbDaiLy.TabIndex = 1;
             this.cbDaiLy.EditValueChanged += new System.EventHandler(this.cbDaiLy_EditValueChanged);
             // 
             // labelControl1
@@ -141,7 +141,7 @@
             this.dtpNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayLap.Size = new System.Drawing.Size(114, 20);
-            this.dtpNgayLap.TabIndex = 9;
+            this.dtpNgayLap.TabIndex = 2;
             // 
             // labelControl6
             // 
@@ -158,7 +158,7 @@
             this.txtSoTienThu.Location = new System.Drawing.Point(149, 229);
             this.txtSoTienThu.Name = "txtSoTienThu";
             this.txtSoTienThu.Size = new System.Drawing.Size(154, 20);
-            this.txtSoTienThu.TabIndex = 11;
+            this.txtSoTienThu.TabIndex = 3;
             this.txtSoTienThu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienThu_KeyPress);
             // 
             // btnThem
@@ -168,7 +168,7 @@
             this.btnThem.Location = new System.Drawing.Point(438, 291);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(163, 23);
-            this.btnThem.TabIndex = 12;
+            this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Lập phiếu thu";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -178,6 +178,7 @@
             // 
             // frmLapPhieuThuTien
             // 
+            this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 361);

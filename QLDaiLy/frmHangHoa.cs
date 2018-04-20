@@ -252,18 +252,18 @@ namespace QLDaiLy
                 progressBar1.Visible = true;
                 label1.Visible = true;
                 if (backgroundWorker1.IsBusy)
-                   return;
+                    return;
                 using (SaveFileDialog sf = new SaveFileDialog() { Filter = "Excel workbook|*.xls" })
                 {
                     BUS_HangHoa ds = new BUS_HangHoa();
-                   if (sf.ShowDialog() == DialogResult.OK)
-                  {
-                       DSHH.FileName = sf.FileName;
-                       DSHH.HangHoa = ds.DanhSachHH();
-                       progressBar1.Minimum = 0;
-                       progressBar1.Value = 0;
+                    if (sf.ShowDialog() == DialogResult.OK)
+                    {
+                        DSHH.FileName = sf.FileName;
+                        DSHH.HangHoa = ds.DanhSachHH();
+                        progressBar1.Minimum = 0;
+                        progressBar1.Value = 0;
                         backgroundWorker1.RunWorkerAsync(DSHH);
-                   }
+                    }
                 };
             }
             else
@@ -300,7 +300,6 @@ namespace QLDaiLy
                     ws.Cells[index, 4] = dl.sl.ToString();
                     ws.Cells[index, 5] = dl.DonGia.ToString();              
                 }
-
             }
             ws.SaveAs(filename, XlFileFormat.xlWorkbookDefault, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
             excel.Quit();
@@ -323,6 +322,7 @@ namespace QLDaiLy
                 label1.Text = "Successful!";
             }
         }
+
 
         private void label1_TextChanged(object sender, EventArgs e)
         {

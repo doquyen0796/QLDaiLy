@@ -164,6 +164,7 @@
             // 
             this.navBarXuatDSExcel.Caption = "Xuất Danh Sách (Excel)";
             this.navBarXuatDSExcel.Name = "navBarXuatDSExcel";
+            this.navBarXuatDSExcel.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarXuatDSExcel.SmallImage")));
             this.navBarXuatDSExcel.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarXuatDSExcel_LinkClicked);
             // 
             // dgvHangHoa

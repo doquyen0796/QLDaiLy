@@ -39,7 +39,6 @@
             this.navbarSua = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarXoa = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarUndo = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarXuatExcel = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarXuatDSExcel = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarCaiDat = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarSoDaiLyToiDa = new DevExpress.XtraNavBar.NavBarItem();
@@ -111,7 +110,6 @@
             this.navbarXoa,
             this.navBarSoDaiLyToiDa,
             this.navBarUndo,
-            this.navBarXuatExcel,
             this.navBarXuatDSExcel});
             this.navBarControl1.Location = new System.Drawing.Point(43, 88);
             this.navBarControl1.Name = "navBarControl1";
@@ -129,7 +127,6 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarSua),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navbarXoa),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarUndo),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarXuatExcel),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarXuatDSExcel)});
             this.navbarQuanLy.Name = "navbarQuanLy";
             // 
@@ -161,16 +158,11 @@
             this.navBarUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarUndo.SmallImage")));
             this.navBarUndo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarUndo_LinkClicked);
             // 
-            // navBarXuatExcel
-            // 
-            this.navBarXuatExcel.Caption = "Xuất Thông Tin Đại Lý (Excel)";
-            this.navBarXuatExcel.Name = "navBarXuatExcel";
-            this.navBarXuatExcel.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarXuatExcel_LinkClicked);
-            // 
             // navBarXuatDSExcel
             // 
             this.navBarXuatDSExcel.Caption = "Xuất Danh Sách (Excel)";
             this.navBarXuatDSExcel.Name = "navBarXuatDSExcel";
+            this.navBarXuatDSExcel.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarXuatDSExcel.SmallImage")));
             this.navBarXuatDSExcel.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarXuatDSExcel_LinkClicked);
             // 
             // navbarCaiDat
@@ -532,7 +524,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarUndo;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraNavBar.NavBarItem navBarXuatExcel;
         private DevExpress.XtraNavBar.NavBarItem navBarXuatDSExcel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;

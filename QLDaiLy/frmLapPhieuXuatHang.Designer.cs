@@ -103,7 +103,7 @@
             this.cbDaiLy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbDaiLy.Size = new System.Drawing.Size(229, 20);
-            this.cbDaiLy.TabIndex = 2;
+            this.cbDaiLy.TabIndex = 1;
             this.cbDaiLy.EditValueChanged += new System.EventHandler(this.cbDaiLy_EditValueChanged);
             // 
             // dtpNgayLap
@@ -116,7 +116,7 @@
             this.dtpNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayLap.Size = new System.Drawing.Size(118, 20);
-            this.dtpNgayLap.TabIndex = 4;
+            this.dtpNgayLap.TabIndex = 2;
             // 
             // groupHangHoa
             // 
@@ -283,7 +283,7 @@
             this.txtTuKhoa.Location = new System.Drawing.Point(229, 69);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(305, 20);
-            this.txtTuKhoa.TabIndex = 8;
+            this.txtTuKhoa.TabIndex = 3;
             this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // pictureBox1
@@ -341,7 +341,7 @@
             this.btnTinhTongTien.Location = new System.Drawing.Point(75, 596);
             this.btnTinhTongTien.Name = "btnTinhTongTien";
             this.btnTinhTongTien.Size = new System.Drawing.Size(160, 23);
-            this.btnTinhTongTien.TabIndex = 10;
+            this.btnTinhTongTien.TabIndex = 4;
             this.btnTinhTongTien.Text = "Tính Tổng Tiền";
             this.btnTinhTongTien.Click += new System.EventHandler(this.btnTinhTongTien_Click);
             // 
@@ -352,7 +352,7 @@
             this.btnThem.Location = new System.Drawing.Point(873, 596);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(184, 23);
-            this.btnThem.TabIndex = 11;
+            this.btnThem.TabIndex = 5;
             this.btnThem.Text = "Lập Phiếu Xuất Hàng";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -373,7 +373,7 @@
             this.btnXoaGioHang.Location = new System.Drawing.Point(75, 549);
             this.btnXoaGioHang.Name = "btnXoaGioHang";
             this.btnXoaGioHang.Size = new System.Drawing.Size(160, 23);
-            this.btnXoaGioHang.TabIndex = 14;
+            this.btnXoaGioHang.TabIndex = 6;
             this.btnXoaGioHang.Text = "Xóa Giỏ Hàng";
             this.btnXoaGioHang.ToolTip = "Xóa Tất Cả Hàng Hóa Khỏi Giỏ Hàng";
             this.btnXoaGioHang.Click += new System.EventHandler(this.btnXoaGioHang_Click);
@@ -385,7 +385,7 @@
             this.btnXoaHangHoa.Location = new System.Drawing.Point(280, 549);
             this.btnXoaHangHoa.Name = "btnXoaHangHoa";
             this.btnXoaHangHoa.Size = new System.Drawing.Size(160, 23);
-            this.btnXoaHangHoa.TabIndex = 15;
+            this.btnXoaHangHoa.TabIndex = 7;
             this.btnXoaHangHoa.Text = "Xóa Hàng Hóa";
             this.btnXoaHangHoa.ToolTip = "Xóa Hàng Hóa Đang Chọn Khỏi Giỏ Hàng";
             this.btnXoaHangHoa.Click += new System.EventHandler(this.btnXoaHangHoa_Click);
@@ -418,6 +418,7 @@
             // 
             // frmLapPhieuXuatHang
             // 
+            this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 637);

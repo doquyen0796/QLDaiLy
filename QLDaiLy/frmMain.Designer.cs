@@ -40,7 +40,6 @@
             this.btnXuatHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnThuTien = new DevExpress.XtraBars.BarButtonItem();
             this.btnBaoCaoDS = new DevExpress.XtraBars.BarButtonItem();
-            this.btnBaoCaoCN = new DevExpress.XtraBars.BarButtonItem();
             this.btnDSNV = new DevExpress.XtraBars.BarButtonItem();
             this.btnDuyetNV = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuiDinh = new DevExpress.XtraBars.BarButtonItem();
@@ -49,6 +48,7 @@
             this.btnTTTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnDoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoaiDaiLy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTraCuuDL = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -63,7 +63,6 @@
             this.btnTaiKhoan = new DevExpress.XtraBars.BarSubItem();
             this.tabManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.btnTraCuuDL = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
@@ -83,7 +82,6 @@
             this.btnXuatHang,
             this.btnThuTien,
             this.btnBaoCaoDS,
-            this.btnBaoCaoCN,
             this.btnDSNV,
             this.btnDuyetNV,
             this.btnQuiDinh,
@@ -187,16 +185,6 @@
             this.btnBaoCaoDS.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBaoCaoDS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoDS_ItemClick);
             // 
-            // btnBaoCaoCN
-            // 
-            this.btnBaoCaoCN.Caption = "Báo Cáo Công Nợ Đại Lý";
-            this.btnBaoCaoCN.Glyph = ((System.Drawing.Image)(resources.GetObject("btnBaoCaoCN.Glyph")));
-            this.btnBaoCaoCN.Id = 45;
-            this.btnBaoCaoCN.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnBaoCaoCN.LargeGlyph")));
-            this.btnBaoCaoCN.Name = "btnBaoCaoCN";
-            this.btnBaoCaoCN.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnBaoCaoCN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBaoCaoCN_ItemClick);
-            // 
             // btnDSNV
             // 
             this.btnDSNV.Caption = "Danh Sách Nhân Viên";
@@ -270,6 +258,16 @@
             this.btnLoaiDaiLy.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLoaiDaiLy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoaiDaiLy_ItemClick);
             // 
+            // btnTraCuuDL
+            // 
+            this.btnTraCuuDL.Caption = "Tra Cứu Đại Lý";
+            this.btnTraCuuDL.Glyph = ((System.Drawing.Image)(resources.GetObject("btnTraCuuDL.Glyph")));
+            this.btnTraCuuDL.Id = 58;
+            this.btnTraCuuDL.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTraCuuDL.LargeGlyph")));
+            this.btnTraCuuDL.Name = "btnTraCuuDL";
+            this.btnTraCuuDL.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnTraCuuDL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraCuuDL_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -321,7 +319,6 @@
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.btnBaoCaoDS);
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnBaoCaoCN);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Báo Cáo";
             // 
@@ -369,16 +366,6 @@
             this.popupMenu1.Name = "popupMenu1";
             this.popupMenu1.Ribbon = this.ribbonControl1;
             // 
-            // btnTraCuuDL
-            // 
-            this.btnTraCuuDL.Caption = "Tra Cứu Đại Lý";
-            this.btnTraCuuDL.Glyph = ((System.Drawing.Image)(resources.GetObject("btnTraCuuDL.Glyph")));
-            this.btnTraCuuDL.Id = 58;
-            this.btnTraCuuDL.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTraCuuDL.LargeGlyph")));
-            this.btnTraCuuDL.Name = "btnTraCuuDL";
-            this.btnTraCuuDL.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnTraCuuDL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraCuuDL_ItemClick);
-            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -424,7 +411,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnBaoCaoDS;
-        private DevExpress.XtraBars.BarButtonItem btnBaoCaoCN;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGroupQLNV;
         private DevExpress.XtraBars.BarButtonItem btnDSNV;
         private DevExpress.XtraBars.BarButtonItem btnDuyetNV;
