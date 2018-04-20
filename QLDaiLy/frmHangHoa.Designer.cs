@@ -332,6 +332,12 @@
             // 
             this.cbsoluongtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbsoluongtrang.FormattingEnabled = true;
+            this.cbsoluongtrang.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "Tất Cả"});
             this.cbsoluongtrang.Location = new System.Drawing.Point(427, 469);
             this.cbsoluongtrang.Name = "cbsoluongtrang";
             this.cbsoluongtrang.Size = new System.Drawing.Size(78, 21);

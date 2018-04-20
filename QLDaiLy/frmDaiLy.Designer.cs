@@ -412,6 +412,12 @@
             // 
             this.cbSoLuongSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSoLuongSP.FormattingEnabled = true;
+            this.cbSoLuongSP.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "Tất Cả"});
             this.cbSoLuongSP.Location = new System.Drawing.Point(398, 436);
             this.cbSoLuongSP.Name = "cbSoLuongSP";
             this.cbSoLuongSP.Size = new System.Drawing.Size(75, 21);

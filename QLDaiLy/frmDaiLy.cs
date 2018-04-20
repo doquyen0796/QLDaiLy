@@ -57,32 +57,44 @@ namespace QLDaiLy
         }
 
 
-        private List<int> st = new List<int> { 5, 10, 15, 20 };
+      
         private void frmDaiLy_Load(object sender, EventArgs e)
         {
             BUS_DaiLy dl = new BUS_DaiLy();
             this.FormLoad();
-            cbSoLuongSP.DataSource = st;
-            int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
-            cbTrang.DataSource = dl.DStrang(t);
-            lbtrang.Text = "Trang " + cbTrang.Text + "/" + t.ToString();
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
-            if (int.Parse(cbTrang.Text) == 1)
+            cbSoLuongSP.SelectedIndex = 4;
+            if(cbSoLuongSP.Text == "Tất Cả")
             {
+                dgvDaiLy.DataSource = dl.DanhSachDaiLy();
+                lbtrang.Text = "";
                 btnlui.Enabled = false;
-            }
-            else
-            {
-                btnlui.Enabled = true;
-            }
-            if (int.Parse(cbTrang.Text) == t)
-            {
                 btntien.Enabled = false;
+                cbTrang.Enabled = false;
             }
             else
             {
-                btntien.Enabled = true;
+                int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
+                cbTrang.DataSource = dl.DStrang(t);
+                lbtrang.Text = "Trang " + cbTrang.Text + "/" + t.ToString();
+                dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
+                if (int.Parse(cbTrang.Text) == 1)
+                {
+                    btnlui.Enabled = false;
+                }
+                else
+                {
+                    btnlui.Enabled = true;
+                }
+                if (int.Parse(cbTrang.Text) == t)
+                {
+                    btntien.Enabled = false;
+                }
+                else
+                {
+                    btntien.Enabled = true;
+                }
             }
+           
         }
 
 
@@ -164,21 +176,36 @@ namespace QLDaiLy
         private void cbSoLuongSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             BUS_DaiLy dl = new BUS_DaiLy();
-            int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
-            cbTrang.DataSource = dl.DStrang(t);
-            if (int.Parse(cbTrang.Text) == 1)
+            if (cbSoLuongSP.Text == "Tất Cả")
             {
+                dgvDaiLy.DataSource = dl.DanhSachDaiLy();
+                lbtrang.Text = "";
                 btnlui.Enabled = false;
-            }
-            else
-                btnlui.Enabled = true;
-            if (int.Parse(cbTrang.Text) == t)
-            {
                 btntien.Enabled = false;
+                cbTrang.Enabled = false;
             }
             else
-                btntien.Enabled = true;
-            dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
+            {
+                int t = dl.SoLuongTrang(int.Parse(cbSoLuongSP.Text));
+                cbTrang.DataSource = dl.DStrang(t);
+                if (int.Parse(cbTrang.Text) == 1)
+                {
+                    btnlui.Enabled = false;
+                }
+                else
+                {
+                    btnlui.Enabled = true;
+                }
+                if (int.Parse(cbTrang.Text) == t)
+                {
+                    btntien.Enabled = false;
+                }
+                else
+                {
+                    btntien.Enabled = true;
+                }
+                dgvDaiLy.DataSource = dl.DSdaili(int.Parse(cbTrang.Text), int.Parse(cbSoLuongSP.Text));
+            }
         }
 
 

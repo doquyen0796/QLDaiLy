@@ -149,6 +149,13 @@ namespace BUS
         }
 
 
+        public List<DAL.HangHoa> DSHH()
+        {
+            var ds = db.HangHoas.Where(hh => hh.TinhTrang == 1).ToList();
+            return ds;
+        }
+
+
         /// <summary>
         /// Tiếp tục kinh doanh hàng hóa
         /// </summary>
